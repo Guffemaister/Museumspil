@@ -63,7 +63,7 @@ func _run() -> void:
 		var distance: float = Vector2(door.position.x, door.position.z - scene.CENTER.z).length()
 		_check(absf(distance - (scene.RADIUS - 0.08)) < 0.01, "Doors must follow the curved wall.")
 		_check(door.position.z < scene.CENTER.z, "All doors must be on the semicircular side.")
-	_check(available == 1 and scene.doors[0].available, "Only door I must be available.")
+	_check(available == 2 and scene.doors[0].available and scene.doors[1].available, "Doors I and II must be available.")
 	_check(not scene.doors[0].is_open, "Door I must begin closed.")
 	_check(scene.sound.ambience.playing, "The generated ambience must play.")
 	_check(not scene.sound.breathing.playing, "Breathing must wait for the experience to begin.")
