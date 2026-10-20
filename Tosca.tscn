@@ -1,7 +1,7 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://dq08tsjtlcguv"]
 
-[ext_resource type="Script" path="res://cistern/tosca.gd" id="1_5l6l0"]
-[ext_resource type="Script" path="res://cistern/interaction.gd" id="2_8y5y4"]
+[ext_resource type="Script" uid="uid://bkdrdndy3kati" path="res://cistern/tosca.gd" id="1_5l6l0"]
+[ext_resource type="Script" uid="uid://qrxar5uurf63" path="res://cistern/interaction.gd" id="2_8y5y4"]
 [ext_resource type="AudioStream" path="res://audio/Wind.res" id="3_oa8w3"]
 [ext_resource type="AudioStream" path="res://audio/Bell.res" id="4_s8mpj"]
 
@@ -95,9 +95,6 @@ size = Vector3(0.48, 0.4, 0.5)
 
 [sub_resource type="BoxMesh" id="BoxMesh_axcgx"]
 size = Vector3(0.48, 0.4, 0.5)
-
-[sub_resource type="BoxMesh" id="BoxMesh_j6b4a"]
-size = Vector3(3, 0.2, 1.2)
 
 [sub_resource type="BoxMesh" id="BoxMesh_j4pmv"]
 size = Vector3(2, 3, 0.12)
@@ -1137,10 +1134,6 @@ mesh = SubResource("BoxMesh_axcgx")
 
 [node name="Ledge" type="Node3D" parent="Tower" unique_id=39281453]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, -5.3)
-
-[node name="MeshInstance3D01" type="MeshInstance3D" parent="Tower/Ledge" unique_id=2047725915]
-material_override = SubResource("StandardMaterial3D_t1io7")
-mesh = SubResource("BoxMesh_j6b4a")
 
 [node name="ReturnPanel" type="Node3D" parent="Tower" unique_id=2051508513]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 3.35)
