@@ -9,6 +9,15 @@ const RADIUS: float = 8.5
 const CENTER := Vector3(0, 0, 2)
 const CHAMBER := Vector3(30, 0, 0)
 const LOBBY_SPAWN := Vector3(0, 0.03, 0.9)
+const DOOR_STORIES := [
+	["La traviata", "Tæring / tuberkulose"],
+	["Tosca", "Fald fra et tårn"],
+	["Otello", "Kvælning"],
+	["Madame Butterfly", "Rituelt selvmord (hara-kiri)"],
+	["Carmen", "Knivstik"],
+	["Lucia di Lammermoor", "Vanvid / sindssyge"],
+	["Norma", "Brændt på bålet"],
+]
 
 @export var experience_duration: float = 48.0
 @export var transition_duration: float = 0.5
@@ -161,7 +170,8 @@ func _build_doors() -> void:
 		door.name = "Door%d" % (i + 1)
 		door.number = i + 1
 		door.available = i == 0
-		door.title = "DET SIDSTE ÅNDEDRAG" if i == 0 else ""
+		door.title = DOOR_STORIES[i][0]
+		door.theme = DOOR_STORIES[i][1]
 		door.position = at
 		door.rotation.y = -angle
 		door.selected.connect(_on_door_selected)
@@ -333,7 +343,7 @@ func _context_prompt() -> String:
 			return target.prompt.replace("\n", "  ·  ")
 		if target.available:
 			return "Gå gennem dør I" if target.is_open else "E · Åbn dør I — Det sidste åndedrag"
-		return "Dør %d · Denne oplevelse kommer senere" % target.number
+		return "%s · %s · Kommer senere" % [target.title, target.theme]
 	if current_space == "lobby":
 		return "Følg de gyldne punkter til dør I"
 	return "R · Tilbage til lobbyen når som helst"

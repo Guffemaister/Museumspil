@@ -58,8 +58,22 @@ Hold headsetgrænsen aktiv; fysisk bevægelse kan passere virtuelle vægge.
 - Efter fuld gennemspilning markeres dør I som **OPLEVET**. Du kan gå ind igen.
   En tidlig afbrydelse giver ikke en ny gennemførelse.
 
-Dør I er vores valg til denne prototype. Scenen gengiver ikke et konkret filmklip
-eller udstillingens rum og fastlægger ikke de øvrige døres rækkefølge. Grafik,
+Alle syv døre er navngivet efter den liste, du har angivet:
+
+| Dør | Opera | Dødstema |
+| --- | --- | --- |
+| I | La traviata — Giuseppe Verdi | Tæring / tuberkulose |
+| II | Tosca — Giacomo Puccini | Fald fra et tårn |
+| III | Otello — Giuseppe Verdi | Kvælning |
+| IV | Madame Butterfly — Giacomo Puccini | Rituelt selvmord (hara-kiri) |
+| V | Carmen — Georges Bizet | Knivstik |
+| VI | Lucia di Lammermoor — Gaetano Donizetti | Vanvid / sindssyge |
+| VII | Norma — Vincenzo Bellini | Brændt på bålet |
+
+Konceptets kildehenvisninger: [Cisternerne](https://frederiksbergmuseerne.dk/da/udstillinger/marina-abramovic/)
+og [Factum Arte](https://www.factum-arte.com/pag/1760/seven-deaths).
+
+Den første scene gengiver ikke et konkret filmklip eller udstillingens rum. Grafik,
 tekster og lyd er lavet til projektet; der indgår ingen optagelser fra udstillingen
 eller operaforestillinger. De seks øvrige oplevelser er endnu ikke implementeret.
 
