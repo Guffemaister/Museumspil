@@ -5,10 +5,21 @@ const Door = preload("res://cistern/door.gd")
 const Action = preload("res://cistern/interaction.gd")
 const Soundscape = preload("res://cistern/soundscape.gd")
 const Player = preload("res://museum/player.gd")
+const Tosca = preload("res://cistern/tosca.gd")
 const RADIUS: float = 8.5
 const CENTER := Vector3(0, 0, 2)
 const CHAMBER := Vector3(30, 0, 0)
+const TOSCA_ROOM := Vector3(70, 0, 0)
 const LOBBY_SPAWN := Vector3(0, 0.03, 0.9)
+const DOOR_STORIES := [
+	["La traviata", "Tæring / tuberkulose"],
+	["Tosca", "Fald fra et tårn"],
+	["Otello", "Kvælning"],
+	["Madame Butterfly", "Rituelt selvmord (hara-kiri)"],
+	["Carmen", "Knivstik"],
+	["Lucia di Lammermoor", "Vanvid / sindssyge"],
+	["Norma", "Brændt på bålet"],
+]
 
 @export var experience_duration: float = 48.0
 @export var transition_duration: float = 0.5
@@ -37,6 +48,7 @@ var fade_material: StandardMaterial3D
 var sound: Node
 var ripples: Array[MeshInstance3D] = []
 var idle_time: float = 0.0
+var tosca: Node3D
 
 
 func _ready() -> void:
@@ -47,6 +59,12 @@ func _ready() -> void:
 	_build_lobby()
 	_build_doors()
 	_build_chamber()
+	tosca = Tosca.new()
+	tosca.name = "Tosca"
+	tosca.position = TOSCA_ROOM
+	add_child(tosca)
+	tosca.completed.connect(_on_tosca_completed)
+	tosca.return_requested.connect(return_to_lobby)
 	player = Player.new()
 	player.name = "Player"
 	add_child(player)
@@ -57,7 +75,7 @@ func _ready() -> void:
 	_build_hud()
 	sound = Soundscape.new()
 	add_child(sound)
-	print("Seven Doors: lobby ready; door I is playable.")
+	print("Seven Doors: lobby ready; doors I and II are playable.")
 
 
 func _build_environment() -> void:
@@ -132,7 +150,7 @@ func _build_lobby() -> void:
 	welcome.rotation.y = deg_to_rad(-35)
 	lobby.add_child(welcome)
 	G.box(welcome, Vector3(0, 0.58, 0), Vector3(2.6, 1.16, 0.22), black_stone, true)
-	G.label(welcome, "FØLG DET VARME LYS MOD DØR I\n\nÅbn døren. Gå over tærsklen.\nTag dig tid.", Vector3(0, 1.2, 0.17), 31)
+	G.label(welcome, "VÆLG DØR I ELLER II\n\nÅbn døren. Gå over tærsklen.\nTag dig tid.", Vector3(0, 1.2, 0.17), 31)
 	G.label(welcome, "Et selvstændigt VR-studie inspireret af\nMarina Abramović: Seven Deaths", Vector3(0, 0.63, 0.17), 21, Color("8d9b9f"))
 	G.label(welcome, "VR: venstre stick · gå / højre stick · drej\nHøjre trigger · vælg / B · retur", Vector3(0, 0.32, 0.17), 20, Color("aab9be"))
 	G.light(lobby, Vector3(0, 3.4, 0), Color("97acb7"), 0.65, 8)
@@ -160,8 +178,9 @@ func _build_doors() -> void:
 		var door := Door.new()
 		door.name = "Door%d" % (i + 1)
 		door.number = i + 1
-		door.available = i == 0
-		door.title = "DET SIDSTE ÅNDEDRAG" if i == 0 else ""
+		door.available = i < 2
+		door.title = DOOR_STORIES[i][0]
+		door.theme = DOOR_STORIES[i][1]
 		door.position = at
 		door.rotation.y = -angle
 		door.selected.connect(_on_door_selected)
@@ -169,7 +188,7 @@ func _build_doors() -> void:
 		doors.append(door)
 		G.arch(lobby, at + Vector3(0, 3.03, 0), 2.0, 0.95, stone, -angle)
 		var inward := Vector3(-sin(angle), 0, cos(angle))
-		G.light(lobby, at + inward * 0.65 + Vector3(0, 2.5, 0), Color("f3bd77") if i == 0 else Color("7796ab"), 1.8 if i == 0 else 0.45, 4)
+		G.light(lobby, at + inward * 0.65 + Vector3(0, 2.5, 0), Color("f3bd77") if door.available else Color("7796ab"), 1.8 if door.available else 0.45, 4)
 
 
 func _build_chamber() -> void:
@@ -309,16 +328,19 @@ func _process(delta: float) -> void:
 		var size := 0.15 + fmod(idle_time * 0.12 + i * 0.23, 1.0) * 1.7
 		ripples[i].scale = Vector3(size, 1, size)
 	if current_space == "lobby" and not transitioning and is_instance_valid(player):
-		var local := doors[0].to_local(player.viewer_position())
-		if doors[0].is_open and absf(local.x) < 0.9 and local.z < -0.35 and local.z > -1.8:
-			enter_first_door()
+		for i in range(2):
+			var local := doors[i].to_local(player.viewer_position())
+			if doors[i].is_open and absf(local.x) < 0.9 and local.z < -0.35 and local.z > -1.8:
+				enter_door(i)
+				break
 	if experience_running:
 		advance_experience(delta)
 	elif not experience_complete:
 		candle.light_energy = 1.45 + sin(idle_time * 2.1) * 0.05
 	if is_instance_valid(hud_location):
 		desktop_hud.visible = not transitioning
-		hud_location.text = "SEVEN DEATHS  /  " + ("LOBBY" if current_space == "lobby" else "DET SIDSTE ÅNDEDRAG")
+		var titles := {"lobby": "LOBBY", "chamber": "DET SIDSTE ÅNDEDRAG", "tosca": "TOSCA / FALDET"}
+		hud_location.text = "SEVEN DEATHS  /  " + titles.get(current_space, "LOBBY")
 		hud_prompt.text = _context_prompt()
 		# Keep the desktop overlay out of the black room transition.
 		hud_prompt.modulate.a = 1.0 - fade_material.albedo_color.a
@@ -332,10 +354,10 @@ func _context_prompt() -> String:
 		if target.has_method("set_prompt"):
 			return target.prompt.replace("\n", "  ·  ")
 		if target.available:
-			return "Gå gennem dør I" if target.is_open else "E · Åbn dør I — Det sidste åndedrag"
-		return "Dør %d · Denne oplevelse kommer senere" % target.number
+			return "Gå gennem dør " + target.caption.text if target.is_open else "E · Åbn dør %s — %s" % [target.caption.text, target.title]
+		return "%s · %s · Kommer senere" % [target.title, target.theme]
 	if current_space == "lobby":
-		return "Følg de gyldne punkter til dør I"
+		return "Vælg dør I · La traviata  /  dør II · Tosca"
 	return "R · Tilbage til lobbyen når som helst"
 
 
@@ -345,9 +367,19 @@ func _on_door_selected(door: Area3D) -> void:
 
 
 func enter_first_door() -> void:
-	if transitioning or current_space != "lobby" or not doors[0].is_open:
+	enter_door(0)
+
+
+func enter_door(index: int) -> void:
+	if transitioning or current_space != "lobby" or index < 0 or index >= 2:
 		return
-	_change_space("chamber")
+	if not doors[index].available or not doors[index].is_open:
+		return
+	_change_space("chamber" if index == 0 else "tosca")
+
+
+func _on_tosca_completed() -> void:
+	doors[1].completed = true
 
 
 func return_to_lobby() -> void:
@@ -365,12 +397,19 @@ func _change_space(destination: String) -> void:
 	await tween.finished
 	experience_running = false
 	sound.stop_breathing()
+	tosca.exit_room()
+	sound.ambience.volume_db = -24
 	current_space = destination
 	if destination == "chamber":
 		_reset_chamber()
 		player.relocate(CHAMBER + Vector3(0, 0.03, 1.8))
+	elif destination == "tosca":
+		tosca.enter_room()
+		sound.ambience.volume_db = -36
+		player.relocate(TOSCA_ROOM + Tosca.SPAWN)
 	else:
-		doors[0].close()
+		for door in doors:
+			door.close()
 		player.relocate(LOBBY_SPAWN, deg_to_rad(30))
 	tween = create_tween()
 	tween.tween_property(fade_material, "albedo_color:a", 0.0, transition_duration)
@@ -449,10 +488,14 @@ func _constrain_xr(destination: Vector3) -> Vector3:
 	if current_space == "lobby":
 		feet.z = minf(feet.z, CENTER.z - 0.4)
 		var radial := Vector2(feet.x - CENTER.x, feet.z - CENTER.z)
-		var limit := RADIUS + 0.8 if doors[0].is_open else RADIUS - 0.4
+		var passage_open: bool = doors[0].is_open or doors[1].is_open
+		var limit := RADIUS + 0.8 if passage_open else RADIUS - 0.4
 		radial = radial.limit_length(limit)
 		feet.x = CENTER.x + radial.x
 		feet.z = CENTER.z + radial.y
+	elif current_space == "tosca":
+		feet.x = clampf(feet.x, TOSCA_ROOM.x - 3.5, TOSCA_ROOM.x + 3.5)
+		feet.z = clampf(feet.z, -3.8, 2.7)
 	else:
 		feet.x = clampf(feet.x, CHAMBER.x - 3.5, CHAMBER.x + 3.5)
 		feet.z = clampf(feet.z, -4.5, 2.5)

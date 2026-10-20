@@ -7,6 +7,7 @@ var available: bool = false
 var completed: bool = false
 var is_open: bool = false
 var title: String = ""
+var theme: String = ""
 var leaf: Node3D
 var caption: Label3D
 var frame_material: StandardMaterial3D
@@ -51,6 +52,7 @@ func _ready() -> void:
 	for x in [0.2, 1.34]:
 		_box(leaf, Vector3(x, 1.45, 0.09), Vector3(0.012, 2.55, 0.01), frame_material)
 	caption = _label("", Vector3(0, 3.5, 0.12), 58)
+	_label(title + "\n" + theme, Vector3(0, 1.85, 0.19), 30)
 	hint = _label("", Vector3(0, 0.5, 0.19), 25)
 	_refresh_text()
 
@@ -106,6 +108,6 @@ func _refresh_text() -> void:
 	var numerals := ["I", "II", "III", "IV", "V", "VI", "VII"]
 	caption.text = numerals[number - 1]
 	if available:
-		hint.text = "Gå gennem døren" if is_open else ("OPLEVET · Besøg igen" if completed else title)
+		hint.text = "Gå gennem døren" if is_open else ("OPLEVET · Besøg igen" if completed else "E / højre trigger · Åbn")
 	else:
 		hint.text = "KOMMER SENERE"
