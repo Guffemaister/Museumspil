@@ -1,0 +1,87 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://museum/player.gd" id="1_xhfnw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_kpjcp"]
+radius = 0.25
+height = 1.7
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kne1u"]
+resource_local_to_scene = true
+render_priority = 127
+transparency = 1
+cull_mode = 1
+no_depth_test = true
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 0)
+
+[sub_resource type="SphereMesh" id="SphereMesh_e80uo"]
+radius = 0.25
+height = 0.5
+
+[sub_resource type="SphereMesh" id="SphereMesh_cxr5p"]
+radius = 0.045
+height = 0.09
+
+[sub_resource type="SphereMesh" id="SphereMesh_tdg3f"]
+radius = 0.045
+height = 0.09
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dtqjt"]
+shading_mode = 0
+albedo_color = Color(0.4509804, 0.9490196, 0.8745098, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5ncpa"]
+top_radius = 0.004
+bottom_radius = 0.004
+height = 4.0
+
+[node name="Player" type="Node3D" unique_id=234822250]
+script = ExtResource("1_xhfnw")
+
+[node name="Desktop" type="CharacterBody3D" parent="." unique_id=950524988]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Desktop" unique_id=1289264756]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.85, 0)
+shape = SubResource("CapsuleShape3D_kpjcp")
+
+[node name="Camera" type="Camera3D" parent="Desktop" unique_id=1448089139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
+
+[node name="Fade" type="MeshInstance3D" parent="Desktop/Camera" unique_id=141668175]
+material_override = SubResource("StandardMaterial3D_kne1u")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_e80uo")
+
+[node name="XROrigin" type="XROrigin3D" parent="." unique_id=609373451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.5)
+current = true
+
+[node name="Head" type="XRCamera3D" parent="XROrigin" unique_id=884410628]
+current = true
+
+[node name="Fade" type="MeshInstance3D" parent="XROrigin/Head" unique_id=1944617964]
+material_override = SubResource("StandardMaterial3D_kne1u")
+cast_shadow = 0
+mesh = SubResource("SphereMesh_e80uo")
+
+[node name="LeftHand" type="XRController3D" parent="XROrigin" unique_id=718951760]
+tracker = &"left_hand"
+pose = &"aim"
+
+[node name="ControllerModel" type="MeshInstance3D" parent="XROrigin/LeftHand" unique_id=1656065738]
+mesh = SubResource("SphereMesh_cxr5p")
+
+[node name="RightHand" type="XRController3D" parent="XROrigin" unique_id=1256725311]
+tracker = &"right_hand"
+pose = &"aim"
+
+[node name="ControllerModel" type="MeshInstance3D" parent="XROrigin/RightHand" unique_id=1251545327]
+mesh = SubResource("SphereMesh_tdg3f")
+
+[node name="AimRay" type="MeshInstance3D" parent="XROrigin/RightHand" unique_id=888133040]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -2)
+material_override = SubResource("StandardMaterial3D_dtqjt")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_5ncpa")
