@@ -1,69 +1,96 @@
-# Museum / After Hours
+# Seven Doors / Cisternerne
 
-A small Godot 4.6+ museum game built for **Meta Quest connected to a Windows PC**
-with Quest Link or Air Link. Explore a gallery and discover all three artifacts.
-Models are stylized, fictional exhibits made with built-in Godot meshes; no asset
-downloads or plugins are required. Desktop mode works without a VR headset.
+En Godot VR-prototype inspireret af brugerens idé til **Marina Abramović:
+Seven Deaths** i Cisternerne. Du starter i en halvcirkelformet lobby med syv døre.
+Den første dør er spilbar; de øvrige seks er pladsholdere til kommende oplevelser.
 
-## Play without a headset
+## Prøv på computeren
 
-1. Pull the latest `main` branch in VS Code.
-2. Open `project.godot` in Godot 4.6 or newer.
-3. Press **F5**. `Museum.tscn` is already the main scene.
-4. Click the game window, then use **WASD** and the mouse to explore.
-5. Aim the center crosshair at an artifact and press **E** to pick it up.
-6. Press **E** again to return it to its pedestal. Discover all three to finish.
-7. **Esc** releases the mouse.
+1. Hent ændringerne i VS Code: **Source Control → … → Pull**.
+2. Åbn projektet i **Godot 4.6 eller nyere**, og tryk **F5**.
+   `Cisternerne.tscn` er allerede valgt som hovedscene.
+3. Klik i spilvinduet. Brug **WASD** til at gå og musen til at se dig omkring.
+4. Følg de gyldne punkter til **dør I**, som har en varm, gylden ramme.
+5. Peg midt på døren og tryk **E**. Vent på, at den åbner, og gå over tærsklen.
+6. I det næste rum: peg på teksten ved sengens fodende og tryk **E** for at
+   begynde oplevelsen. Den varer cirka **48 sekunder**.
+7. Tryk **R** for at vende tilbage til lobbyen når som helst. Du kan også
+   vælge returdøren bag dig med **E**. **Esc** slipper musen.
 
-If Godot starts an XR session when you want desktop mode, run with
-`godot --xr-mode off --path .`, or disable OpenXR in Project Settings temporarily.
+Vil du teste uden at starte OpenXR, kan du køre:
 
-## Play on Meta Quest through a PC
+```sh
+godot --xr-mode off --path .
+```
 
-This workflow runs the game **on your PC**, streaming it to the headset.
-It does not install an Android application on the Quest.
+## Prøv med Meta Quest tilsluttet en PC
 
-1. Install the Meta Quest Link desktop app on a compatible Windows PC.
-2. In that app's settings, set Meta Quest Link as the active OpenXR runtime.
-   The exact setting location depends on the app version.
-3. Connect your headset using Quest Link (USB) or Air Link (Wi-Fi), and enter
-   the PC Link environment. Have the headset and both controllers awake.
-4. In Godot's Game menu, turn off **Embed Game on Play** for VR testing,
-   then press **F5**. The project enables OpenXR automatically when its
-   runtime initializes. Godot's Output panel reports `Museum mode: OpenXR`.
-5. Use the **left thumbstick** to move and **right thumbstick** for 30-degree
-   snap turns. Point the right controller's beam at an artifact and press
-   the **right trigger** to pick it up; press again to return it.
-6. Read each artifact's story on the rear wall. Progress appears above it.
+Spillet kører på din Windows-PC og vises i headsettet gennem **Quest Link**
+eller **Air Link**. Prototypen er ikke en selvstændig Android-app til Quest.
 
-Clear your real play space and keep the headset's boundary enabled. Physical
-headset movement is not constrained by virtual walls. Artificial movement may
-be uncomfortable; stop if you feel unwell. Teleportation is not implemented.
+1. Installer Meta Quest Link på din PC, og vælg den som aktiv **OpenXR-runtime**
+   i appens indstillinger.
+2. Forbind Quest via USB eller Air Link, og gå ind i PC Link-miljøet.
+   Headset og begge controllere skal være vågne.
+3. Slå **Embed Game on Play** fra i Godots Game-menu, og tryk **F5**.
+   Output-panelet viser `Museum mode: OpenXR`, hvis VR er startet.
+4. **Venstre stick** flytter dig. **Højre stick** drejer i trin på 30 grader.
+5. Peg med højre controllers stråle, og tryk **højre trigger** for at åbne
+   dør I. Gå derefter over tærsklen med venstre stick.
+6. Brug samme trigger til at begynde ved sengen. **B på højre controller**
+   sender dig tilbage til lobbyen; returdøren virker også.
 
-If desktop mode appears instead, check that Quest Link is running and its
-OpenXR runtime is selected, then stop and restart the game. For PC VR rendering,
-the project uses Godot's Mobile renderer with Vulkan (not the Android platform).
-Make sure the PC has a supported GPU and current drivers.
+Hvis spillet starter i desktop-tilstand, kontrollér Quest Link og den aktive
+OpenXR-runtime, stop spillet, og start igen. Der bruges Godots Mobile-renderer
+med Vulkan til PC VR. PC'en skal have en kompatibel GPU og opdaterede drivere.
+Hold headsetgrænsen aktiv; fysisk bevægelse kan passere virtuelle vægge.
 
-## Project files
+## Lobbyen og den første dør
 
-- `Museum.tscn`: main game scene.
-- `museum/museum.gd`: procedural gallery, lighting, exhibits, and tour progress.
-- `museum/player.gd`: desktop movement and OpenXR camera/controller interaction.
-- `museum/exhibit.gd`: artifact models, pickup, and return behavior.
-- `openxr_action_map.tres`: Godot's default controller bindings, including Quest Touch.
-- `Tester.tscn`: the earlier simple keyboard test; open it and press F6 to run it.
+- Lobbyen er en halvcirkel med stensøjler, hvælvinger, en fugtig gulvflade,
+  langsomme ringe i vandet og genereret rumklang/ambient lyd.
+- Dør I åbner fysisk. Når du går over tærsklen, toner synsfeltet roligt ud,
+  og du ankommer til et separat rum. Der er ingen tvungen kamerabevægelse.
+- **Det sidste åndedrag** er en original, atmosfærisk fortolkning inspireret
+  af Violettas død af tuberkulose i Verdis *La traviata*.
+- Et tomt leje, et stearinlys, syntetiseret åndedræt og korte danske tekster
+  danner et forløb, som gradvist ender i stilhed. Du starter selv forløbet.
+- Efter fuld gennemspilning markeres dør I som **OPLEVET**. Du kan gå ind igen.
+  En tidlig afbrydelse giver ikke en ny gennemførelse.
 
-## Automated checks
+Dør I er vores valg til denne prototype. Scenen gengiver ikke et konkret filmklip
+eller udstillingens rum og fastlægger ikke de øvrige døres rækkefølge. Grafik,
+tekster og lyd er lavet til projektet; der indgår ingen optagelser fra udstillingen
+eller operaforestillinger. De seks øvrige oplevelser er endnu ikke implementeret.
 
-From this folder, with Godot on your PATH:
+## Udvikling og tests
+
+Hovedfiler:
+
+- `Cisternerne.tscn`: ny hovedscene.
+- `cistern/cistern.gd`: lobby, oplevelsens tidsforløb, sceneovergange og fremdrift.
+- `cistern/door.gd`: døre, åbning, fokus og status.
+- `cistern/interaction.gd`: start- og returinteraktioner.
+- `cistern/architecture.gd`: geometri og materialer.
+- `cistern/soundscape.gd`: original, genereret lyd og rumklang.
+- `museum/player.gd`: fælles desktop-/OpenXR-controller, kollisioner og navigation.
+- `openxr_action_map.tres`: Godots standardbindinger inklusive Quest Touch.
+
+Kør fra projektmappen med Godot på PATH:
 
 ```sh
 godot --headless --xr-mode off --editor --import --quit
+godot --headless --xr-mode off --audio-driver Dummy --path . --script tests/cistern_test.gd
 godot --headless --xr-mode off --path . --script tests/museum_test.gd
 ```
 
-The test exercises scene startup, desktop movement and collision, ray selection,
-pickup/return, and completion. Automated checks do not establish headset rendering,
-controller tracking, comfort, or Quest Link connectivity. Those need an actual
-headset and compatible PC; this cloud workspace has neither.
+De nye tests kontrollerer lobbyens geometri, dørinteraktion, fysisk passage,
+overgange, oplevelsens faser, lydtilstand, gennemførelse, gentagelse og tidlig retur.
+De tidligere museumstests kontrollerer fortsat fælles bevægelse og genstandsinteraktion.
+
+Cloudmiljøet kan afprøve desktop-funktionalitet og rendere med software-OpenGL.
+Headsetsporing, controllernes faktiske input, Vulkan-rendering og Quest Link skal
+afprøves på din PC med headset.
+
+Den tidligere museumsscene `Museum.tscn` og tastaturtesten `Tester.tscn` er
+bevaret. Åbn den ønskede scene og tryk **F6** for at køre den særskilt.

@@ -1,6 +1,7 @@
 extends Node3D
 
 signal status_changed(text: String)
+signal return_requested
 
 const SPEED: float = 2.4
 const REACH: float = 4.0
@@ -18,6 +19,9 @@ var pitch: float = 0.0
 var snap_ready: bool = true
 var beam: MeshInstance3D
 var mouse_captured: bool = false
+var locomotion_enabled: bool = true
+var interaction_enabled: bool = true
+var xr_movement_constraint: Callable
 
 
 func _ready() -> void:
@@ -106,7 +110,7 @@ func _physics_process(delta: float) -> void:
 
 func _move_desktop(delta: float) -> void:
 	var direction := Vector2.ZERO
-	if mouse_captured:
+	if mouse_captured and locomotion_enabled:
 		direction = Input.get_vector("museum_left", "museum_right", "museum_forward", "museum_back")
 	var movement := desktop.basis * Vector3(direction.x, 0, direction.y)
 	desktop.velocity.x = movement.x * SPEED
@@ -120,18 +124,31 @@ func _move_desktop(delta: float) -> void:
 
 func _move_xr(delta: float) -> void:
 	var stick := left_hand.get_vector2("primary")
-	if stick.length() > 0.2:
+	if stick.length() > 0.2 and locomotion_enabled:
 		var forward := -head.global_basis.z
 		forward.y = 0
 		forward = forward.normalized()
 		var right := forward.cross(Vector3.UP)
-		origin.position += (right * stick.x + forward * stick.y) * SPEED * delta
-		origin.position.x = clampf(origin.position.x, -5.3, 5.3)
-		origin.position.z = clampf(origin.position.z, -6.3, 6.3)
+		var motion := (right * stick.x + forward * stick.y) * SPEED * delta
+		# Test the tracked head's floor position against scene colliders.
+		var query := PhysicsShapeQueryParameters3D.new()
+		query.shape = desktop.get_node("CollisionShape3D").shape
+		query.transform = Transform3D(Basis.IDENTITY, Vector3(head.global_position.x, origin.global_position.y + 0.9, head.global_position.z))
+		query.motion = motion
+		query.collision_mask = 1
+		query.exclude = [desktop.get_rid()]
+		var safe := get_world_3d().direct_space_state.cast_motion(query)
+		var destination := origin.global_position + motion * safe[0]
+		if xr_movement_constraint.is_valid():
+			destination = xr_movement_constraint.call(destination)
+		else:
+			destination.x = clampf(destination.x, -5.3, 5.3)
+			destination.z = clampf(destination.z, -6.3, 6.3)
+		origin.global_position = destination
 	var turn := right_hand.get_vector2("primary").x
 	if absf(turn) < 0.3:
 		snap_ready = true
-	elif absf(turn) > 0.7 and snap_ready:
+	elif absf(turn) > 0.7 and snap_ready and locomotion_enabled:
 		snap_ready = false
 		var angle := -signf(turn) * PI / 6.0
 		var pivot := head.global_position
@@ -144,7 +161,7 @@ func _update_focus() -> void:
 	if is_instance_valid(focused):
 		focused.set_focused(false)
 	focused = null
-	if is_instance_valid(held):
+	if is_instance_valid(held) or not interaction_enabled:
 		return
 	if xr_active and not right_hand.get_is_active():
 		return
@@ -154,17 +171,22 @@ func _update_focus() -> void:
 	query.collide_with_areas = true
 	query.exclude = [desktop.get_rid()]
 	var hit := get_world_3d().direct_space_state.intersect_ray(query)
-	if not hit.is_empty() and hit.collider is Area3D and hit.collider.has_method("pick_up"):
+	if not hit.is_empty() and hit.collider is Area3D and (hit.collider.has_method("pick_up") or hit.collider.has_method("activate")):
 		focused = hit.collider
 		focused.set_focused(true)
 
 
 func interact() -> void:
+	if not interaction_enabled:
+		return
 	if is_instance_valid(held):
 		held.return_to_display()
 		held = null
 		status_changed.emit("Returned to its display. Find another exhibit!")
 	elif is_instance_valid(focused):
+		if focused.has_method("activate"):
+			focused.activate()
+			return
 		held = focused
 		focused.set_focused(false)
 		focused = null
@@ -175,6 +197,8 @@ func interact() -> void:
 func _on_xr_button(button: String) -> void:
 	if xr_active and button == "trigger_click":
 		interact()
+	elif xr_active and button == "by_button":
+		return_requested.emit()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -193,6 +217,27 @@ func _unhandled_input(event: InputEvent) -> void:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		elif event.physical_keycode == KEY_E or event.keycode == KEY_E:
 			interact()
+		elif event.physical_keycode == KEY_R or event.keycode == KEY_R:
+			return_requested.emit()
+
+
+func relocate(feet: Vector3, yaw: float = 0.0) -> void:
+	# Preserve the tracked head height and compensate for room-scale X/Z offsets.
+	origin.global_rotation = Vector3(0, yaw, 0)
+	var offset := head.global_position - origin.global_position
+	origin.global_position = feet - Vector3(offset.x, 0, offset.z)
+	desktop.global_position = feet
+	desktop.global_rotation = Vector3(0, yaw, 0)
+	desktop.velocity = Vector3.ZERO
+	camera.rotation = Vector3.ZERO
+	pitch = 0.0
+	if is_instance_valid(focused):
+		focused.set_focused(false)
+	focused = null
+
+
+func viewer_position() -> Vector3:
+	return head.global_position if xr_active else camera.global_position
 
 
 func _notification(what: int) -> void:
