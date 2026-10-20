@@ -1,7 +1,6 @@
 extends Node3D
 
 const G = preload("res://cistern/architecture.gd")
-const Door = preload("res://cistern/door.gd")
 const Action = preload("res://cistern/interaction.gd")
 const Soundscape = preload("res://cistern/soundscape.gd")
 const Player = preload("res://museum/player.gd")
@@ -10,17 +9,6 @@ const RADIUS: float = 8.5
 const CENTER := Vector3(0, 0, 2)
 const CHAMBER := Vector3(30, 0, 0)
 const TOSCA_ROOM := Vector3(70, 0, 0)
-const LOBBY_SPAWN := Vector3(0, 0.03, 0.9)
-const DOOR_STORIES := [
-	["La traviata", "Tæring / tuberkulose"],
-	["Tosca", "Fald fra et tårn"],
-	["Otello", "Kvælning"],
-	["Madame Butterfly", "Rituelt selvmord (hara-kiri)"],
-	["Carmen", "Knivstik"],
-	["Lucia di Lammermoor", "Vanvid / sindssyge"],
-	["Norma", "Brændt på bålet"],
-]
-
 @export var experience_duration: float = 48.0
 @export var transition_duration: float = 0.5
 
@@ -54,12 +42,13 @@ var first_recovery: Tween
 
 
 func _ready() -> void:
-	_build_environment()
-	lobby = Node3D.new()
-	lobby.name = "Lobby"
-	add_child(lobby)
-	_build_lobby()
-	_build_doors()
+	lobby = $Lobby
+	for i in range(7):
+		var door: Area3D = lobby.get_node("Doors/Door%d" % (i + 1))
+		door.selected.connect(_on_door_selected)
+		doors.append(door)
+	for ring in lobby.get_node("WaterRipples").get_children():
+		ripples.append(ring)
 	_build_chamber()
 	tosca = Tosca.new()
 	tosca.name = "Tosca"
@@ -72,7 +61,7 @@ func _ready() -> void:
 	add_child(player)
 	player.xr_movement_constraint = _constrain_xr
 	player.return_requested.connect(return_to_lobby)
-	player.relocate(LOBBY_SPAWN, deg_to_rad(30))
+	_place_in_lobby()
 	_build_fade()
 	tosca.bind_view(player, fade_material)
 	_build_hud()
@@ -81,117 +70,9 @@ func _ready() -> void:
 	print("Seven Doors: lobby ready; doors I and II are playable.")
 
 
-func _build_environment() -> void:
-	var world := WorldEnvironment.new()
-	var environment := Environment.new()
-	environment.background_mode = Environment.BG_COLOR
-	environment.background_color = Color("070b10")
-	environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
-	environment.ambient_light_color = Color("a1b4c5")
-	environment.ambient_light_energy = 0.44
-	environment.tonemap_mode = Environment.TONE_MAPPER_FILMIC
-	environment.fog_enabled = true
-	environment.fog_light_color = Color("18212a")
-	environment.fog_density = 0.012
-	world.environment = environment
-	add_child(world)
-
-
-func _build_lobby() -> void:
-	var masonry := G.stone(Color("87918c"))
-	var black_stone := G.material(Color("1e272b"))
-	var wet := G.material(Color("15252c"), 0.13, 0.65)
-	G.half_disc(lobby, CENTER + Vector3(0, -0.005, 0), RADIUS, wet)
-	G.half_disc(lobby, CENTER + Vector3(0, 4.85, 0), RADIUS, black_stone, true)
-	# The floor collision is flat so no stepping or jumping is needed in VR.
-	var floor_body := StaticBody3D.new()
-	var floor_collider := CollisionShape3D.new()
-	var floor_shape := BoxShape3D.new()
-	floor_shape.size = Vector3(18, 0.3, 11)
-	floor_collider.shape = floor_shape
-	floor_body.position = Vector3(0, -0.15, -3)
-	floor_body.add_child(floor_collider)
-	lobby.add_child(floor_body)
-	for i in range(90):
-		var angle := -PI / 2.0 + (i + 0.5) * PI / 90.0
-		var at := CENTER + Vector3(sin(angle), 0, -cos(angle)) * RADIUS
-		var doorway := false
-		for j in range(7):
-			if absf(angle - _door_angle(j)) < deg_to_rad(6.3):
-				doorway = true
-		if doorway:
-			G.box(lobby, at + Vector3(0, 4.05, 0), Vector3(0.32, 1.6, 0.38), masonry, true, -angle)
-		else:
-			G.box(lobby, at + Vector3(0, 2.4, 0), Vector3(0.32, 4.8, 0.38), masonry, true, -angle)
-	G.box(lobby, Vector3(0, 2.4, 2.12), Vector3(17.4, 4.8, 0.25), masonry, true)
-	G.box(lobby, Vector3(0, 1.4, 1.94), Vector3(2.0, 2.8, 0.12), black_stone)
-	var exit_title := G.label(lobby, "C I S T E R N E R N E", Vector3(0, 3.35, 1.85), 40)
-	exit_title.rotation.y = PI
-	G.label(lobby, "S E V E N   D E A T H S", Vector3(0, 4.05, -4.65), 86, Color("dfd0b5"), true)
-	G.label(lobby, "S Y V   D Ø R E   /   S Y V   A F S L U T N I N G E R", Vector3(0, 3.65, -4.65), 27)
-	for degrees in [-55.0, -18.0, 18.0, 55.0]:
-		var a := deg_to_rad(degrees)
-		var at := CENTER + Vector3(sin(a), 0, -cos(a)) * 5.0
-		G.box(lobby, at + Vector3(0, 0.12, 0), Vector3(0.68, 0.24, 0.68), black_stone, true)
-		G.cylinder(lobby, at + Vector3(0, 2.1, 0), 0.19, 4.2, masonry, true)
-		G.box(lobby, at + Vector3(0, 4.2, 0), Vector3(0.65, 0.18, 0.65), black_stone)
-		G.arch(lobby, at + Vector3(0, 3.8, 0), 3.3, 0.85, masonry, -a)
-		G.light(lobby, at + Vector3(0, 2.6, 0.4), Color("91b5c7"), 0.55, 5)
-	var path := G.material(Color("354348"), 0.55)
-	for i in range(55):
-		var angle := -PI / 2.0 + (i + 0.5) * PI / 55.0
-		var at := CENTER + Vector3(sin(angle), 0, -cos(angle)) * 6.6
-		G.box(lobby, at + Vector3(0, 0.003, 0), Vector3(0.35, 0.012, 1.45), path, false, -angle)
-	var brass := G.material(Color("af8650"), 0.35, 0.6)
-	var destination := CENTER + Vector3(sin(_door_angle(0)), 0, -cos(_door_angle(0))) * 7.4
-	for i in range(1, 15):
-		var at := LOBBY_SPAWN.lerp(destination, float(i) / 15.0)
-		at.y = 0.018
-		G.cylinder(lobby, at, 0.025, 0.012, brass)
-	var welcome := Node3D.new()
-	welcome.position = Vector3(2.5, 0, -0.3)
-	welcome.rotation.y = deg_to_rad(-35)
-	lobby.add_child(welcome)
-	G.box(welcome, Vector3(0, 0.58, 0), Vector3(2.6, 1.16, 0.22), black_stone, true)
-	G.label(welcome, "VÆLG DØR I ELLER II\n\nÅbn døren. Gå over tærsklen.\nTag dig tid.", Vector3(0, 1.2, 0.17), 31)
-	G.label(welcome, "Et selvstændigt VR-studie inspireret af\nMarina Abramović: Seven Deaths", Vector3(0, 0.63, 0.17), 21, Color("8d9b9f"))
-	G.label(welcome, "VR: venstre stick · gå / højre stick · drej\nHøjre trigger · vælg / B · retur", Vector3(0, 0.32, 0.17), 20, Color("aab9be"))
-	G.light(lobby, Vector3(0, 3.4, 0), Color("97acb7"), 0.65, 8)
-	for i in range(5):
-		var ring := MeshInstance3D.new()
-		var mesh := TorusMesh.new()
-		mesh.inner_radius = 0.48
-		mesh.outer_radius = 0.5
-		ring.mesh = mesh
-		ring.material_override = G.material(Color("334b54"), 0.2, 0.6)
-		ring.position = Vector3(-3.1 + i * 1.4, 0.014, -3.5 - sin(i * 1.3))
-		lobby.add_child(ring)
-		ripples.append(ring)
-
-
-func _door_angle(index: int) -> float:
-	return deg_to_rad(-66.0 + index * 22.0)
-
-
-func _build_doors() -> void:
-	var stone := G.stone(Color("a0a49a"))
-	for i in range(7):
-		var angle := _door_angle(i)
-		var at := CENTER + Vector3(sin(angle), 0, -cos(angle)) * (RADIUS - 0.08)
-		var door := Door.new()
-		door.name = "Door%d" % (i + 1)
-		door.number = i + 1
-		door.available = i < 2
-		door.title = DOOR_STORIES[i][0]
-		door.theme = DOOR_STORIES[i][1]
-		door.position = at
-		door.rotation.y = -angle
-		door.selected.connect(_on_door_selected)
-		lobby.add_child(door)
-		doors.append(door)
-		G.arch(lobby, at + Vector3(0, 3.03, 0), 2.0, 0.95, stone, -angle)
-		var inward := Vector3(-sin(angle), 0, cos(angle))
-		G.light(lobby, at + inward * 0.65 + Vector3(0, 2.5, 0), Color("f3bd77") if door.available else Color("7796ab"), 1.8 if door.available else 0.45, 4)
+func _place_in_lobby() -> void:
+	var spawn: Marker3D = lobby.get_node("PlayerSpawn")
+	player.relocate(spawn.global_position, spawn.global_rotation.y)
 
 
 func _build_chamber() -> void:
@@ -419,7 +300,7 @@ func _change_space(destination: String) -> void:
 	else:
 		for door in doors:
 			door.close()
-		player.relocate(LOBBY_SPAWN, deg_to_rad(30))
+		_place_in_lobby()
 	tween = create_tween()
 	tween.tween_property(fade_material, "albedo_color:a", 0.0, transition_duration)
 	await tween.finished
@@ -515,13 +396,15 @@ func _constrain_xr(destination: Vector3) -> Vector3:
 	var head_offset: Vector3 = player.head.global_position - player.origin.global_position
 	var feet := destination + Vector3(head_offset.x, 0, head_offset.z)
 	if current_space == "lobby":
-		feet.z = minf(feet.z, CENTER.z - 0.4)
-		var radial := Vector2(feet.x - CENTER.x, feet.z - CENTER.z)
+		var local_feet := lobby.to_local(feet)
+		local_feet.z = minf(local_feet.z, CENTER.z - 0.4)
+		var radial := Vector2(local_feet.x - CENTER.x, local_feet.z - CENTER.z)
 		var passage_open: bool = doors[0].is_open or doors[1].is_open
 		var limit := RADIUS + 0.8 if passage_open else RADIUS - 0.4
 		radial = radial.limit_length(limit)
-		feet.x = CENTER.x + radial.x
-		feet.z = CENTER.z + radial.y
+		local_feet.x = CENTER.x + radial.x
+		local_feet.z = CENTER.z + radial.y
+		feet = lobby.to_global(local_feet)
 	elif current_space == "tosca":
 		feet.x = clampf(feet.x, TOSCA_ROOM.x - 3.5, TOSCA_ROOM.x + 3.5)
 		feet.z = clampf(feet.z, -3.8, 2.7)

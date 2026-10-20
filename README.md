@@ -5,6 +5,29 @@ Seven Deaths** i Cisternerne. Du starter i en halvcirkelformet lobby med syv dø
 Dør I (**La traviata**) og dør II (**Tosca**) er spilbare. De øvrige fem døre er
 pladsholdere til kommende oplevelser.
 
+## Edit the lobby visually in Godot
+
+1. Pull the latest changes in VS Code.
+2. In Godot's **FileSystem** panel, double-click **`Lobby.tscn`**.
+3. Click **3D** at the top of the editor. The scene root is already a Node3D.
+4. Expand **Architecture** in the Scene tree to find **Walls**, **Floor**,
+   **Ceiling**, **Columns**, and **Walkway**. Select an object and press **F**
+   to focus the viewport on it. Use the move gizmo to reposition it.
+5. Expand **Doors** to find **Door1** through **Door7**. Moving a door root also
+   moves its frame, leaf, collision shapes, arch, and light. Keep door openings
+   in the wall aligned with the doors.
+6. Edit lights under **Lighting**, text under **Signage**, and the starting
+   position using **PlayerSpawn**. A door's Title and Theme fields are in the
+   Inspector; their label text updates when the game starts.
+7. Press **Ctrl+S** to save, then **F5** to play the complete game.
+
+The game instances this saved lobby directly, so it preserves your edits. Move
+the parent nodes of walls/columns to keep meshes and collision shapes together.
+If you change a mesh's dimensions, also adjust its collision shape. Keep the
+`Door1`–`Door7`, their existing child names, and `PlayerSpawn`, which are used by the gameplay scripts.
+The two experience rooms are still built by their scripts; this scene contains
+the editable lobby. Use F5 for the game, since the lobby alone has no player camera.
+
 ## Prøv på computeren
 
 1. Hent ændringerne i VS Code: **Source Control → … → Pull**.
@@ -116,6 +139,7 @@ eller operaforestillinger. De fem øvrige oplevelser er endnu ikke implementeret
 Hovedfiler:
 
 - `Cisternerne.tscn`: ny hovedscene.
+- `Lobby.tscn`: redigerbar lobby med geometri, døre, lys, skilte og startmarkør.
 - `cistern/cistern.gd`: lobby, oplevelsens tidsforløb, sceneovergange og fremdrift.
 - `cistern/door.gd`: døre, åbning, fokus og status.
 - `cistern/interaction.gd`: start- og returinteraktioner.
@@ -131,6 +155,7 @@ Kør fra projektmappen med Godot på PATH:
 godot --headless --xr-mode off --editor --import --quit
 godot --headless --xr-mode off --audio-driver Dummy --path . --script tests/cistern_test.gd
 godot --headless --xr-mode off --audio-driver Dummy --path . --script tests/tosca_test.gd
+godot --headless --xr-mode off --audio-driver Dummy --path . --script tests/editable_lobby_test.gd
 godot --headless --xr-mode off --path . --script tests/museum_test.gd
 ```
 
@@ -141,6 +166,8 @@ faktiske kamera og XR-rig falder, at lokale headsetposer bevares, kort fald,
 sort overgang, gendannelse af kontroller og uafhængig fremdrift for de to døre.
 La traviata-testen kontrollerer førstepersonsperspektivet på lejet og mørket ved afslutningen.
 De tidligere museumstests kontrollerer fortsat fælles bevægelse og genstandsinteraktion.
+Lobbytesten kontrollerer, at geometri er til stede før spilstart, at døre ikke
+genereres dobbelt, og at ændringer af vægge og døre kan gemmes, indlæses og bruges i spillet.
 
 Cloudmiljøet kan afprøve desktop-funktionalitet og rendere med software-OpenGL.
 Headsetsporing, controllernes faktiske input, Vulkan-rendering og Quest Link skal

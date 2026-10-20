@@ -2,12 +2,12 @@ extends Area3D
 
 signal selected(door: Area3D)
 
-var number: int = 1
-var available: bool = false
+@export_range(1, 7) var number: int = 1
+@export var available: bool = false
 var completed: bool = false
 var is_open: bool = false
-var title: String = ""
-var theme: String = ""
+@export var title: String = ""
+@export var theme: String = ""
 var leaf: Node3D
 var caption: Label3D
 var frame_material: StandardMaterial3D
@@ -18,6 +18,19 @@ var opening_tween: Tween
 func _ready() -> void:
 	collision_layer = 2
 	collision_mask = 0
+	if has_node("Leaf"):
+		# Saved scene geometry is edited in Godot; do not generate it again.
+		leaf = $Leaf
+		caption = $Number
+		hint = $Hint
+		frame_material = $FrameLeft.material_override
+		$Information.text = title + "\n" + theme
+		_refresh_text()
+		return
+	_build_visuals()
+
+
+func _build_visuals() -> void:
 	var collision := CollisionShape3D.new()
 	var shape := BoxShape3D.new()
 	shape.size = Vector3(1.55, 2.9, 0.3)
@@ -25,11 +38,12 @@ func _ready() -> void:
 	collision.position = Vector3(0, 1.45, 0.25)
 	add_child(collision)
 	frame_material = StandardMaterial3D.new()
+	frame_material.resource_local_to_scene = true
 	frame_material.albedo_color = Color("bd9564") if available else Color("52606b")
 	frame_material.emission_enabled = true
 	frame_material.emission = frame_material.albedo_color
 	frame_material.emission_energy_multiplier = 0.3 if available else 0.08
-	_box(self, Vector3(-0.86, 1.5, 0), Vector3(0.12, 3.1, 0.28), frame_material)
+	_box(self, Vector3(-0.86, 1.5, 0), Vector3(0.12, 3.1, 0.28), frame_material).name = "FrameLeft"
 	_box(self, Vector3(0.86, 1.5, 0), Vector3(0.12, 3.1, 0.28), frame_material)
 	_box(self, Vector3(0, 3.02, 0), Vector3(1.84, 0.1, 0.28), frame_material)
 	var dark := StandardMaterial3D.new()
@@ -37,6 +51,7 @@ func _ready() -> void:
 	dark.roughness = 0.6
 	_box(self, Vector3(0, 1.48, -0.75), Vector3(1.65, 2.96, 0.1), dark)
 	leaf = Node3D.new()
+	leaf.name = "Leaf"
 	leaf.position.x = -0.77
 	add_child(leaf)
 	_box(leaf, Vector3(0.77, 1.45, 0), Vector3(1.54, 2.9, 0.14), dark)
@@ -52,12 +67,14 @@ func _ready() -> void:
 	for x in [0.2, 1.34]:
 		_box(leaf, Vector3(x, 1.45, 0.09), Vector3(0.012, 2.55, 0.01), frame_material)
 	caption = _label("", Vector3(0, 3.5, 0.12), 58)
-	_label(title + "\n" + theme, Vector3(0, 1.85, 0.19), 30)
+	caption.name = "Number"
+	_label(title + "\n" + theme, Vector3(0, 1.85, 0.19), 30).name = "Information"
 	hint = _label("", Vector3(0, 0.5, 0.19), 25)
+	hint.name = "Hint"
 	_refresh_text()
 
 
-func _box(parent: Node3D, at: Vector3, size: Vector3, material: Material) -> void:
+func _box(parent: Node3D, at: Vector3, size: Vector3, material: Material) -> MeshInstance3D:
 	var instance := MeshInstance3D.new()
 	var mesh := BoxMesh.new()
 	mesh.size = size
@@ -65,6 +82,7 @@ func _box(parent: Node3D, at: Vector3, size: Vector3, material: Material) -> voi
 	instance.position = at
 	instance.material_override = material
 	parent.add_child(instance)
+	return instance
 
 
 func _label(text: String, at: Vector3, size: int) -> Label3D:

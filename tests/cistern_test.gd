@@ -171,7 +171,7 @@ func _run() -> void:
 	_check(scene.current_space == "lobby", "The return doorway must lead to the lobby.")
 	_check(not scene.doors[0].is_open and scene.doors[0].completed, "The door must close and retain completion.")
 	_check(scene.doors[0].hint.text.contains("OPLEVET"), "The lobby must show that door I was experienced.")
-	_check(scene.player.desktop.position.distance_to(scene.LOBBY_SPAWN) < 0.1, "Return must restore the lobby spawn.")
+	_check(scene.player.desktop.position.distance_to(scene.lobby.get_node("PlayerSpawn").global_position) < 0.1, "Return must restore the editable lobby spawn.")
 
 	# Re-entry resets the candle and allows an early exit without a false completion.
 	scene.doors[0].activate()
