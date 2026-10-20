@@ -1,0 +1,62 @@
+[gd_scene format=3]
+
+[node name="DesktopHUD" type="CanvasLayer" unique_id=150029596]
+
+[node name="Screen" type="Control" parent="." unique_id=1414411854]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Panel" type="ColorRect" parent="Screen" unique_id=1580343041]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 22.0
+offset_right = 464.0
+offset_bottom = 122.0
+mouse_filter = 2
+color = Color(0.025, 0.035, 0.045, 0.86)
+
+[node name="Location" type="Label" parent="Screen" unique_id=1652779069]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 30.0
+offset_right = 38.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0.8666667, 0.78431374, 0.654902, 1)
+theme_override_font_sizes/font_size = 22
+
+[node name="Controls" type="Label" parent="Screen" unique_id=881702689]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 66.0
+offset_right = 38.0
+offset_bottom = 66.0
+theme_override_font_sizes/font_size = 15
+text = "Klik: se dig omkring  ·  WASD: gå  ·  E: vælg
+Esc: slip musen  ·  R: tilbage til lobbyen"
+
+[node name="Prompt" type="Label" parent="Screen" unique_id=1681341304]
+layout_mode = 0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -75.0
+offset_bottom = -35.0
+theme_override_colors/font_color = Color(0.91764706, 0.84313726, 0.72156864, 1)
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="Reticle" type="Label" parent="Screen" unique_id=1418755592]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -22.0
+offset_right = 10.0
+offset_bottom = 22.0
+theme_override_font_sizes/font_size = 32
+text = "·"

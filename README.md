@@ -5,28 +5,56 @@ Seven Deaths** i Cisternerne. Du starter i en halvcirkelformet lobby med syv dø
 Dør I (**La traviata**) og dør II (**Tosca**) er spilbare. De øvrige fem døre er
 pladsholdere til kommende oplevelser.
 
-## Edit the lobby visually in Godot
+## Redigér hele spillet i Godot
 
-1. Pull the latest changes in VS Code.
-2. In Godot's **FileSystem** panel, double-click **`Lobby.tscn`**.
-3. Click **3D** at the top of the editor. The scene root is already a Node3D.
-4. Expand **Architecture** in the Scene tree to find **Walls**, **Floor**,
-   **Ceiling**, **Columns**, and **Walkway**. Select an object and press **F**
-   to focus the viewport on it. Use the move gizmo to reposition it.
-5. Expand **Doors** to find **Door1** through **Door7**. Moving a door root also
-   moves its frame, leaf, collision shapes, arch, and light. Keep door openings
-   in the wall aligned with the doors.
-6. Edit lights under **Lighting**, text under **Signage**, and the starting
-   position using **PlayerSpawn**. A door's Title and Theme fields are in the
-   Inspector; their label text updates when the game starts.
-7. Press **Ctrl+S** to save, then **F5** to play the complete game.
+Alle eksisterende rum, genstande, lys, kollisioner, kameraer, controllere,
+lydafspillere og brugerflader er nu gemt som almindelige noder i `.tscn`-scener.
+Scripts styrer interaktion, animation og spilforløb. De opbygger ikke rummene ved start.
 
-The game instances this saved lobby directly, so it preserves your edits. Move
-the parent nodes of walls/columns to keep meshes and collision shapes together.
-If you change a mesh's dimensions, also adjust its collision shape. Keep the
-`Door1`–`Door7`, their existing child names, and `PlayerSpawn`, which are used by the gameplay scripts.
-The two experience rooms are still built by their scripts; this scene contains
-the editable lobby. Use F5 for the game, since the lobby alone has no player camera.
+1. Hent ændringerne i VS Code med **Pull**.
+2. Dobbeltklik på den ønskede scene i Godots **FileSystem**-panel.
+3. Vælg **3D** øverst (eller **2D** til brugerfladen). Fold noderne ud i **Scene**.
+4. Vælg en node, og tryk **F** for at fokusere på den. Flyt, drej og redigér
+   dens egenskaber i **Inspector**.
+5. Gem med **Ctrl+S**, og tryk **F5** for at teste hele spillet.
+
+| Scene | Hvad du kan redigere |
+| --- | --- |
+| `Cisternerne.tscn` | Hele spillets opstilling og placeringen af de tre rum. Underliggende noder er allerede gjort redigerbare. |
+| `Lobby.tscn` | Architecture: vægge, gulv, loft, søjler og gangbro. Doors: alle syv døre. Lighting, Signage, WaterRipples og PlayerSpawn. |
+| `LaTraviata.tscn` | Architecture, Bed, CandleTable, Window, Curtains, Signage, Interactions og Lighting. Vælg roden for Duration, Narrative og Movement Bounds. |
+| `Tosca.tscn` | Tower: terrasse, rækværk, brystværn og lanterne. City: 44 bygninger, kuppel og måne. PlayerScarf, Signage, Interactions, Lighting og Audio. Vælg roden for tider, faldlængder, fortælling og bevægelsesgrænser. |
+| `Player.tscn` | Desktop-krop, kollisionskapsel, kamera, OpenXR-kamera, controllermodeller og pegestråle. Hastighed og interaktionsrækkevidde findes på roden. |
+| `DesktopHUD.tscn` | Panel, stednavn, kontroltekst, interaktionsprompt og sigtepunkt. Redigér i 2D; ankre følger vinduets størrelse. |
+| `Soundscape.tscn` | Baggrundslyd og åndedræt: lydressourcer, lydniveau og bus. Rumklang redigeres i Godots Audio-panel via `default_bus_layout.tres`. |
+| `Museum.tscn` | Det tidligere museum: Architecture, Lighting, Signage, tre genstande under Exhibits og dets egen DesktopHUD. |
+| `Tester.tscn` | Den tidligere tastaturtest med gemte tekstnoder. |
+
+**Startpositioner og oplevelser:** Lobbyens `PlayerSpawn` og rummenes
+`Markers/PlayerSpawn` bestemmer, hvor du ankommer, og hvilken retning du ser.
+I La traviata flytter du `Bed/FirstPersonView` for at ændre synspunktets position
+på lejet; flytter du hele Bed, følger markøren med. I Tosca bestemmer
+`Markers/FallTarget`, hvor du bevæger dig ud over kanten før faldet. Faldlængden
+ændres med Full Fall Distance / Short Fall Distance på Tosca-roden.
+Startpositioner, faldmarkør og VR-grænser følger også flyttede og drejede rum.
+Movement Bounds er et lokalt X/Z-rektangel; justér det, hvis du ændrer rummets størrelse.
+
+Flyt en genstands **forældrenode** for at holde grafik og kollision sammen.
+Ændrer du størrelsen på et mesh, skal du også tilpasse dets CollisionShape3D.
+Hold døre og vægåbninger på linje. Bevar eksisterende nodenavne og stier,
+som scripts bruger. Lyde er originale, på forhånd genererede AudioStreamWAV-
+ressourcer i `audio/`; de kan erstattes via de gemte AudioStreamPlayer-noder.
+
+En dørs Title og Theme og en interaktions Prompt redigeres på selve dør-/
+Area3D-noden i Inspector. Statiske skilte redigeres på deres Label3D.
+Oplevelsernes skiftende fortællinger redigeres på rummenes rod; status- og
+prompttekster opdateres under spillet. Kameraets Fade-mesh bruges til mørke
+og rumskift. Start- og faldskilte samt stoffet skifter synlighed under forløbet.
+
+Du kan også åbne `Cisternerne.tscn` og redigere komponenterne dér. Ændringer
+lavet i hovedscenen gælder dens instans; åbn komponentens egen scene, når du
+vil ændre grundudgaven. Rummene alene har ingen spiller, så brug **F5** til at
+spille dem. `Museum.tscn` og `Tester.tscn` kan køres særskilt med **F6**.
 
 ## Prøv på computeren
 
@@ -143,9 +171,11 @@ Hovedfiler:
 - `cistern/cistern.gd`: lobby, oplevelsens tidsforløb, sceneovergange og fremdrift.
 - `cistern/door.gd`: døre, åbning, fokus og status.
 - `cistern/interaction.gd`: start- og returinteraktioner.
-- `cistern/architecture.gd`: geometri og materialer.
-- `cistern/soundscape.gd`: original, genereret lyd og rumklang.
-- `cistern/tosca.gd`: borgterrasse, by, førstepersonsfald, bevægelsesvalg, vind og klokke.
+- `LaTraviata.tscn` og `Tosca.tscn`: gemte rum med redigerbar geometri og markører.
+- `cistern/room_settings.gd`: varighed, fortælling og bevægelsesgrænser for La traviata.
+- `Soundscape.tscn`, `audio/` og `default_bus_layout.tres`: lyd og rumklang.
+- `cistern/soundscape.gd`: afspilning og ændring af lydniveau under oplevelserne.
+- `cistern/tosca.gd`: førstepersonsfald, fortælling, bevægelsesvalg og afspilning af vind og klokke.
 - `museum/player.gd`: fælles desktop-/OpenXR-controller, kollisioner, navigation og sekvensbevægelse.
 - `openxr_action_map.tres`: Godots standardbindinger inklusive Quest Touch.
 
@@ -156,7 +186,8 @@ godot --headless --xr-mode off --editor --import --quit
 godot --headless --xr-mode off --audio-driver Dummy --path . --script tests/cistern_test.gd
 godot --headless --xr-mode off --audio-driver Dummy --path . --script tests/tosca_test.gd
 godot --headless --xr-mode off --audio-driver Dummy --path . --script tests/editable_lobby_test.gd
-godot --headless --xr-mode off --path . --script tests/museum_test.gd
+godot --headless --xr-mode off --audio-driver Dummy --path . --script tests/editable_scenes_test.gd
+godot --headless --xr-mode off --audio-driver Dummy --path . --script tests/museum_test.gd
 ```
 
 Scenetestene kontrollerer lobbyens geometri, begge døres interaktion og fysiske
@@ -168,6 +199,9 @@ La traviata-testen kontrollerer førstepersonsperspektivet på lejet og mørket 
 De tidligere museumstests kontrollerer fortsat fælles bevægelse og genstandsinteraktion.
 Lobbytesten kontrollerer, at geometri er til stede før spilstart, at døre ikke
 genereres dobbelt, og at ændringer af vægge og døre kan gemmes, indlæses og bruges i spillet.
+Scenetesten kontrollerer desuden alle komponenter før spilstart, at der ikke oprettes
+ekstra noder, og at redigerede rum, kameraer, tekst, lyd, senge- og faldmarkører
+bevares gennem gemning/genindlæsning og bruges under gameplay.
 
 Cloudmiljøet kan afprøve desktop-funktionalitet og rendere med software-OpenGL.
 Headsetsporing, controllernes faktiske input, Vulkan-rendering og Quest Link skal

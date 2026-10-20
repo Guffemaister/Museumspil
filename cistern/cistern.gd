@@ -1,15 +1,15 @@
 extends Node3D
 
-const G = preload("res://cistern/architecture.gd")
-const Action = preload("res://cistern/interaction.gd")
-const Soundscape = preload("res://cistern/soundscape.gd")
-const Player = preload("res://museum/player.gd")
-const Tosca = preload("res://cistern/tosca.gd")
 const RADIUS: float = 8.5
 const CENTER := Vector3(0, 0, 2)
 const CHAMBER := Vector3(30, 0, 0)
 const TOSCA_ROOM := Vector3(70, 0, 0)
-@export var experience_duration: float = 48.0
+# Compatibility property; the room owns its editable duration.
+var experience_duration: float:
+	get:
+		return $LaTraviata.duration
+	set(value):
+		$LaTraviata.duration = value
 @export var transition_duration: float = 0.5
 
 var player: Node3D
@@ -39,34 +39,51 @@ var idle_time: float = 0.0
 var tosca: Node3D
 var first_view_offset := Vector3.ZERO
 var first_recovery: Tween
+var candle_energy: float
+var room_energy: float
+var ready_text: String
+var start_prompt: String
+var ripple_scales: Array[Vector3] = []
 
 
 func _ready() -> void:
 	lobby = $Lobby
+	chamber = $LaTraviata
+	tosca = $Tosca
+	player = $Player
+	sound = $Soundscape
+	story = $LaTraviata/Signage/Story
+	chamber_subtitle = $LaTraviata/Signage/Subtitle
+	start_action = $LaTraviata/Interactions/BeginExperience
+	return_action = $LaTraviata/Interactions/ReturnToLobby
+	candle = $LaTraviata/CandleTable/CandleLight
+	flame = $LaTraviata/CandleTable/Flame
+	chamber_light = $LaTraviata/Lighting/RoomLight
+	candle_energy = candle.light_energy
+	room_energy = chamber_light.light_energy
+	ready_text = story.text
+	start_prompt = start_action.prompt
+	start_action.set_prompt(start_prompt.replace("{duration}", str(int(experience_duration))))
+	start_action.activated.connect(start_experience)
+	return_action.activated.connect(return_to_lobby)
 	for i in range(7):
 		var door: Area3D = lobby.get_node("Doors/Door%d" % (i + 1))
 		door.selected.connect(_on_door_selected)
 		doors.append(door)
 	for ring in lobby.get_node("WaterRipples").get_children():
 		ripples.append(ring)
-	_build_chamber()
-	tosca = Tosca.new()
-	tosca.name = "Tosca"
-	tosca.position = TOSCA_ROOM
-	add_child(tosca)
+		ripple_scales.append(ring.scale)
 	tosca.completed.connect(_on_tosca_completed)
 	tosca.return_requested.connect(return_to_lobby)
-	player = Player.new()
-	player.name = "Player"
-	add_child(player)
 	player.xr_movement_constraint = _constrain_xr
 	player.return_requested.connect(return_to_lobby)
 	_place_in_lobby()
-	_build_fade()
+	fade_material = player.fade_surface()
 	tosca.bind_view(player, fade_material)
-	_build_hud()
-	sound = Soundscape.new()
-	add_child(sound)
+	desktop_hud = $DesktopHUD
+	desktop_hud.visible = not player.xr_active
+	hud_location = $DesktopHUD/Screen/Location
+	hud_prompt = $DesktopHUD/Screen/Prompt
 	print("Seven Doors: lobby ready; doors I and II are playable.")
 
 
@@ -75,142 +92,11 @@ func _place_in_lobby() -> void:
 	player.relocate(spawn.global_position, spawn.global_rotation.y)
 
 
-func _build_chamber() -> void:
-	chamber = Node3D.new()
-	chamber.name = "FirstDeath"
-	chamber.position = CHAMBER
-	add_child(chamber)
-	var stone := G.stone(Color("8d918b"))
-	var dark := G.material(Color("171d24"))
-	var linen := G.material(Color("b6b2a1"), 0.95)
-	var wood := G.material(Color("352a25"))
-	G.box(chamber, Vector3(0, -0.15, -1), Vector3(8, 0.3, 8), G.material(Color("283337"), 0.25), true)
-	G.box(chamber, Vector3(0, 2.4, -5), Vector3(8, 4.8, 0.3), stone, true)
-	G.box(chamber, Vector3(0, 2.4, 3), Vector3(8, 4.8, 0.3), stone, true)
-	for x in [-4.0, 4.0]:
-		G.box(chamber, Vector3(x, 2.4, -1), Vector3(0.3, 4.8, 8), stone, true)
-	G.box(chamber, Vector3(0, 4.85, -1), Vector3(8, 0.2, 8), dark)
-	for z in [-3.5, 0.5]:
-		G.arch(chamber, Vector3(0, 3.55, z), 7.6, 1.1, stone)
-	G.box(chamber, Vector3(0, 0.38, -2.55), Vector3(1.5, 0.45, 2.6), wood, true)
-	G.box(chamber, Vector3(0, 0.66, -2.55), Vector3(1.48, 0.14, 2.55), linen)
-	G.box(chamber, Vector3(0, 0.79, -1.75), Vector3(0.95, 0.18, 0.47), linen)
-	G.box(chamber, Vector3(0, 0.86, -1.22), Vector3(1.55, 0.9, 0.1), wood)
-	for x in [-0.65, 0.65]:
-		for z in [-3.6, -1.5]:
-			G.box(chamber, Vector3(x, 0.19, z), Vector3(0.1, 0.38, 0.1), wood)
-	# An empty bed and curtain suggest absence without depicting a body.
-	G.box(chamber, Vector3(1.2, 0.45, -2.65), Vector3(0.65, 0.9, 0.65), wood, true)
-	G.cylinder(chamber, Vector3(1.2, 0.98, -2.65), 0.13, 0.05, G.material(Color("8d7253"), 0.3, 0.6))
-	G.cylinder(chamber, Vector3(1.2, 1.15, -2.65), 0.045, 0.3, G.material(Color("d9c8a5")))
-	flame = MeshInstance3D.new()
-	var flame_mesh := SphereMesh.new()
-	flame_mesh.radius = 0.025
-	flame_mesh.height = 0.1
-	flame.mesh = flame_mesh
-	flame.position = Vector3(1.2, 1.35, -2.65)
-	var flame_surface := G.material(Color("ffd095"))
-	flame_surface.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	flame.material_override = flame_surface
-	chamber.add_child(flame)
-	candle = G.light(chamber, Vector3(1.2, 1.5, -2.65), Color("ffc284"), 1.5, 5)
-	chamber_light = G.light(chamber, Vector3(-1.5, 3.3, -1), Color("9bacbf"), 0.8, 7)
-	G.box(chamber, Vector3(-2.5, 2.35, -4.77), Vector3(1.2, 2.1, 0.05), G.material(Color("314550"), 0.3))
-	for x in [-3.15, -2.5, -1.85]:
-		G.box(chamber, Vector3(x, 2.35, -4.7), Vector3(0.035, 2.3, 0.06), wood)
-	G.box(chamber, Vector3(-2.5, 2.35, -4.7), Vector3(1.4, 0.035, 0.06), wood)
-	for i in range(10):
-		G.box(chamber, Vector3(2.7 + sin(i * 0.6) * 0.05, 2.2, -4.6 + i * 0.25), Vector3(0.035, 3.5, 0.3), G.material(Color("383b3c")))
-	var title := G.label(chamber, "I  /  DET SIDSTE ÅNDEDRAG", Vector3(0, 3.45, -4.76), 64, Color("e3ceb1"), true)
-	title.pixel_size = 0.004
-	chamber_subtitle = G.label(chamber, "En fri fortolkning af Violettas sidste øjeblikke\nfra Verdis La traviata", Vector3(0, 3.02, -4.76), 26)
-	chamber_subtitle.pixel_size = 0.004
-	story = G.label(chamber, "Et rum. En seng. Et lys.\nBegynd, når du er klar.", Vector3(0, 2.3, -4.7), 48)
-	story.pixel_size = 0.004
-	start_action = Action.new()
-	start_action.name = "BeginExperience"
-	start_action.position = Vector3(0, 1.2, -1.05)
-	start_action.prompt = "E / højre trigger\nBEGYND OPLEVELSEN · ca. 48 sek."
-	start_action.activated.connect(start_experience)
-	chamber.add_child(start_action)
-	return_action = Action.new()
-	return_action.name = "ReturnToLobby"
-	return_action.position = Vector3(0, 1.5, 2.73)
-	return_action.rotation.y = PI
-	return_action.prompt = "TILBAGE TIL LOBBYEN\nE / trigger · eller R / B"
-	return_action.activated.connect(return_to_lobby)
-	chamber.add_child(return_action)
-	G.box(chamber, Vector3(0, 1.5, 2.83), Vector3(1.9, 3.0, 0.08), dark)
-	G.light(chamber, Vector3(0, 2.2, 2.3), Color("95b9c5"), 0.6, 4)
-
-
-func _build_fade() -> void:
-	fade_material = G.material(Color(0, 0, 0, 0))
-	fade_material.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-	fade_material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	fade_material.cull_mode = BaseMaterial3D.CULL_FRONT
-	fade_material.no_depth_test = true
-	fade_material.render_priority = 127
-	var sphere := MeshInstance3D.new()
-	var mesh := SphereMesh.new()
-	mesh.radius = 0.25
-	mesh.height = 0.5
-	sphere.mesh = mesh
-	sphere.material_override = fade_material
-	sphere.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	var camera: Camera3D = player.head if player.xr_active else player.camera
-	camera.add_child(sphere)
-
-
-func _build_hud() -> void:
-	if player.xr_active:
-		return
-	var layer := CanvasLayer.new()
-	desktop_hud = layer
-	add_child(layer)
-	var panel := ColorRect.new()
-	panel.position = Vector2(24, 22)
-	panel.size = Vector2(440, 100)
-	panel.color = Color(0.025, 0.035, 0.045, 0.86)
-	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	layer.add_child(panel)
-	hud_location = Label.new()
-	hud_location.position = Vector2(38, 30)
-	hud_location.add_theme_font_size_override("font_size", 22)
-	hud_location.add_theme_color_override("font_color", Color("ddc8a7"))
-	hud_location.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	layer.add_child(hud_location)
-	var controls := Label.new()
-	controls.position = Vector2(38, 66)
-	controls.text = "Klik: se dig omkring  ·  WASD: gå  ·  E: vælg\nEsc: slip musen  ·  R: tilbage til lobbyen"
-	controls.add_theme_font_size_override("font_size", 15)
-	controls.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	layer.add_child(controls)
-	hud_prompt = Label.new()
-	hud_prompt.add_theme_font_size_override("font_size", 20)
-	hud_prompt.add_theme_color_override("font_color", Color("ead7b8"))
-	hud_prompt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	hud_prompt.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	layer.add_child(hud_prompt)
-	var reticle := Label.new()
-	reticle.text = "·"
-	reticle.add_theme_font_size_override("font_size", 32)
-	reticle.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	layer.add_child(reticle)
-	var resize := func():
-		var size := get_viewport().get_visible_rect().size
-		hud_prompt.position = Vector2(0, size.y - 75)
-		hud_prompt.size.x = size.x
-		reticle.position = size / 2.0 - Vector2(4, 22)
-	get_viewport().size_changed.connect(resize)
-	resize.call()
-
-
 func _process(delta: float) -> void:
 	idle_time += delta
 	for i in range(ripples.size()):
 		var size := 0.15 + fmod(idle_time * 0.12 + i * 0.23, 1.0) * 1.7
-		ripples[i].scale = Vector3(size, 1, size)
+		ripples[i].scale = ripple_scales[i] * Vector3(size, 1, size)
 	if current_space == "lobby" and not transitioning and is_instance_valid(player):
 		for i in range(2):
 			var local := doors[i].to_local(player.viewer_position())
@@ -220,9 +106,9 @@ func _process(delta: float) -> void:
 	if experience_running:
 		advance_experience(delta)
 	elif not experience_complete:
-		candle.light_energy = 1.45 + sin(idle_time * 2.1) * 0.05
+		candle.light_energy = candle_energy * (0.96667 + sin(idle_time * 2.1) * 0.03333)
 	if is_instance_valid(hud_location):
-		desktop_hud.visible = not transitioning and not player.sequence_motion_active and fade_material.albedo_color.a < 0.1
+		desktop_hud.visible = not player.xr_active and not transitioning and not player.sequence_motion_active and fade_material.albedo_color.a < 0.1
 		var titles := {"lobby": "LOBBY", "chamber": "DET SIDSTE ÅNDEDRAG", "tosca": "TOSCA / FALDET"}
 		hud_location.text = "SEVEN DEATHS  /  " + titles.get(current_space, "LOBBY")
 		hud_prompt.text = _context_prompt()
@@ -288,15 +174,15 @@ func _change_space(destination: String) -> void:
 	tosca.exit_room()
 	player.end_sequence_motion()
 	player.locomotion_enabled = false
-	sound.ambience.volume_db = -24
+	sound.ambience.volume_db = sound.lobby_ambience_db
 	current_space = destination
 	if destination == "chamber":
 		_reset_chamber()
-		player.relocate(CHAMBER + Vector3(0, 0.03, 1.8))
+		_place_at(chamber.get_node("Markers/PlayerSpawn"))
 	elif destination == "tosca":
 		tosca.enter_room()
-		sound.ambience.volume_db = -36
-		player.relocate(TOSCA_ROOM + Tosca.SPAWN)
+		sound.ambience.volume_db = sound.room_ambience_db
+		_place_at(tosca.get_node("Markers/PlayerSpawn"))
 	else:
 		for door in doors:
 			door.close()
@@ -314,11 +200,11 @@ func _reset_chamber() -> void:
 	experience_elapsed = 0
 	sequence_stage = -1
 	experience_complete = false
-	story.text = "Et rum. En seng. Et lys.\nBegynd, når du er klar."
+	story.text = ready_text
 	start_action.enabled = true
-	start_action.set_prompt("E / højre trigger\nBEGYND OPLEVELSEN · ca. 48 sek.")
-	candle.light_energy = 1.5
-	chamber_light.light_energy = 0.8
+	start_action.set_prompt(start_prompt.replace("{duration}", str(int(experience_duration))))
+	candle.light_energy = candle_energy
+	chamber_light.light_energy = room_energy
 	flame.visible = true
 
 
@@ -329,7 +215,7 @@ func start_experience() -> void:
 	experience_running = true
 	player.begin_sequence_motion()
 	player.interaction_enabled = false
-	first_view_offset = CHAMBER + Vector3(0, 1.3, -1.85) - player.viewer_position()
+	first_view_offset = chamber.get_node("Bed/FirstPersonView").global_position - player.viewer_position()
 	start_action.enabled = false
 	start_action.set_prompt("Lyt. Tag dig tid.\nR / B · tilbage når som helst")
 	sound.begin_breathing()
@@ -356,17 +242,11 @@ func advance_experience(delta: float) -> void:
 		stage = 1
 	if stage != sequence_stage:
 		sequence_stage = stage
-		var lines := [
-			"Du er Violetta.\nDu hviler på lejet.",
-			"Et åndedrag ind.\nEt åndedrag ud.",
-			"Lyset holder fast.\nÅndedrættet bliver svagere.",
-			"Der er næsten stille.",
-			"Det sidste åndedrag.\nKun rummet bliver tilbage.",
-		]
-		story.text = lines[stage]
+		if not chamber.narrative.is_empty():
+			story.text = chamber.narrative[mini(stage, chamber.narrative.size() - 1)]
 	var breath := 0.92 + 0.08 * sin(experience_elapsed * TAU / 8.0)
-	candle.light_energy = 1.5 * (1.0 - amount) * breath
-	chamber_light.light_energy = lerpf(0.8, 0.18, amount)
+	candle.light_energy = candle_energy * (1.0 - amount) * breath
+	chamber_light.light_energy = room_energy * lerpf(1.0, 0.225, amount)
 	sound.set_breath_progress(amount)
 	if amount >= 1.0:
 		experience_running = false
@@ -405,10 +285,15 @@ func _constrain_xr(destination: Vector3) -> Vector3:
 		local_feet.x = CENTER.x + radial.x
 		local_feet.z = CENTER.z + radial.y
 		feet = lobby.to_global(local_feet)
-	elif current_space == "tosca":
-		feet.x = clampf(feet.x, TOSCA_ROOM.x - 3.5, TOSCA_ROOM.x + 3.5)
-		feet.z = clampf(feet.z, -3.8, 2.7)
 	else:
-		feet.x = clampf(feet.x, CHAMBER.x - 3.5, CHAMBER.x + 3.5)
-		feet.z = clampf(feet.z, -4.5, 2.5)
+		var room: Node3D = tosca if current_space == "tosca" else chamber
+		var local_feet := room.to_local(feet)
+		var bounds: Rect2 = room.movement_bounds
+		local_feet.x = clampf(local_feet.x, bounds.position.x, bounds.end.x)
+		local_feet.z = clampf(local_feet.z, bounds.position.y, bounds.end.y)
+		feet = room.to_global(local_feet)
 	return feet - Vector3(head_offset.x, 0, head_offset.z)
+
+
+func _place_at(spawn: Marker3D) -> void:
+	player.relocate(spawn.global_position, spawn.global_rotation.y)

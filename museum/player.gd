@@ -3,8 +3,9 @@ extends Node3D
 signal status_changed(text: String)
 signal return_requested
 
-const SPEED: float = 2.4
-const REACH: float = 4.0
+@export_range(0.1, 10.0) var movement_speed: float = 2.4
+@export_range(0.5, 10.0) var interaction_reach: float = 4.0
+@export var movement_bounds: Rect2 = Rect2(-5.3, -6.3, 10.6, 12.6)
 
 var xr_active: bool = false
 var origin: XROrigin3D
@@ -16,6 +17,7 @@ var camera: Camera3D
 var focused: Area3D
 var held: Area3D
 var pitch: float = 0.0
+var camera_home_rotation: Vector3
 var snap_ready: bool = true
 var beam: MeshInstance3D
 var mouse_captured: bool = false
@@ -28,8 +30,16 @@ var sequence_locomotion_enabled: bool = true
 
 
 func _ready() -> void:
-	_build_desktop()
-	_build_xr()
+	desktop = $Desktop
+	camera = $Desktop/Camera
+	camera_home_rotation = camera.rotation
+	pitch = camera_home_rotation.x
+	origin = $XROrigin
+	head = $XROrigin/Head
+	left_hand = $XROrigin/LeftHand
+	right_hand = $XROrigin/RightHand
+	beam = $XROrigin/RightHand/AimRay
+	right_hand.button_pressed.connect(_on_xr_button)
 	var xr := XRServer.find_interface("OpenXR")
 	if xr != null and xr.is_initialized():
 		xr_active = true
@@ -41,63 +51,6 @@ func _ready() -> void:
 		camera.current = true
 		origin.visible = false
 	print("Museum mode: ", "OpenXR" if xr_active else "Desktop")
-
-
-func _build_desktop() -> void:
-	desktop = CharacterBody3D.new()
-	desktop.position = Vector3(0, 0, 3.5)
-	add_child(desktop)
-	var collision := CollisionShape3D.new()
-	collision.name = "CollisionShape3D"
-	var capsule := CapsuleShape3D.new()
-	capsule.radius = 0.25
-	capsule.height = 1.7
-	collision.shape = capsule
-	collision.position.y = 0.85
-	desktop.add_child(collision)
-	camera = Camera3D.new()
-	camera.position.y = 1.65
-	camera.fov = 75.0
-	desktop.add_child(camera)
-
-
-func _build_xr() -> void:
-	origin = XROrigin3D.new()
-	origin.position = Vector3(0, 0, 3.5)
-	add_child(origin)
-	head = XRCamera3D.new()
-	origin.add_child(head)
-	left_hand = _controller("left_hand")
-	right_hand = _controller("right_hand")
-	right_hand.button_pressed.connect(_on_xr_button)
-	beam = MeshInstance3D.new()
-	var mesh := CylinderMesh.new()
-	mesh.top_radius = 0.004
-	mesh.bottom_radius = 0.004
-	mesh.height = REACH
-	beam.mesh = mesh
-	beam.rotation.x = PI / 2.0
-	beam.position.z = -REACH / 2.0
-	var material := StandardMaterial3D.new()
-	material.albedo_color = Color("73f2df")
-	material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	beam.material_override = material
-	beam.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
-	right_hand.add_child(beam)
-
-
-func _controller(tracker_name: String) -> XRController3D:
-	var controller := XRController3D.new()
-	controller.tracker = tracker_name
-	controller.pose = "aim"
-	origin.add_child(controller)
-	var model := MeshInstance3D.new()
-	var mesh := SphereMesh.new()
-	mesh.radius = 0.045
-	mesh.height = 0.09
-	model.mesh = mesh
-	controller.add_child(model)
-	return controller
 
 
 func _physics_process(delta: float) -> void:
@@ -118,8 +71,8 @@ func _move_desktop(delta: float) -> void:
 	if mouse_captured and locomotion_enabled:
 		direction = Input.get_vector("museum_left", "museum_right", "museum_forward", "museum_back")
 	var movement := desktop.basis * Vector3(direction.x, 0, direction.y)
-	desktop.velocity.x = movement.x * SPEED
-	desktop.velocity.z = movement.z * SPEED
+	desktop.velocity.x = movement.x * movement_speed
+	desktop.velocity.z = movement.z * movement_speed
 	if not desktop.is_on_floor():
 		desktop.velocity.y -= 9.8 * delta
 	else:
@@ -134,7 +87,7 @@ func _move_xr(delta: float) -> void:
 		forward.y = 0
 		forward = forward.normalized()
 		var right := forward.cross(Vector3.UP)
-		var motion := (right * stick.x + forward * stick.y) * SPEED * delta
+		var motion := (right * stick.x + forward * stick.y) * movement_speed * delta
 		# Test the tracked head's floor position against scene colliders.
 		var query := PhysicsShapeQueryParameters3D.new()
 		query.shape = desktop.get_node("CollisionShape3D").shape
@@ -147,8 +100,8 @@ func _move_xr(delta: float) -> void:
 		if xr_movement_constraint.is_valid():
 			destination = xr_movement_constraint.call(destination)
 		else:
-			destination.x = clampf(destination.x, -5.3, 5.3)
-			destination.z = clampf(destination.z, -6.3, 6.3)
+			destination.x = clampf(destination.x, movement_bounds.position.x, movement_bounds.end.x)
+			destination.z = clampf(destination.z, movement_bounds.position.y, movement_bounds.end.y)
 		origin.global_position = destination
 	var turn := right_hand.get_vector2("primary").x
 	if absf(turn) < 0.3:
@@ -172,7 +125,7 @@ func _update_focus() -> void:
 		return
 	var source: Node3D = right_hand if xr_active else camera
 	var start := source.global_position
-	var query := PhysicsRayQueryParameters3D.create(start, start - source.global_basis.z * REACH, 3)
+	var query := PhysicsRayQueryParameters3D.create(start, start - source.global_basis.z * interaction_reach, 3)
 	query.collide_with_areas = true
 	query.exclude = [desktop.get_rid()]
 	var hit := get_world_3d().direct_space_state.intersect_ray(query)
@@ -235,8 +188,8 @@ func relocate(feet: Vector3, yaw: float = 0.0) -> void:
 	desktop.global_position = feet
 	desktop.global_rotation = Vector3(0, yaw, 0)
 	desktop.velocity = Vector3.ZERO
-	camera.rotation = Vector3.ZERO
-	pitch = 0.0
+	camera.rotation = camera_home_rotation
+	pitch = camera_home_rotation.x
 	if is_instance_valid(focused):
 		focused.set_focused(false)
 	focused = null
@@ -275,3 +228,8 @@ func _notification(what: int) -> void:
 	if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT and not xr_active:
 		mouse_captured = false
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+
+func fade_surface() -> StandardMaterial3D:
+	var viewer: Camera3D = head if xr_active else camera
+	return viewer.get_node("Fade").material_override
