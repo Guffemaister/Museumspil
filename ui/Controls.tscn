@@ -1,0 +1,60 @@
+[gd_scene format=3]
+
+[node name="Controls" type="CanvasLayer" unique_id=1022318699]
+
+[node name="Screen" type="Control" parent="." unique_id=309854354]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Title" type="Label" parent="Screen" unique_id=1564089150]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 25.0
+offset_right = 30.0
+offset_bottom = 25.0
+theme_override_colors/font_color = Color(0.89411765, 0.84313726, 0.7490196, 1)
+theme_override_font_sizes/font_size = 17
+text = "C I S T E R N E N"
+
+[node name="Subtitle" type="Label" parent="Screen" unique_id=1874901751]
+modulate = Color(0.72156864, 0.6745098, 0.5803922, 1)
+layout_mode = 0
+offset_left = 30.0
+offset_top = 52.0
+offset_right = 30.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 10
+text = "LYS  /  VAND  /  RUM"
+
+[node name="MovementHelp" type="Label" parent="Screen" unique_id=216951083]
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -43.0
+offset_right = 650.0
+offset_bottom = -20.0
+theme_override_colors/font_color = Color(0.8392157, 0.78431374, 0.6745098, 1)
+theme_override_font_sizes/font_size = 13
+text = "WASD  Gå     ·     MUS  Se dig omkring     ·     ESC  Slip musen     ·     R  Til start"
+
+[node name="ClickHint" type="Label" parent="Screen" unique_id=909242914]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0
+offset_top = -15.0
+offset_right = 190.0
+offset_bottom = 15.0
+theme_override_colors/font_color = Color(0.8980392, 0.8509804, 0.7764706, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 16
+text = "Klik i vinduet for at gå på opdagelse"
+horizontal_alignment = 1

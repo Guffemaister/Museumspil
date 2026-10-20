@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://environment/shaders/ripple.gdshader" id="1_jwxgo"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_jwxgo")
+shader_parameter/tint = null
+shader_parameter/speed = null
+shader_parameter/strength = null

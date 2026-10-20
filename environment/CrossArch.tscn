@@ -1,0 +1,10 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://environment/materials/arch_brick.tres" id="1_d036v"]
+[ext_resource type="ArrayMesh" path="res://environment/CrossArchMesh.res" id="2_tomga"]
+
+[node name="CrossArch" type="Node3D" unique_id=485556132]
+
+[node name="Voussoirs" type="MeshInstance3D" parent="." unique_id=1292558243]
+material_override = ExtResource("1_d036v")
+mesh = ExtResource("2_tomga")

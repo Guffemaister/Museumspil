@@ -1,0 +1,24 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://player/first_person_player.gd" id="1_2brcp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hs5cn"]
+radius = 0.24
+height = 1.75
+
+[node name="Player" type="CharacterBody3D" unique_id=458310369]
+floor_max_angle = 0.83775806
+floor_snap_length = 0.28
+script = ExtResource("1_2brcp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2075613962]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
+shape = SubResource("CapsuleShape3D_hs5cn")
+
+[node name="Head" type="Node3D" parent="." unique_id=337651170]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.66, 0)
+
+[node name="Camera" type="Camera3D" parent="Head" unique_id=1606253036]
+current = true
+fov = 72.0
+far = 100.0

@@ -1,0 +1,62 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://environment/materials/damp_brick.tres" id="1_hhef7"]
+[ext_resource type="Material" path="res://environment/materials/arch_brick.tres" id="2_dwhxa"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_h8osp"]
+size = Vector3(0.68, 2.8, 0.78)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cegrj"]
+size = Vector3(0.68, 2.8, 0.78)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5kuu0"]
+size = Vector3(0.84, 0.2, 0.94)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8iovb"]
+size = Vector3(0.84, 0.2, 0.94)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7u62k"]
+size = Vector3(0.89, 0.18, 1.04)
+
+[sub_resource type="BoxMesh" id="BoxMesh_65k1f"]
+size = Vector3(0.75, 0.1, 0.86)
+
+[node name="Pillar" type="Node3D" unique_id=882253210]
+
+[node name="Shaft" type="Node3D" parent="." unique_id=1276111590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Shaft" unique_id=148681770]
+material_override = ExtResource("1_hhef7")
+mesh = SubResource("BoxMesh_h8osp")
+
+[node name="Body" type="StaticBody3D" parent="Shaft" unique_id=1285250408]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shaft/Body" unique_id=771075387]
+shape = SubResource("BoxShape3D_cegrj")
+
+[node name="Foot" type="Node3D" parent="." unique_id=1873919764]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Foot" unique_id=1147509559]
+material_override = ExtResource("1_hhef7")
+mesh = SubResource("BoxMesh_5kuu0")
+
+[node name="Body" type="StaticBody3D" parent="Foot" unique_id=55439922]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Foot/Body" unique_id=2061596037]
+shape = SubResource("BoxShape3D_8iovb")
+
+[node name="Capital" type="Node3D" parent="." unique_id=1988912628]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.86, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Capital" unique_id=1425797446]
+material_override = ExtResource("2_dwhxa")
+mesh = SubResource("BoxMesh_7u62k")
+
+[node name="Neck" type="Node3D" parent="." unique_id=476319552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Neck" unique_id=2101128484]
+material_override = ExtResource("1_hhef7")
+mesh = SubResource("BoxMesh_65k1f")

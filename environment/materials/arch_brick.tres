@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://environment/textures/brick_albedo.png" id="1_krk7s"]
+[ext_resource type="Texture2D" path="res://environment/textures/brick_normal.png" id="2_5ks8f"]
+[ext_resource type="Texture2D" path="res://environment/textures/brick_roughness.png" id="3_arke8"]
+
+[resource]
+resource_name = "Worn arch brick"
+albedo_color = Color(1.05, 0.98, 0.79, 1)
+albedo_texture = ExtResource("1_krk7s")
+roughness = 0.68
+roughness_texture = ExtResource("3_arke8")
+normal_enabled = true
+normal_scale = 1.1
+normal_texture = ExtResource("2_5ks8f")
+uv1_scale = Vector3(0.75, 0.75, 0.75)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5

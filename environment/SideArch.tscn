@@ -1,0 +1,10 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://environment/materials/arch_brick.tres" id="1_erihj"]
+[ext_resource type="ArrayMesh" path="res://environment/SideArchMesh.res" id="2_vvgtd"]
+
+[node name="SideArch" type="Node3D" unique_id=289631581]
+
+[node name="Voussoirs" type="MeshInstance3D" parent="." unique_id=1431116480]
+material_override = ExtResource("1_erihj")
+mesh = ExtResource("2_vvgtd")

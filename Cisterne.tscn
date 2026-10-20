@@ -1,0 +1,1478 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://environment/materials/stone_floor.tres" id="1_htoq5"]
+[ext_resource type="Material" path="res://environment/materials/damp_brick.tres" id="2_srw2h"]
+[ext_resource type="PackedScene" path="res://environment/Pillar.tscn" id="3_7mo77"]
+[ext_resource type="Material" path="res://environment/materials/arch_brick.tres" id="4_afj7w"]
+[ext_resource type="PackedScene" path="res://environment/CrossArch.tscn" id="5_j5s0x"]
+[ext_resource type="PackedScene" path="res://environment/SideArch.tscn" id="7_bihn1"]
+[ext_resource type="PackedScene" path="res://environment/VaultBay.tscn" id="9_pmhck"]
+[ext_resource type="Material" path="res://environment/materials/black_iron.tres" id="12_lnhr5"]
+[ext_resource type="Material" path="res://environment/materials/warm_light.tres" id="13_whw56"]
+[ext_resource type="PackedScene" path="res://environment/Walkway.tscn" id="14_kvecb"]
+[ext_resource type="Material" path="res://environment/materials/water.tres" id="17_yk636"]
+[ext_resource type="PackedScene" path="res://environment/WaterInstallation.tscn" id="18_nrm14"]
+[ext_resource type="PackedScene" path="res://player/FirstPersonPlayer.tscn" id="22_xdf02"]
+[ext_resource type="Script" path="res://player/first_person_player.gd" id="23_gko4v"]
+[ext_resource type="PackedScene" path="res://ui/Controls.tscn" id="24_lf86n"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nwvrq"]
+size = Vector3(14.8, 0.2, 36.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lpkb0"]
+size = Vector3(14.8, 0.2, 36.6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4ghvp"]
+size = Vector3(0.4, 4.6, 36.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7t5mr"]
+size = Vector3(0.4, 4.6, 36.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wr28f"]
+size = Vector3(0.4, 4.6, 36.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_024o2"]
+size = Vector3(0.4, 4.6, 36.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_utvhx"]
+size = Vector3(14.8, 4.6, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gvyf6"]
+size = Vector3(14.8, 4.6, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_alsv1"]
+size = Vector3(14.8, 4.6, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fbf3q"]
+size = Vector3(14.8, 4.6, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a06j1"]
+size = Vector3(2.3, 3.1, 0.08)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eha5n"]
+size = Vector3(0.18, 3.2, 0.24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ovrh6"]
+size = Vector3(0.18, 3.2, 0.24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rvu6b"]
+size = Vector3(2.6, 0.18, 0.24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hdwr1"]
+size = Vector3(1.2, 0.025, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lnhr5"]
+size = Vector3(0.025, 0.018, 4.1499996)
+
+[sub_resource type="BoxMesh" id="BoxMesh_whw56"]
+size = Vector3(0.8499999, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kvecb"]
+size = Vector3(0.025, 0.018, 1.7000008)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cmiso"]
+size = Vector3(0.025, 0.018, 4.299999)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mhqrg"]
+size = Vector3(0.025, 0.018, 1.7000008)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yk636"]
+size = Vector3(0.025, 0.018, 10.299999)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nrm14"]
+size = Vector3(0.025, 0.018, 1.6999998)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dp5aa"]
+size = Vector3(0.025, 0.018, 10.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5x4fs"]
+size = Vector3(0.025, 0.018, 1.6999999)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lrxrt"]
+size = Vector3(0.025, 0.018, 0.1500001)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xdf02"]
+size = Vector3(0.8499999, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gko4v"]
+size = Vector3(0.025, 0.018, 4.1499996)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lf86n"]
+size = Vector3(0.85000014, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lpkb0"]
+size = Vector3(0.025, 0.018, 4.299999)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7t5mr"]
+size = Vector3(0.025, 0.018, 10.299999)
+
+[sub_resource type="BoxMesh" id="BoxMesh_024o2"]
+size = Vector3(0.025, 0.018, 10.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_gvyf6"]
+size = Vector3(0.025, 0.018, 0.1500001)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fbf3q"]
+size = Vector3(0.85000014, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_y8hvm"]
+size = Vector3(3.1, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h1ndf"]
+size = Vector3(3.1, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_l4cn4"]
+size = Vector3(3.1, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7dc4q"]
+size = Vector3(3.1, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ghdil"]
+size = Vector3(3.1, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8slic"]
+size = Vector3(3.1, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k5tgi"]
+size = Vector3(3.1, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dmy2c"]
+size = Vector3(3.1, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5sqo4"]
+size = Vector3(0.025, 0.018, 4.1499996)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ug44n"]
+size = Vector3(0.025, 0.018, 4.1499996)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4uise"]
+size = Vector3(1.7, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ighb4"]
+size = Vector3(0.025, 0.018, 4.299999)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ih5en"]
+size = Vector3(0.025, 0.018, 4.299999)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nssc0"]
+size = Vector3(0.025, 0.018, 10.299999)
+
+[sub_resource type="BoxMesh" id="BoxMesh_akkql"]
+size = Vector3(0.025, 0.018, 10.299999)
+
+[sub_resource type="BoxMesh" id="BoxMesh_lwxn6"]
+size = Vector3(0.025, 0.018, 10.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_h34tu"]
+size = Vector3(0.025, 0.018, 10.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1mane"]
+size = Vector3(0.025, 0.018, 0.1500001)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nbd10"]
+size = Vector3(0.025, 0.018, 0.1500001)
+
+[sub_resource type="BoxMesh" id="BoxMesh_opfcw"]
+size = Vector3(1.7, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wiyyx"]
+size = Vector3(3.1, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rxfsp"]
+size = Vector3(3.1, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4bpnb"]
+size = Vector3(3.1, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pn10c"]
+size = Vector3(3.1, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wxjf8"]
+size = Vector3(3.1, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_xamfj"]
+size = Vector3(3.1, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f26b4"]
+size = Vector3(3.1, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ty8n0"]
+size = Vector3(3.1, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yorm4"]
+size = Vector3(0.025, 0.018, 4.1499996)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wepst"]
+size = Vector3(0.85000014, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8c80o"]
+size = Vector3(0.025, 0.018, 4.299999)
+
+[sub_resource type="BoxMesh" id="BoxMesh_afdwy"]
+size = Vector3(0.025, 0.018, 10.299999)
+
+[sub_resource type="BoxMesh" id="BoxMesh_unc7g"]
+size = Vector3(0.025, 0.018, 10.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_eeeoj"]
+size = Vector3(0.025, 0.018, 0.1500001)
+
+[sub_resource type="BoxMesh" id="BoxMesh_r0maf"]
+size = Vector3(0.85000014, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0q8j7"]
+size = Vector3(0.025, 0.018, 4.1499996)
+
+[sub_resource type="BoxMesh" id="BoxMesh_2nb1c"]
+size = Vector3(0.8499999, 0.018, 0.025)
+
+[sub_resource type="BoxMesh" id="BoxMesh_qo4dn"]
+size = Vector3(0.025, 0.018, 1.7000008)
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4h56"]
+size = Vector3(0.025, 0.018, 4.299999)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hpuq7"]
+size = Vector3(0.025, 0.018, 1.7000008)
+
+[sub_resource type="BoxMesh" id="BoxMesh_68vt3"]
+size = Vector3(0.025, 0.018, 10.299999)
+
+[sub_resource type="BoxMesh" id="BoxMesh_obet4"]
+size = Vector3(0.025, 0.018, 1.6999998)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4qbcj"]
+size = Vector3(0.025, 0.018, 10.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tf8s6"]
+size = Vector3(0.025, 0.018, 1.6999999)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wu7f0"]
+size = Vector3(0.025, 0.018, 0.1500001)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bk81t"]
+size = Vector3(0.8499999, 0.018, 0.025)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_y8hvm"]
+size = Vector2(14.3, 36.4)
+
+[sub_resource type="Environment" id="Environment_h1ndf"]
+background_mode = 1
+background_color = Color(0.02745098, 0.043137256, 0.05882353, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.6156863, 0.67058825, 0.6901961, 1)
+ambient_light_energy = 0.22
+tonemap_mode = 2
+tonemap_exposure = 1.12
+ssr_enabled = true
+ssr_max_steps = 48
+ssao_enabled = true
+ssao_radius = 0.7
+glow_enabled = true
+glow_intensity = 0.55
+glow_bloom = 0.12
+fog_enabled = true
+fog_light_color = Color(0.20392157, 0.19215687, 0.16862746, 1)
+fog_light_energy = 0.45
+fog_density = 0.007
+
+[node name="Cisterne" type="Node3D" unique_id=562010026]
+
+[node name="Architecture" type="Node3D" parent="." unique_id=966197961]
+
+[node name="Structure" type="Node3D" parent="Architecture" unique_id=177070379]
+
+[node name="BasinFloor" type="Node3D" parent="Architecture/Structure" unique_id=1557229185]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -15)
+
+[node name="Mesh" type="MeshInstance3D" parent="Architecture/Structure/BasinFloor" unique_id=1533241893]
+material_override = ExtResource("1_htoq5")
+mesh = SubResource("BoxMesh_nwvrq")
+
+[node name="Body" type="StaticBody3D" parent="Architecture/Structure/BasinFloor" unique_id=1027234178]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Architecture/Structure/BasinFloor/Body" unique_id=1680137465]
+shape = SubResource("BoxShape3D_lpkb0")
+
+[node name="LeftWall" type="Node3D" parent="Architecture/Structure" unique_id=95392810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.42, 2.05, -15)
+
+[node name="Mesh" type="MeshInstance3D" parent="Architecture/Structure/LeftWall" unique_id=1044620083]
+material_override = ExtResource("2_srw2h")
+mesh = SubResource("BoxMesh_4ghvp")
+
+[node name="Body" type="StaticBody3D" parent="Architecture/Structure/LeftWall" unique_id=93068511]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Architecture/Structure/LeftWall/Body" unique_id=243106479]
+shape = SubResource("BoxShape3D_7t5mr")
+
+[node name="RightWall" type="Node3D" parent="Architecture/Structure" unique_id=938409634]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.42, 2.05, -15)
+
+[node name="Mesh" type="MeshInstance3D" parent="Architecture/Structure/RightWall" unique_id=629394766]
+material_override = ExtResource("2_srw2h")
+mesh = SubResource("BoxMesh_wr28f")
+
+[node name="Body" type="StaticBody3D" parent="Architecture/Structure/RightWall" unique_id=1170541529]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Architecture/Structure/RightWall/Body" unique_id=524680657]
+shape = SubResource("BoxShape3D_024o2")
+
+[node name="EntranceWall" type="Node3D" parent="Architecture/Structure" unique_id=1791582607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05, 3.34)
+
+[node name="Mesh" type="MeshInstance3D" parent="Architecture/Structure/EntranceWall" unique_id=1978003182]
+material_override = ExtResource("2_srw2h")
+mesh = SubResource("BoxMesh_utvhx")
+
+[node name="Body" type="StaticBody3D" parent="Architecture/Structure/EntranceWall" unique_id=175920097]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Architecture/Structure/EntranceWall/Body" unique_id=427387215]
+shape = SubResource("BoxShape3D_gvyf6")
+
+[node name="FarWall" type="Node3D" parent="Architecture/Structure" unique_id=1654784333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05, -33.34)
+
+[node name="Mesh" type="MeshInstance3D" parent="Architecture/Structure/FarWall" unique_id=686863093]
+material_override = ExtResource("2_srw2h")
+mesh = SubResource("BoxMesh_alsv1")
+
+[node name="Body" type="StaticBody3D" parent="Architecture/Structure/FarWall" unique_id=1011830575]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Architecture/Structure/FarWall/Body" unique_id=2006509888]
+shape = SubResource("BoxShape3D_fbf3q")
+
+[node name="Pillars" type="Node3D" parent="Architecture" unique_id=1202878313]
+
+[node name="Pillar_1_1" parent="Architecture/Pillars" unique_id=882253210 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 0, 3)
+
+[node name="Pillar_1_2" parent="Architecture/Pillars" unique_id=320485238 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0, 3)
+
+[node name="Pillar_1_3" parent="Architecture/Pillars" unique_id=1753442559 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0, 3)
+
+[node name="Pillar_1_4" parent="Architecture/Pillars" unique_id=1907473133 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2, 0, 3)
+
+[node name="Pillar_2_1" parent="Architecture/Pillars" unique_id=998861406 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 0, -3)
+
+[node name="Pillar_2_2" parent="Architecture/Pillars" unique_id=1982250821 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0, -3)
+
+[node name="Pillar_2_3" parent="Architecture/Pillars" unique_id=872268141 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0, -3)
+
+[node name="Pillar_2_4" parent="Architecture/Pillars" unique_id=1610667386 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2, 0, -3)
+
+[node name="Pillar_3_1" parent="Architecture/Pillars" unique_id=587356513 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 0, -9)
+
+[node name="Pillar_3_2" parent="Architecture/Pillars" unique_id=1748454405 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0, -9)
+
+[node name="Pillar_3_3" parent="Architecture/Pillars" unique_id=1181733985 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0, -9)
+
+[node name="Pillar_3_4" parent="Architecture/Pillars" unique_id=687828631 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2, 0, -9)
+
+[node name="Pillar_4_1" parent="Architecture/Pillars" unique_id=480790780 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 0, -15)
+
+[node name="Pillar_4_2" parent="Architecture/Pillars" unique_id=1398733054 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0, -15)
+
+[node name="Pillar_4_3" parent="Architecture/Pillars" unique_id=2007940256 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0, -15)
+
+[node name="Pillar_4_4" parent="Architecture/Pillars" unique_id=581248123 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2, 0, -15)
+
+[node name="Pillar_5_1" parent="Architecture/Pillars" unique_id=404570414 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 0, -21)
+
+[node name="Pillar_5_2" parent="Architecture/Pillars" unique_id=1325070775 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0, -21)
+
+[node name="Pillar_5_3" parent="Architecture/Pillars" unique_id=1479515558 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0, -21)
+
+[node name="Pillar_5_4" parent="Architecture/Pillars" unique_id=287940662 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2, 0, -21)
+
+[node name="Pillar_6_1" parent="Architecture/Pillars" unique_id=1924278294 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 0, -27)
+
+[node name="Pillar_6_2" parent="Architecture/Pillars" unique_id=332338230 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0, -27)
+
+[node name="Pillar_6_3" parent="Architecture/Pillars" unique_id=1386031792 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0, -27)
+
+[node name="Pillar_6_4" parent="Architecture/Pillars" unique_id=1872187739 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2, 0, -27)
+
+[node name="Pillar_7_1" parent="Architecture/Pillars" unique_id=431132028 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2, 0, -33)
+
+[node name="Pillar_7_2" parent="Architecture/Pillars" unique_id=22349802 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0, -33)
+
+[node name="Pillar_7_3" parent="Architecture/Pillars" unique_id=971232972 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0, -33)
+
+[node name="Pillar_7_4" parent="Architecture/Pillars" unique_id=598267230 instance=ExtResource("3_7mo77")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.2, 0, -33)
+
+[node name="Arches" type="Node3D" parent="Architecture" unique_id=158830464]
+
+[node name="CrossArch_1_1" parent="Architecture/Arches" unique_id=485556132 instance=ExtResource("5_j5s0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 2.9, 3)
+
+[node name="CrossArch_1_2" parent="Architecture/Arches" unique_id=1983975875 instance=ExtResource("5_j5s0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, 3)
+
+[node name="CrossArch_1_3" parent="Architecture/Arches" unique_id=1941910985 instance=ExtResource("5_j5s0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 2.9, 3)
+
+[node name="SideArch_1_1" parent="Architecture/Arches" unique_id=289631581 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.2, 2.9, 0)
+
+[node name="SideArch_1_2" parent="Architecture/Arches" unique_id=1174168246 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.4, 2.9, 0)
+
+[node name="SideArch_1_3" parent="Architecture/Arches" unique_id=254064265 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.4, 2.9, 0)
+
+[node name="SideArch_1_4" parent="Architecture/Arches" unique_id=1243045648 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.2, 2.9, 0)
+
+[node name="CrossArch_2_1" parent="Architecture/Arches" unique_id=986460865 instance=ExtResource("5_j5s0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 2.9, -3)
+
+[node name="CrossArch_2_2" parent="Architecture/Arches" unique_id=2087222047 instance=ExtResource("5_j5s0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, -3)
+
+[node name="CrossArch_2_3" parent="Architecture/Arches" unique_id=500854789 instance=ExtResource("5_j5s0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 2.9, -3)
+
+[node name="SideArch_2_1" parent="Architecture/Arches" unique_id=402157137 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.2, 2.9, -6)
+
+[node name="SideArch_2_2" parent="Architecture/Arches" unique_id=2036579593 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.4, 2.9, -6)
+
+[node name="SideArch_2_3" parent="Architecture/Arches" unique_id=1417779344 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.4, 2.9, -6)
+
+[node name="SideArch_2_4" parent="Architecture/Arches" unique_id=1493920162 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.2, 2.9, -6)
+
+[node name="CrossArch_3_1" parent="Architecture/Arches" unique_id=2051514744 instance=ExtResource("5_j5s0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 2.9, -9)
+
+[node name="CrossArch_3_2" parent="Architecture/Arches" unique_id=1499091870 instance=ExtResource("5_j5s0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, -9)
+
+[node name="CrossArch_3_3" parent="Architecture/Arches" unique_id=271356429 instance=ExtResource("5_j5s0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 2.9, -9)
+
+[node name="SideArch_3_1" parent="Architecture/Arches" unique_id=904700222 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.2, 2.9, -12)
+
+[node name="SideArch_3_2" parent="Architecture/Arches" unique_id=959803999 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.4, 2.9, -12)
+
+[node name="SideArch_3_3" parent="Architecture/Arches" unique_id=1760223457 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.4, 2.9, -12)
+
+[node name="SideArch_3_4" parent="Architecture/Arches" unique_id=1665225537 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.2, 2.9, -12)
+
+[node name="CrossArch_4_1" parent="Architecture/Arches" unique_id=916020962 instance=ExtResource("5_j5s0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 2.9, -15)
+
+[node name="CrossArch_4_2" parent="Architecture/Arches" unique_id=1277848671 instance=ExtResource("5_j5s0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, -15)
+
+[node name="CrossArch_4_3" parent="Architecture/Arches" unique_id=93241861 instance=ExtResource("5_j5s0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 2.9, -15)
+
+[node name="SideArch_4_1" parent="Architecture/Arches" unique_id=1244400352 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.2, 2.9, -18)
+
+[node name="SideArch_4_2" parent="Architecture/Arches" unique_id=94653680 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.4, 2.9, -18)
+
+[node name="SideArch_4_3" parent="Architecture/Arches" unique_id=1979825898 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.4, 2.9, -18)
+
+[node name="SideArch_4_4" parent="Architecture/Arches" unique_id=1856143300 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.2, 2.9, -18)
+
+[node name="CrossArch_5_1" parent="Architecture/Arches" unique_id=886394768 instance=ExtResource("5_j5s0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 2.9, -21)
+
+[node name="CrossArch_5_2" parent="Architecture/Arches" unique_id=1853310191 instance=ExtResource("5_j5s0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, -21)
+
+[node name="CrossArch_5_3" parent="Architecture/Arches" unique_id=681379465 instance=ExtResource("5_j5s0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 2.9, -21)
+
+[node name="SideArch_5_1" parent="Architecture/Arches" unique_id=236138699 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.2, 2.9, -24)
+
+[node name="SideArch_5_2" parent="Architecture/Arches" unique_id=858563554 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.4, 2.9, -24)
+
+[node name="SideArch_5_3" parent="Architecture/Arches" unique_id=126829168 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.4, 2.9, -24)
+
+[node name="SideArch_5_4" parent="Architecture/Arches" unique_id=571581723 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.2, 2.9, -24)
+
+[node name="CrossArch_6_1" parent="Architecture/Arches" unique_id=765001772 instance=ExtResource("5_j5s0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 2.9, -27)
+
+[node name="CrossArch_6_2" parent="Architecture/Arches" unique_id=1630542491 instance=ExtResource("5_j5s0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, -27)
+
+[node name="CrossArch_6_3" parent="Architecture/Arches" unique_id=19581039 instance=ExtResource("5_j5s0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 2.9, -27)
+
+[node name="SideArch_6_1" parent="Architecture/Arches" unique_id=1692126961 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -7.2, 2.9, -30)
+
+[node name="SideArch_6_2" parent="Architecture/Arches" unique_id=281481629 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.4, 2.9, -30)
+
+[node name="SideArch_6_3" parent="Architecture/Arches" unique_id=1880193992 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.4, 2.9, -30)
+
+[node name="SideArch_6_4" parent="Architecture/Arches" unique_id=997058313 instance=ExtResource("7_bihn1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 7.2, 2.9, -30)
+
+[node name="CrossArch_7_1" parent="Architecture/Arches" unique_id=1126429777 instance=ExtResource("5_j5s0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 2.9, -33)
+
+[node name="CrossArch_7_2" parent="Architecture/Arches" unique_id=1095038925 instance=ExtResource("5_j5s0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, -33)
+
+[node name="CrossArch_7_3" parent="Architecture/Arches" unique_id=1316449320 instance=ExtResource("5_j5s0x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 2.9, -33)
+
+[node name="Vaults" type="Node3D" parent="Architecture" unique_id=732008938]
+
+[node name="Vault_1_1" parent="Architecture/Vaults" unique_id=570398576 instance=ExtResource("9_pmhck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 2.9, 3)
+
+[node name="Vault_1_2" parent="Architecture/Vaults" unique_id=2099542421 instance=ExtResource("9_pmhck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, 3)
+
+[node name="Vault_1_3" parent="Architecture/Vaults" unique_id=1944459886 instance=ExtResource("9_pmhck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 2.9, 3)
+
+[node name="Vault_2_1" parent="Architecture/Vaults" unique_id=1152083477 instance=ExtResource("9_pmhck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 2.9, -3)
+
+[node name="Vault_2_2" parent="Architecture/Vaults" unique_id=1048048045 instance=ExtResource("9_pmhck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, -3)
+
+[node name="Vault_2_3" parent="Architecture/Vaults" unique_id=674723220 instance=ExtResource("9_pmhck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 2.9, -3)
+
+[node name="Vault_3_1" parent="Architecture/Vaults" unique_id=1365108376 instance=ExtResource("9_pmhck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 2.9, -9)
+
+[node name="Vault_3_2" parent="Architecture/Vaults" unique_id=1836483000 instance=ExtResource("9_pmhck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, -9)
+
+[node name="Vault_3_3" parent="Architecture/Vaults" unique_id=677283564 instance=ExtResource("9_pmhck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 2.9, -9)
+
+[node name="Vault_4_1" parent="Architecture/Vaults" unique_id=1254583942 instance=ExtResource("9_pmhck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 2.9, -15)
+
+[node name="Vault_4_2" parent="Architecture/Vaults" unique_id=432936990 instance=ExtResource("9_pmhck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, -15)
+
+[node name="Vault_4_3" parent="Architecture/Vaults" unique_id=1478953122 instance=ExtResource("9_pmhck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 2.9, -15)
+
+[node name="Vault_5_1" parent="Architecture/Vaults" unique_id=1626499550 instance=ExtResource("9_pmhck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 2.9, -21)
+
+[node name="Vault_5_2" parent="Architecture/Vaults" unique_id=482718745 instance=ExtResource("9_pmhck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, -21)
+
+[node name="Vault_5_3" parent="Architecture/Vaults" unique_id=274979239 instance=ExtResource("9_pmhck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 2.9, -21)
+
+[node name="Vault_6_1" parent="Architecture/Vaults" unique_id=1626508000 instance=ExtResource("9_pmhck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 2.9, -27)
+
+[node name="Vault_6_2" parent="Architecture/Vaults" unique_id=1489130925 instance=ExtResource("9_pmhck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9, -27)
+
+[node name="Vault_6_3" parent="Architecture/Vaults" unique_id=1297043414 instance=ExtResource("9_pmhck")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 2.9, -27)
+
+[node name="FarRecess" type="Node3D" parent="Architecture" unique_id=152428306]
+
+[node name="DarkPanel" type="Node3D" parent="Architecture/FarRecess" unique_id=721252693]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.55, -33.15)
+
+[node name="Mesh" type="MeshInstance3D" parent="Architecture/FarRecess/DarkPanel" unique_id=1263063230]
+material_override = ExtResource("12_lnhr5")
+mesh = SubResource("BoxMesh_a06j1")
+
+[node name="LeftJamb" type="Node3D" parent="Architecture/FarRecess" unique_id=1163739303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.22, 1.6, -33.08)
+
+[node name="Mesh" type="MeshInstance3D" parent="Architecture/FarRecess/LeftJamb" unique_id=108894130]
+material_override = ExtResource("4_afj7w")
+mesh = SubResource("BoxMesh_eha5n")
+
+[node name="RightJamb" type="Node3D" parent="Architecture/FarRecess" unique_id=335956671]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.22, 1.6, -33.08)
+
+[node name="Mesh" type="MeshInstance3D" parent="Architecture/FarRecess/RightJamb" unique_id=1388861785]
+material_override = ExtResource("4_afj7w")
+mesh = SubResource("BoxMesh_ovrh6")
+
+[node name="Lintel" type="Node3D" parent="Architecture/FarRecess" unique_id=1526632127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.19, -33.08)
+
+[node name="Mesh" type="MeshInstance3D" parent="Architecture/FarRecess/Lintel" unique_id=1377563826]
+material_override = ExtResource("4_afj7w")
+mesh = SubResource("BoxMesh_rvu6b")
+
+[node name="RecessLight" type="Node3D" parent="Architecture/FarRecess" unique_id=1154071155]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.85, -33)
+
+[node name="Mesh" type="MeshInstance3D" parent="Architecture/FarRecess/RecessLight" unique_id=1794096855]
+material_override = ExtResource("13_whw56")
+mesh = SubResource("BoxMesh_hdwr1")
+
+[node name="WarmEndLight" type="OmniLight3D" parent="Architecture/FarRecess" unique_id=1086005199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, -32.7)
+light_color = Color(1, 0.7764706, 0.5176471, 1)
+light_energy = 0.75
+light_specular = 1.0
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_range = 4.0
+omni_attenuation = 1.35
+
+[node name="Walkways" type="Node3D" parent="." unique_id=1131630411]
+
+[node name="LeftAisle" type="Node3D" parent="Walkways" unique_id=1717456549]
+
+[node name="Section01" parent="Walkways/LeftAisle" unique_id=932587452 instance=ExtResource("14_kvecb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 0, 3)
+
+[node name="Section02" parent="Walkways/LeftAisle" unique_id=1244046718 instance=ExtResource("14_kvecb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 0, -3)
+
+[node name="Section03" parent="Walkways/LeftAisle" unique_id=2000468327 instance=ExtResource("14_kvecb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 0, -9)
+
+[node name="Section04" parent="Walkways/LeftAisle" unique_id=949277277 instance=ExtResource("14_kvecb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 0, -15)
+
+[node name="Section05" parent="Walkways/LeftAisle" unique_id=255156299 instance=ExtResource("14_kvecb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 0, -21)
+
+[node name="Section06" parent="Walkways/LeftAisle" unique_id=1739329818 instance=ExtResource("14_kvecb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 0, -27)
+
+[node name="CentralAisle" type="Node3D" parent="Walkways" unique_id=347842397]
+
+[node name="Section01" parent="Walkways/CentralAisle" unique_id=576654096 instance=ExtResource("14_kvecb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+
+[node name="Section02" parent="Walkways/CentralAisle" unique_id=92592556 instance=ExtResource("14_kvecb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="Section03" parent="Walkways/CentralAisle" unique_id=1960796218 instance=ExtResource("14_kvecb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9)
+
+[node name="Section04" parent="Walkways/CentralAisle" unique_id=452434253 instance=ExtResource("14_kvecb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -15)
+
+[node name="Section05" parent="Walkways/CentralAisle" unique_id=448709044 instance=ExtResource("14_kvecb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -21)
+
+[node name="Section06" parent="Walkways/CentralAisle" unique_id=1978705707 instance=ExtResource("14_kvecb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -27)
+
+[node name="RightAisle" type="Node3D" parent="Walkways" unique_id=1531758753]
+
+[node name="Section01" parent="Walkways/RightAisle" unique_id=361201400 instance=ExtResource("14_kvecb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 0, 3)
+
+[node name="Section02" parent="Walkways/RightAisle" unique_id=448981034 instance=ExtResource("14_kvecb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 0, -3)
+
+[node name="Section03" parent="Walkways/RightAisle" unique_id=1761833890 instance=ExtResource("14_kvecb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 0, -9)
+
+[node name="Section04" parent="Walkways/RightAisle" unique_id=943668986 instance=ExtResource("14_kvecb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 0, -15)
+
+[node name="Section05" parent="Walkways/RightAisle" unique_id=162932260 instance=ExtResource("14_kvecb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 0, -21)
+
+[node name="Section06" parent="Walkways/RightAisle" unique_id=895899057 instance=ExtResource("14_kvecb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 0, -27)
+
+[node name="Crossings" type="Node3D" parent="Walkways" unique_id=993514996]
+
+[node name="Crossing_1_Left" parent="Walkways/Crossings" unique_id=1265091525 instance=ExtResource("14_kvecb")]
+transform = Transform3D(-4.371139e-08, 0, 0.8, 0, 1, 0, -1, 0, -3.4969112e-08, 0, 0, 2)
+
+[node name="Crossing_1_Right" parent="Walkways/Crossings" unique_id=423282846 instance=ExtResource("14_kvecb")]
+transform = Transform3D(-4.371139e-08, 0, -0.8, 0, 1, 0, 1, 0, -3.4969112e-08, 0, 0, 2)
+
+[node name="Crossing_3_Left" parent="Walkways/Crossings" unique_id=676631044 instance=ExtResource("14_kvecb")]
+transform = Transform3D(-4.371139e-08, 0, 0.8, 0, 1, 0, -1, 0, -3.4969112e-08, 0, 0, -10)
+
+[node name="Crossing_3_Right" parent="Walkways/Crossings" unique_id=937759930 instance=ExtResource("14_kvecb")]
+transform = Transform3D(-4.371139e-08, 0, -0.8, 0, 1, 0, 1, 0, -3.4969112e-08, 0, 0, -10)
+
+[node name="Crossing_5_Left" parent="Walkways/Crossings" unique_id=440864725 instance=ExtResource("14_kvecb")]
+transform = Transform3D(-4.371139e-08, 0, 0.8, 0, 1, 0, -1, 0, -3.4969112e-08, 0, 0, -22)
+
+[node name="Crossing_5_Right" parent="Walkways/Crossings" unique_id=1591716593 instance=ExtResource("14_kvecb")]
+transform = Transform3D(-4.371139e-08, 0, -0.8, 0, 1, 0, 1, 0, -3.4969112e-08, 0, 0, -22)
+
+[node name="Crossing_6_Left" parent="Walkways/Crossings" unique_id=1951608599 instance=ExtResource("14_kvecb")]
+transform = Transform3D(-4.371139e-08, 0, 0.8, 0, 1, 0, -1, 0, -3.4969112e-08, 0, 0, -28)
+
+[node name="Crossing_6_Right" parent="Walkways/Crossings" unique_id=1738964810 instance=ExtResource("14_kvecb")]
+transform = Transform3D(-4.371139e-08, 0, -0.8, 0, 1, 0, 1, 0, -3.4969112e-08, 0, 0, -28)
+
+[node name="LightBorders" type="Node3D" parent="Walkways" unique_id=2144173529]
+
+[node name="Edge001" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1650183288]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65, 0.15, -30.925)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_lnhr5")
+
+[node name="Edge002" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1784752950]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2250004, 0.15, -33)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_whw56")
+
+[node name="Edge003" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=925342960]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65, 0.15, -28)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_kvecb")
+
+[node name="Edge004" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1990167057]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65, 0.15, -25)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_cmiso")
+
+[node name="Edge005" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1672773907]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65, 0.15, -22)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_mhqrg")
+
+[node name="Edge006" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=209688217]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65, 0.15, -16)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_yk636")
+
+[node name="Edge007" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1139104090]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65, 0.15, -10)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_nrm14")
+
+[node name="Edge008" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=738142434]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65, 0.15, -4.0000005)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_dp5aa")
+
+[node name="Edge009" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=563589613]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65, 0.15, 2)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_5x4fs")
+
+[node name="Edge010" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1017569728]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.65, 0.15, 2.925)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_lrxrt")
+
+[node name="Edge011" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1072157757]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.2250004, 0.15, 3)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_xdf02")
+
+[node name="Edge012" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=351362700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.95, 0.15, -30.925)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_gko4v")
+
+[node name="Edge013" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=204780418]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.375, 0.15, -33)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_lf86n")
+
+[node name="Edge014" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=2062227356]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.95, 0.15, -25)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_lpkb0")
+
+[node name="Edge015" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=752358315]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.95, 0.15, -16)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_7t5mr")
+
+[node name="Edge016" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1805118397]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.95, 0.15, -4.0000005)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_024o2")
+
+[node name="Edge017" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=414607126]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.95, 0.15, 2.925)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_gvyf6")
+
+[node name="Edge018" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=491745836]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.375, 0.15, 3)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_fbf3q")
+
+[node name="Edge019" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1361582848]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0.15, -28.85)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_y8hvm")
+
+[node name="Edge020" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1911341886]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0.15, -27.15)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_h1ndf")
+
+[node name="Edge021" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1215931212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0.15, -22.85)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_l4cn4")
+
+[node name="Edge022" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1034594167]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0.15, -21.15)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_7dc4q")
+
+[node name="Edge023" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1176494716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0.15, -10.85)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ghdil")
+
+[node name="Edge024" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1172632419]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0.15, -9.150001)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_8slic")
+
+[node name="Edge025" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1077403358]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0.15, 1.15)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_k5tgi")
+
+[node name="Edge026" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1094891770]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4, 0.15, 2.85)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_dmy2c")
+
+[node name="Edge027" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1512857927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 0.15, -30.925)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_5sqo4")
+
+[node name="Edge028" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1840257140]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85, 0.15, -30.925)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ug44n")
+
+[node name="Edge029" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=654557883]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, -33)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_4uise")
+
+[node name="Edge030" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1975413856]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 0.15, -25)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ighb4")
+
+[node name="Edge031" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1427542939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85, 0.15, -25)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ih5en")
+
+[node name="Edge032" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1686566259]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 0.15, -16)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_nssc0")
+
+[node name="Edge033" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=579761083]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85, 0.15, -16)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_akkql")
+
+[node name="Edge034" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=94695408]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 0.15, -4.0000005)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_lwxn6")
+
+[node name="Edge035" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1727123732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85, 0.15, -4.0000005)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_h34tu")
+
+[node name="Edge036" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=463632044]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 0.15, 2.925)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_1mane")
+
+[node name="Edge037" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=585218323]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85, 0.15, 2.925)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_nbd10")
+
+[node name="Edge038" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=654581521]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15, 3)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_opfcw")
+
+[node name="Edge039" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=886626609]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0.15, -28.85)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_wiyyx")
+
+[node name="Edge040" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=895131811]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0.15, -27.15)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_rxfsp")
+
+[node name="Edge041" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1674441164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0.15, -22.85)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_4bpnb")
+
+[node name="Edge042" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1404593275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0.15, -21.15)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_pn10c")
+
+[node name="Edge043" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=792382905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0.15, -10.85)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_wxjf8")
+
+[node name="Edge044" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=492206637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0.15, -9.150001)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_xamfj")
+
+[node name="Edge045" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1452299570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0.15, 1.15)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_f26b4")
+
+[node name="Edge046" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1498186148]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4, 0.15, 2.85)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_ty8n0")
+
+[node name="Edge047" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1466343889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.95, 0.15, -30.925)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_yorm4")
+
+[node name="Edge048" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=596825257]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.375, 0.15, -33)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_wepst")
+
+[node name="Edge049" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=321384013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.95, 0.15, -25)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_8c80o")
+
+[node name="Edge050" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1458869487]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.95, 0.15, -16)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_afdwy")
+
+[node name="Edge051" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1548228369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.95, 0.15, -4.0000005)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_unc7g")
+
+[node name="Edge052" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=62345395]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.95, 0.15, 2.925)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_eeeoj")
+
+[node name="Edge053" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=2000406377]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.375, 0.15, 3)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_r0maf")
+
+[node name="Edge054" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1486729217]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65, 0.15, -30.925)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_0q8j7")
+
+[node name="Edge055" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=981448384]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2250004, 0.15, -33)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_2nb1c")
+
+[node name="Edge056" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=571269267]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65, 0.15, -28)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_qo4dn")
+
+[node name="Edge057" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1237805089]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65, 0.15, -25)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_g4h56")
+
+[node name="Edge058" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1414091700]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65, 0.15, -22)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_hpuq7")
+
+[node name="Edge059" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=736172047]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65, 0.15, -16)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_68vt3")
+
+[node name="Edge060" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=850996915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65, 0.15, -10)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_obet4")
+
+[node name="Edge061" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1307896035]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65, 0.15, -4.0000005)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_4qbcj")
+
+[node name="Edge062" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=2096391380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65, 0.15, 2)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_tf8s6")
+
+[node name="Edge063" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=570905156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.65, 0.15, 2.925)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_wu7f0")
+
+[node name="Edge064" type="MeshInstance3D" parent="Walkways/LightBorders" unique_id=1049406284]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2250004, 0.15, 3)
+material_override = ExtResource("13_whw56")
+cast_shadow = 0
+mesh = SubResource("BoxMesh_bk81t")
+
+[node name="Water" type="Node3D" parent="." unique_id=1404151650]
+
+[node name="ReflectiveSurface" type="MeshInstance3D" parent="Water" unique_id=1512205234]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.045, -15)
+layers = 2
+material_override = ExtResource("17_yk636")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_y8hvm")
+
+[node name="WaterInstallations" type="Node3D" parent="." unique_id=1560379289]
+
+[node name="Installation1" parent="WaterInstallations" unique_id=1614110871 instance=ExtResource("18_nrm14")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9, 0, -7)
+
+[node name="Installation2" parent="WaterInstallations" unique_id=560985804 instance=ExtResource("18_nrm14")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9, 0, -17)
+
+[node name="Installation3" parent="WaterInstallations" unique_id=1626677911 instance=ExtResource("18_nrm14")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.9, 0, -25)
+
+[node name="Installation4" parent="WaterInstallations" unique_id=1426570595 instance=ExtResource("18_nrm14")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9, 0, -3.8)
+
+[node name="Lighting" type="Node3D" parent="." unique_id=388049301]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Lighting" unique_id=105391660]
+environment = SubResource("Environment_h1ndf")
+
+[node name="WaterReflections" type="ReflectionProbe" parent="Lighting" unique_id=1870206006]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -15)
+intensity = 0.9
+size = Vector3(14.5, 7, 37)
+box_projection = true
+interior = true
+cull_mask = 1
+
+[node name="VaultWash_1_1" type="OmniLight3D" parent="Lighting" unique_id=285593349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 2.1, 0)
+light_color = Color(1, 0.7529412, 0.47058824, 1)
+light_energy = 0.55
+light_specular = 0.3
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_attenuation = 1.35
+
+[node name="VaultWash_1_2" type="OmniLight3D" parent="Lighting" unique_id=1718115499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, 0)
+light_color = Color(1, 0.7529412, 0.47058824, 1)
+light_energy = 0.55
+light_specular = 0.3
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_attenuation = 1.35
+
+[node name="VaultWash_1_3" type="OmniLight3D" parent="Lighting" unique_id=52326705]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 2.1, 0)
+light_color = Color(1, 0.7529412, 0.47058824, 1)
+light_energy = 0.55
+light_specular = 0.3
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_attenuation = 1.35
+
+[node name="VaultWash_2_1" type="OmniLight3D" parent="Lighting" unique_id=162601267]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 2.1, -6)
+light_color = Color(1, 0.7529412, 0.47058824, 1)
+light_energy = 0.55
+light_specular = 0.3
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_attenuation = 1.35
+
+[node name="VaultWash_2_2" type="OmniLight3D" parent="Lighting" unique_id=1304702534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, -6)
+light_color = Color(1, 0.7529412, 0.47058824, 1)
+light_energy = 0.55
+light_specular = 0.3
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_attenuation = 1.35
+
+[node name="VaultWash_2_3" type="OmniLight3D" parent="Lighting" unique_id=561178914]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 2.1, -6)
+light_color = Color(1, 0.7529412, 0.47058824, 1)
+light_energy = 0.55
+light_specular = 0.3
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_attenuation = 1.35
+
+[node name="VaultWash_3_1" type="OmniLight3D" parent="Lighting" unique_id=940913350]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 2.1, -12)
+light_color = Color(1, 0.7529412, 0.47058824, 1)
+light_energy = 0.55
+light_specular = 0.3
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_attenuation = 1.35
+
+[node name="VaultWash_3_2" type="OmniLight3D" parent="Lighting" unique_id=1163528187]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, -12)
+light_color = Color(1, 0.7529412, 0.47058824, 1)
+light_energy = 0.55
+light_specular = 0.3
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_attenuation = 1.35
+
+[node name="VaultWash_3_3" type="OmniLight3D" parent="Lighting" unique_id=480768946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 2.1, -12)
+light_color = Color(1, 0.7529412, 0.47058824, 1)
+light_energy = 0.55
+light_specular = 0.3
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_attenuation = 1.35
+
+[node name="VaultWash_4_1" type="OmniLight3D" parent="Lighting" unique_id=279881388]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 2.1, -18)
+light_color = Color(1, 0.7529412, 0.47058824, 1)
+light_energy = 0.55
+light_specular = 0.3
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_attenuation = 1.35
+
+[node name="VaultWash_4_2" type="OmniLight3D" parent="Lighting" unique_id=1673230916]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, -18)
+light_color = Color(1, 0.7529412, 0.47058824, 1)
+light_energy = 0.55
+light_specular = 0.3
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_attenuation = 1.35
+
+[node name="VaultWash_4_3" type="OmniLight3D" parent="Lighting" unique_id=1000775478]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 2.1, -18)
+light_color = Color(1, 0.7529412, 0.47058824, 1)
+light_energy = 0.55
+light_specular = 0.3
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_attenuation = 1.35
+
+[node name="VaultWash_5_1" type="OmniLight3D" parent="Lighting" unique_id=1024938828]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 2.1, -24)
+light_color = Color(1, 0.7529412, 0.47058824, 1)
+light_energy = 0.55
+light_specular = 0.3
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_attenuation = 1.35
+
+[node name="VaultWash_5_2" type="OmniLight3D" parent="Lighting" unique_id=1178638108]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, -24)
+light_color = Color(1, 0.7529412, 0.47058824, 1)
+light_energy = 0.55
+light_specular = 0.3
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_attenuation = 1.35
+
+[node name="VaultWash_5_3" type="OmniLight3D" parent="Lighting" unique_id=1533132204]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 2.1, -24)
+light_color = Color(1, 0.7529412, 0.47058824, 1)
+light_energy = 0.55
+light_specular = 0.3
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_attenuation = 1.35
+
+[node name="VaultWash_6_1" type="OmniLight3D" parent="Lighting" unique_id=293856784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8, 2.1, -30)
+light_color = Color(1, 0.7529412, 0.47058824, 1)
+light_energy = 0.55
+light_specular = 0.3
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_attenuation = 1.35
+
+[node name="VaultWash_6_2" type="OmniLight3D" parent="Lighting" unique_id=435089638]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1, -30)
+light_color = Color(1, 0.7529412, 0.47058824, 1)
+light_energy = 0.55
+light_specular = 0.3
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_attenuation = 1.35
+
+[node name="VaultWash_6_3" type="OmniLight3D" parent="Lighting" unique_id=2126012695]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8, 2.1, -30)
+light_color = Color(1, 0.7529412, 0.47058824, 1)
+light_energy = 0.55
+light_specular = 0.3
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_attenuation = 1.35
+
+[node name="PlayerSpawn" type="Marker3D" parent="." unique_id=1413410470]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14, 1.25)
+
+[node name="Player" parent="." unique_id=458310369 instance=ExtResource("22_xdf02")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14, 1.25)
+floor_max_angle = 0.83775806
+floor_snap_length = 0.28
+script = ExtResource("23_gko4v")
+spawn_marker = NodePath("../PlayerSpawn")
+capture_hint = NodePath("../Controls/Screen/ClickHint")
+
+[node name="Controls" parent="." unique_id=1022318699 instance=ExtResource("24_lf86n")]
+
+[editable path="Architecture/Pillars/Pillar_1_1"]
+[editable path="Architecture/Pillars/Pillar_1_2"]
+[editable path="Architecture/Pillars/Pillar_1_3"]
+[editable path="Architecture/Pillars/Pillar_1_4"]
+[editable path="Architecture/Pillars/Pillar_2_1"]
+[editable path="Architecture/Pillars/Pillar_2_2"]
+[editable path="Architecture/Pillars/Pillar_2_3"]
+[editable path="Architecture/Pillars/Pillar_2_4"]
+[editable path="Architecture/Pillars/Pillar_3_1"]
+[editable path="Architecture/Pillars/Pillar_3_2"]
+[editable path="Architecture/Pillars/Pillar_3_3"]
+[editable path="Architecture/Pillars/Pillar_3_4"]
+[editable path="Architecture/Pillars/Pillar_4_1"]
+[editable path="Architecture/Pillars/Pillar_4_2"]
+[editable path="Architecture/Pillars/Pillar_4_3"]
+[editable path="Architecture/Pillars/Pillar_4_4"]
+[editable path="Architecture/Pillars/Pillar_5_1"]
+[editable path="Architecture/Pillars/Pillar_5_2"]
+[editable path="Architecture/Pillars/Pillar_5_3"]
+[editable path="Architecture/Pillars/Pillar_5_4"]
+[editable path="Architecture/Pillars/Pillar_6_1"]
+[editable path="Architecture/Pillars/Pillar_6_2"]
+[editable path="Architecture/Pillars/Pillar_6_3"]
+[editable path="Architecture/Pillars/Pillar_6_4"]
+[editable path="Architecture/Pillars/Pillar_7_1"]
+[editable path="Architecture/Pillars/Pillar_7_2"]
+[editable path="Architecture/Pillars/Pillar_7_3"]
+[editable path="Architecture/Pillars/Pillar_7_4"]
+[editable path="Architecture/Arches/CrossArch_1_1"]
+[editable path="Architecture/Arches/CrossArch_1_2"]
+[editable path="Architecture/Arches/CrossArch_1_3"]
+[editable path="Architecture/Arches/SideArch_1_1"]
+[editable path="Architecture/Arches/SideArch_1_2"]
+[editable path="Architecture/Arches/SideArch_1_3"]
+[editable path="Architecture/Arches/SideArch_1_4"]
+[editable path="Architecture/Arches/CrossArch_2_1"]
+[editable path="Architecture/Arches/CrossArch_2_2"]
+[editable path="Architecture/Arches/CrossArch_2_3"]
+[editable path="Architecture/Arches/SideArch_2_1"]
+[editable path="Architecture/Arches/SideArch_2_2"]
+[editable path="Architecture/Arches/SideArch_2_3"]
+[editable path="Architecture/Arches/SideArch_2_4"]
+[editable path="Architecture/Arches/CrossArch_3_1"]
+[editable path="Architecture/Arches/CrossArch_3_2"]
+[editable path="Architecture/Arches/CrossArch_3_3"]
+[editable path="Architecture/Arches/SideArch_3_1"]
+[editable path="Architecture/Arches/SideArch_3_2"]
+[editable path="Architecture/Arches/SideArch_3_3"]
+[editable path="Architecture/Arches/SideArch_3_4"]
+[editable path="Architecture/Arches/CrossArch_4_1"]
+[editable path="Architecture/Arches/CrossArch_4_2"]
+[editable path="Architecture/Arches/CrossArch_4_3"]
+[editable path="Architecture/Arches/SideArch_4_1"]
+[editable path="Architecture/Arches/SideArch_4_2"]
+[editable path="Architecture/Arches/SideArch_4_3"]
+[editable path="Architecture/Arches/SideArch_4_4"]
+[editable path="Architecture/Arches/CrossArch_5_1"]
+[editable path="Architecture/Arches/CrossArch_5_2"]
+[editable path="Architecture/Arches/CrossArch_5_3"]
+[editable path="Architecture/Arches/SideArch_5_1"]
+[editable path="Architecture/Arches/SideArch_5_2"]
+[editable path="Architecture/Arches/SideArch_5_3"]
+[editable path="Architecture/Arches/SideArch_5_4"]
+[editable path="Architecture/Arches/CrossArch_6_1"]
+[editable path="Architecture/Arches/CrossArch_6_2"]
+[editable path="Architecture/Arches/CrossArch_6_3"]
+[editable path="Architecture/Arches/SideArch_6_1"]
+[editable path="Architecture/Arches/SideArch_6_2"]
+[editable path="Architecture/Arches/SideArch_6_3"]
+[editable path="Architecture/Arches/SideArch_6_4"]
+[editable path="Architecture/Arches/CrossArch_7_1"]
+[editable path="Architecture/Arches/CrossArch_7_2"]
+[editable path="Architecture/Arches/CrossArch_7_3"]
+[editable path="Architecture/Vaults/Vault_1_1"]
+[editable path="Architecture/Vaults/Vault_1_2"]
+[editable path="Architecture/Vaults/Vault_1_3"]
+[editable path="Architecture/Vaults/Vault_2_1"]
+[editable path="Architecture/Vaults/Vault_2_2"]
+[editable path="Architecture/Vaults/Vault_2_3"]
+[editable path="Architecture/Vaults/Vault_3_1"]
+[editable path="Architecture/Vaults/Vault_3_2"]
+[editable path="Architecture/Vaults/Vault_3_3"]
+[editable path="Architecture/Vaults/Vault_4_1"]
+[editable path="Architecture/Vaults/Vault_4_2"]
+[editable path="Architecture/Vaults/Vault_4_3"]
+[editable path="Architecture/Vaults/Vault_5_1"]
+[editable path="Architecture/Vaults/Vault_5_2"]
+[editable path="Architecture/Vaults/Vault_5_3"]
+[editable path="Architecture/Vaults/Vault_6_1"]
+[editable path="Architecture/Vaults/Vault_6_2"]
+[editable path="Architecture/Vaults/Vault_6_3"]
+[editable path="Walkways/LeftAisle/Section01"]
+[editable path="Walkways/LeftAisle/Section02"]
+[editable path="Walkways/LeftAisle/Section03"]
+[editable path="Walkways/LeftAisle/Section04"]
+[editable path="Walkways/LeftAisle/Section05"]
+[editable path="Walkways/LeftAisle/Section06"]
+[editable path="Walkways/CentralAisle/Section01"]
+[editable path="Walkways/CentralAisle/Section02"]
+[editable path="Walkways/CentralAisle/Section03"]
+[editable path="Walkways/CentralAisle/Section04"]
+[editable path="Walkways/CentralAisle/Section05"]
+[editable path="Walkways/CentralAisle/Section06"]
+[editable path="Walkways/RightAisle/Section01"]
+[editable path="Walkways/RightAisle/Section02"]
+[editable path="Walkways/RightAisle/Section03"]
+[editable path="Walkways/RightAisle/Section04"]
+[editable path="Walkways/RightAisle/Section05"]
+[editable path="Walkways/RightAisle/Section06"]
+[editable path="Walkways/Crossings/Crossing_1_Left"]
+[editable path="Walkways/Crossings/Crossing_1_Right"]
+[editable path="Walkways/Crossings/Crossing_3_Left"]
+[editable path="Walkways/Crossings/Crossing_3_Right"]
+[editable path="Walkways/Crossings/Crossing_5_Left"]
+[editable path="Walkways/Crossings/Crossing_5_Right"]
+[editable path="Walkways/Crossings/Crossing_6_Left"]
+[editable path="Walkways/Crossings/Crossing_6_Right"]
+[editable path="WaterInstallations/Installation1"]
+[editable path="WaterInstallations/Installation2"]
+[editable path="WaterInstallations/Installation3"]
+[editable path="WaterInstallations/Installation4"]
+[editable path="Player"]
+[editable path="Controls"]

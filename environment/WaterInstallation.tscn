@@ -1,0 +1,120 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://environment/materials/black_iron.tres" id="1_xmyo4"]
+[ext_resource type="Material" path="res://environment/materials/cold_light.tres" id="2_bwxvf"]
+[ext_resource type="Material" path="res://environment/materials/falling_water.tres" id="3_gosl8"]
+[ext_resource type="Material" path="res://environment/materials/ripples.tres" id="4_8ljjf"]
+
+[ext_resource type="Shader" path="res://environment/shaders/pool_glow.gdshader" id="pool_shader"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pool"]
+shader = ExtResource("pool_shader")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_pool"]
+size = Vector2(2.2, 2.2)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0npje"]
+top_radius = 0.25
+bottom_radius = 0.25
+height = 0.4
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_yno7x"]
+top_radius = 0.215
+bottom_radius = 0.215
+height = 0.015
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0muk4"]
+top_radius = 0.018
+bottom_radius = 0.018
+height = 0.25
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tgoio"]
+top_radius = 0.2
+bottom_radius = 0.2
+height = 3.8
+radial_segments = 32
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rgvwq"]
+top_radius = 0.12
+bottom_radius = 0.12
+height = 3.8
+radial_segments = 32
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_okhpg"]
+size = Vector2(2.4, 2.4)
+
+[node name="WaterInstallation" type="Node3D" unique_id=1614110871]
+
+[node name="Fixture" type="Node3D" parent="." unique_id=1939402372]
+
+[node name="Housing" type="MeshInstance3D" parent="Fixture" unique_id=1387334073]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.03, 0)
+material_override = ExtResource("1_xmyo4")
+mesh = SubResource("CylinderMesh_0npje")
+
+[node name="Underside" type="MeshInstance3D" parent="Fixture" unique_id=1692191066]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.824, 0)
+material_override = ExtResource("2_bwxvf")
+mesh = SubResource("CylinderMesh_yno7x")
+
+[node name="Suspension" type="MeshInstance3D" parent="Fixture" unique_id=1496807390]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.34, 0)
+material_override = ExtResource("1_xmyo4")
+mesh = SubResource("CylinderMesh_0muk4")
+
+[node name="FallingWater" type="Node3D" parent="." unique_id=1863826617]
+
+[node name="OuterFilaments" type="MeshInstance3D" parent="FallingWater" unique_id=168877022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.94, 0)
+material_override = ExtResource("3_gosl8")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_tgoio")
+
+[node name="InnerFilaments" type="MeshInstance3D" parent="FallingWater" unique_id=941842588]
+transform = Transform3D(0.4535961, 0, 0.8912074, 0, 1, 0, -0.8912074, 0, 0.4535961, 0, 1.94, 0)
+material_override = ExtResource("3_gosl8")
+cast_shadow = 0
+mesh = SubResource("CylinderMesh_rgvwq")
+
+[node name="BlueColumnLight" type="OmniLight3D" parent="." unique_id=1069629154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.6, 0)
+light_color = Color(0.43137255, 0.74509805, 0.972549, 1)
+light_energy = 1.1
+light_specular = 1.0
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_range = 3.6
+omni_attenuation = 1.35
+
+[node name="PoolSpotlight" type="SpotLight3D" parent="." unique_id=924223867]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3.78, 0)
+light_color = Color(0.78039217, 0.92941177, 1, 1)
+light_energy = 7.0
+spot_attenuation = 0.7
+spot_angle = 19.0
+
+[node name="SplashLight" type="OmniLight3D" parent="." unique_id=1579342499]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12, 0)
+light_color = Color(0.75686276, 0.90588236, 1, 1)
+light_energy = 1.4
+light_specular = 1.0
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_range = 1.5
+omni_attenuation = 1.35
+
+[node name="SplashRipples" type="MeshInstance3D" parent="." unique_id=1962348058]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.035, 0)
+material_override = ExtResource("4_8ljjf")
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_okhpg")
+
+[node name="PoolGlow" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
+layers = 2
+cast_shadow = 0
+mesh = SubResource("PlaneMesh_pool")
+material_override = SubResource("ShaderMaterial_pool")

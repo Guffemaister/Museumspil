@@ -1,0 +1,10 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://environment/materials/vault_brick.tres" id="1_8jr1j"]
+[ext_resource type="ArrayMesh" path="res://environment/VaultMesh.res" id="2_2jvgq"]
+
+[node name="VaultBay" type="Node3D" unique_id=570398576]
+
+[node name="Ceiling" type="MeshInstance3D" parent="." unique_id=1732977688]
+material_override = ExtResource("1_8jr1j")
+mesh = ExtResource("2_2jvgq")

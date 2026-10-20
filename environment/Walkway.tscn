@@ -1,0 +1,88 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://environment/materials/iron_grating.tres" id="1_j05fg"]
+[ext_resource type="Material" path="res://environment/materials/walkway_rust.tres" id="2_8age5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mid17"]
+size = Vector3(1.45, 0.18, 6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ry1oh"]
+size = Vector3(1.45, 0.18, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yg02e"]
+size = Vector3(0.12, 0.1, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_65o0t"]
+size = Vector3(0.12, 0.1, 6)
+
+[node name="Walkway6m" type="Node3D" unique_id=932587452]
+
+[node name="Grating" type="Node3D" parent="." unique_id=2049575891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.035, -3)
+
+[node name="Mesh" type="MeshInstance3D" parent="Grating" unique_id=1827972131]
+material_override = ExtResource("1_j05fg")
+mesh = SubResource("BoxMesh_mid17")
+
+[node name="Body" type="StaticBody3D" parent="Grating" unique_id=1117349683]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Grating/Body" unique_id=1372744920]
+shape = SubResource("BoxShape3D_ry1oh")
+
+[node name="LeftEdge" type="Node3D" parent="." unique_id=804706993]
+
+[node name="IronRim" type="Node3D" parent="LeftEdge" unique_id=1020014934]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78, 0.085, -3)
+
+[node name="Mesh" type="MeshInstance3D" parent="LeftEdge/IronRim" unique_id=880540504]
+material_override = ExtResource("2_8age5")
+mesh = SubResource("BoxMesh_yg02e")
+
+[node name="Wash1" type="OmniLight3D" parent="LeftEdge" unique_id=598144812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.87, 0.15, -1.5)
+light_color = Color(1, 0.69803923, 0.29803923, 1)
+light_energy = 0.6
+light_specular = 1.0
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_range = 2.5
+omni_attenuation = 1.35
+
+[node name="Wash2" type="OmniLight3D" parent="LeftEdge" unique_id=1400214599]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.87, 0.15, -4.5)
+light_color = Color(1, 0.69803923, 0.29803923, 1)
+light_energy = 0.6
+light_specular = 1.0
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_range = 2.5
+omni_attenuation = 1.35
+
+[node name="RightEdge" type="Node3D" parent="." unique_id=1702160656]
+
+[node name="IronRim" type="Node3D" parent="RightEdge" unique_id=375429678]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.78, 0.085, -3)
+
+[node name="Mesh" type="MeshInstance3D" parent="RightEdge/IronRim" unique_id=1065895648]
+material_override = ExtResource("2_8age5")
+mesh = SubResource("BoxMesh_65o0t")
+
+[node name="Wash1" type="OmniLight3D" parent="RightEdge" unique_id=2063695239]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87, 0.15, -1.5)
+light_color = Color(1, 0.69803923, 0.29803923, 1)
+light_energy = 0.6
+light_specular = 1.0
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_range = 2.5
+omni_attenuation = 1.35
+
+[node name="Wash2" type="OmniLight3D" parent="RightEdge" unique_id=1478033016]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87, 0.15, -4.5)
+light_color = Color(1, 0.69803923, 0.29803923, 1)
+light_energy = 0.6
+light_specular = 1.0
+distance_fade_enabled = true
+distance_fade_begin = 25.0
+omni_range = 2.5
+omni_attenuation = 1.35
