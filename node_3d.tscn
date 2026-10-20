@@ -1,6 +1,19 @@
 [gd_scene format=3 uid="uid://ct66b6nsp4art"]
 
 [ext_resource type="Script" uid="uid://btdrrgroi4h8y" path="res://Tester.gd" id="1_a202f"]
+[ext_resource type="PackedScene" path="res://Tester.tscn" id="2_noarx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_5k0ce"]
+size = Vector3(1, 0.23828125, 1)
 
 [node name="Node3D" type="Node3D" unique_id=860603872]
 script = ExtResource("1_a202f")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=829479563]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62936306, 0.5561521)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=425892616]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+mesh = SubResource("BoxMesh_5k0ce")
+
+[node name="Tester" parent="." unique_id=998355157 instance=ExtResource("2_noarx")]
