@@ -6,9 +6,11 @@ signal return_requested
 const G = preload("res://cistern/architecture.gd")
 const Action = preload("res://cistern/interaction.gd")
 const SPAWN := Vector3(0, 0.03, 1.3)
-const FIGURE_HOME := Vector3(0, 0.0, -5.65)
+const EDGE_FEET := Vector3(0, 0.03, -5.65)
 
-@export_range(10.0, 120.0) var duration: float = 42.0
+@export_range(3.0, 30.0) var intro_duration: float = 10.0
+@export_range(2.0, 8.0) var fall_duration: float = 4.8
+@export_range(2.0, 8.0) var outro_duration: float = 3.0
 
 var active: bool = false
 var running: bool = false
@@ -19,18 +21,25 @@ var idle_time: float = 0.0
 var start_action: Area3D
 var return_action: Area3D
 var story: Label3D
-var figure: Node3D
 var scarf: Node3D
 var ribbon_parts: Array[Node3D] = []
 var lantern: OmniLight3D
 var wind: AudioStreamPlayer
 var bell: AudioStreamPlayer
+var player: Node3D
+var fade_surface: StandardMaterial3D
+var fall_action: Area3D
+var mode_action: Area3D
+var gentle_fall: bool = false
+var state: String = "ready"
+var state_elapsed: float = 0.0
+var step_offset := Vector3.ZERO
 
 
 func _ready() -> void:
 	_build_tower()
 	_build_city()
-	_build_figure()
+	_build_scarf()
 	_build_actions()
 	wind = AudioStreamPlayer.new()
 	wind.stream = _wind_sound()
@@ -85,7 +94,7 @@ func _build_tower() -> void:
 	title.pixel_size = 0.005
 	var subtitle := G.label(self, "FALDET  /  Giacomo Puccini\nEn fri fortolkning på en borgterrasse over Rom", Vector3(0, 3.0, -4.6), 29)
 	subtitle.pixel_size = 0.004
-	story = G.label(self, "Roms tage. Den første vind.\nBegynd, når du er klar.", Vector3(0, 2.35, -4.5), 43)
+	story = G.label(self, "Du er Tosca. Roms tage ligger under dig.\nBegynd, når du er klar.", Vector3(0, 2.35, -4.5), 43)
 	story.pixel_size = 0.004
 
 
@@ -151,41 +160,14 @@ func _build_city() -> void:
 	add_child(moon)
 
 
-func _build_figure() -> void:
-	figure = Node3D.new()
-	figure.name = "ToscaSilhouette"
-	figure.position = FIGURE_HOME
-	add_child(figure)
+func _build_scarf() -> void:
 	var red := G.material(Color("7f2536"), 0.85)
-	var shadow := G.material(Color("2d2630"))
-	var gown := MeshInstance3D.new()
-	var dress := CylinderMesh.new()
-	dress.top_radius = 0.16
-	dress.bottom_radius = 0.39
-	dress.height = 1.3
-	gown.mesh = dress
-	gown.material_override = red
-	gown.position.y = 0.7
-	figure.add_child(gown)
-	G.cylinder(figure, Vector3(0, 1.42, 0), 0.18, 0.42, red)
-	var head := MeshInstance3D.new()
-	var sphere := SphereMesh.new()
-	sphere.radius = 0.13
-	sphere.height = 0.28
-	head.mesh = sphere
-	head.material_override = shadow
-	head.position.y = 1.8
-	figure.add_child(head)
-	for side in [-1.0, 1.0]:
-		var arm := G.cylinder(figure, Vector3(side * 0.27, 1.27, 0), 0.045, 0.6, red)
-		arm.rotation.z = side * 0.35
 	scarf = Node3D.new()
-	scarf.name = "FallingScarf"
+	scarf.name = "PlayerScarf"
 	add_child(scarf)
 	for i in range(9):
-		var part := G.box(scarf, Vector3(0, -i * 0.14, 0), Vector3(0.27, 0.17, 0.018), red)
+		var part := G.box(scarf, Vector3(0, -i * 0.14, 0), Vector3(0.2, 0.17, 0.018), red)
 		ribbon_parts.append(part)
-	G.light(self, Vector3(0, 3, -5.7), Color("c9d5ed"), 0.85, 5)
 
 
 func _build_actions() -> void:
@@ -194,6 +176,19 @@ func _build_actions() -> void:
 	start_action.position = Vector3(0, 1.25, -2.7)
 	start_action.activated.connect(start)
 	add_child(start_action)
+	fall_action = Action.new()
+	fall_action.name = "ConfirmFirstPersonFall"
+	fall_action.position = Vector3(0, 1.25, -4.05)
+	fall_action.prompt = "E / højre trigger · BEGYND FALDET\nR / B · tilbage når som helst"
+	fall_action.activated.connect(confirm_fall)
+	add_child(fall_action)
+	mode_action = Action.new()
+	mode_action.name = "FallComfortMode"
+	mode_action.position = Vector3(-2.1, 1.4, -1.2)
+	mode_action.rotation.y = 0.35
+	mode_action.activated.connect(toggle_fall_mode)
+	add_child(mode_action)
+	mode_action.caption.font_size = 26
 	return_action = Action.new()
 	return_action.name = "ReturnFromTosca"
 	return_action.position = Vector3(0, 1.5, 3.15)
@@ -203,6 +198,11 @@ func _build_actions() -> void:
 	add_child(return_action)
 
 
+func bind_view(viewer: Node3D, surface: StandardMaterial3D) -> void:
+	player = viewer
+	fade_surface = surface
+
+
 func enter_room() -> void:
 	reset()
 	active = true
@@ -210,39 +210,89 @@ func enter_room() -> void:
 	wind.play()
 
 
-func exit_room() -> void:
+func suspend_for_transition() -> void:
 	active = false
 	running = false
 	wind.stop()
 	bell.stop()
 
 
+func exit_room() -> void:
+	suspend_for_transition()
+	if is_instance_valid(player):
+		player.end_sequence_motion()
+
+
+func _action(action: Area3D, enabled: bool) -> void:
+	action.enabled = enabled
+	action.visible = enabled
+	action.collision_layer = 2 if enabled else 0
+
+
 func reset() -> void:
 	running = false
 	finished = false
 	elapsed = 0
+	state_elapsed = 0
 	stage = -1
-	figure.position = FIGURE_HOME
-	figure.rotation = Vector3.ZERO
-	figure.visible = true
-	scarf.position = FIGURE_HOME + Vector3(0.3, 1.6, 0.1)
-	scarf.visible = true
+	state = "ready"
+	scarf.visible = false
 	lantern.light_energy = 1.5
-	story.text = "Roms tage. Den første vind.\nBegynd, når du er klar."
-	start_action.enabled = true
-	start_action.set_prompt("E / højre trigger\nBEGYND TOSCA · ca. 42 sek.")
+	story.text = "Du er Tosca. Roms tage ligger under dig.\nBegynd, når du er klar."
+	_action(start_action, true)
+	_action(fall_action, false)
+	fall_action.set_prompt("E / højre trigger · BEGYND FALDET\nR / B · tilbage når som helst")
+	_action(mode_action, true)
+	start_action.set_prompt("E / højre trigger\nBEGYND TOSCA · i første person")
+	_update_mode_prompt()
 	bell.stop()
 
 
+func _update_mode_prompt() -> void:
+	mode_action.set_prompt("FALD: " + ("KORT" if gentle_fall else "FULDT") + "\nE / trigger · Skift\nSynsfeltet bevæger sig\nunder faldet")
+
+
+func toggle_fall_mode() -> void:
+	if active and not running:
+		gentle_fall = not gentle_fall
+		_update_mode_prompt()
+
+
 func start() -> void:
-	if not active or running:
+	if not active or running or not is_instance_valid(player):
 		return
 	reset()
 	running = true
-	start_action.enabled = false
-	start_action.set_prompt("Se gennem rækværket mod skikkelsen.\nR / B · tilbage når som helst")
+	state = "intro"
+	_action(start_action, false)
+	_action(mode_action, false)
 	bell.play()
-	advance(0)
+	_update_intro()
+
+
+func _update_intro() -> void:
+	stage = 0 if state_elapsed < intro_duration * 0.5 else 1
+	story.text = "Du står højt over Rom.\nVinden griber dit tøj." if stage == 0 else "Du nærmer dig kanten.\nEt øjeblik mellem himmel og jord."
+
+
+func confirm_fall() -> void:
+	if not active or state != "awaiting_fall" or not is_instance_valid(player):
+		return
+	var at := to_local(player.viewer_position())
+	if Vector2(at.x, at.z + 4.1).length() > 2.0:
+		fall_action.set_prompt("Kom tættere på kanten\nE / trigger · Begynd faldet")
+		return
+	state = "falling"
+	state_elapsed = 0
+	stage = 2
+	_action(fall_action, false)
+	var destination := to_global(EDGE_FEET)
+	var view: Vector3 = player.viewer_position()
+	step_offset = Vector3(destination.x - view.x, 0, destination.z - view.z)
+	player.begin_sequence_motion()
+	player.interaction_enabled = false
+	scarf.visible = true
+	_update_fall()
 
 
 func _process(delta: float) -> void:
@@ -257,46 +307,83 @@ func _process(delta: float) -> void:
 
 
 func advance(delta: float) -> void:
-	if not running:
+	if not active or not running:
 		return
-	elapsed = minf(elapsed + maxf(delta, 0), duration)
-	var amount := clampf(elapsed / maxf(duration, 0.01), 0, 1)
-	var next_stage := 0
-	if amount >= 1.0:
-		next_stage = 4
-	elif amount >= 0.82:
-		next_stage = 3
-	elif amount >= 0.58:
-		next_stage = 2
-	elif amount >= 0.25:
-		next_stage = 1
-	if next_stage != stage:
-		stage = next_stage
-		var lines := [
-			"Højt over Rom.\nEt navn bliver til et ekko.",
-			"Et øjeblik på kanten.\nVinden tager fat i det røde stof.",
-			"Skikkelsen forlader muren.\nSe ned gennem rækværket.",
-			"Tårnet står tilbage.\nKun vinden svarer.",
-			"Faldet er forbi.\nEt tomrum over byen.",
-		]
-		story.text = lines[stage]
-	var fall := clampf((amount - 0.58) / 0.24, 0, 1)
-	# The figure falls through the set; the viewer's camera remains on the terrace.
-	figure.position = FIGURE_HOME + Vector3(0, -25 * fall * fall, -fall * 1.5)
-	figure.rotation = Vector3(-fall * 0.45, 0, fall * 0.3)
-	figure.visible = fall < 1.0
-	scarf.position = FIGURE_HOME + Vector3(0.3 + fall * 1.2, 1.6 - 7 * fall * fall, 0.1 - fall * 0.5)
-	scarf.visible = amount < 0.97
-	lantern.light_energy = lerpf(1.5, 0.5, amount)
-	wind.volume_db = lerpf(-25.0, -17.0, sin(amount * PI))
-	if amount >= 1.0:
-		running = false
-		finished = true
-		wind.volume_db = -30
-		start_action.enabled = true
-		start_action.set_prompt("TOSCA ER OPLEVET\nE / trigger · Oplev igen\nR / B · Vend tilbage")
-		completed.emit()
-		print("Seven Doors: Tosca completed.")
+	var remaining := maxf(delta, 0)
+	# Time can pass through the fall/outro, but never through the confirmation gate.
+	while remaining > 0 and running:
+		if state == "awaiting_fall":
+			return
+		var limit := intro_duration
+		if state == "falling":
+			limit = fall_duration
+		elif state == "ending":
+			limit = outro_duration
+		var consumed := minf(remaining, maxf(0, limit - state_elapsed))
+		state_elapsed += consumed
+		elapsed += consumed
+		remaining -= consumed
+		if state == "intro":
+			_update_intro()
+			if state_elapsed >= limit:
+				state = "awaiting_fall"
+				state_elapsed = 0
+				story.text = "Gå hen til kanten med stick / WASD.\nBekræft med E / trigger, når du er klar."
+				_action(fall_action, true)
+		elif state == "falling":
+			_update_fall()
+			if state_elapsed >= limit:
+				_set_fade(1)
+				player.end_sequence_motion()
+				player.locomotion_enabled = false
+				scarf.visible = false
+				state = "ending"
+				state_elapsed = 0
+				stage = 3
+				story.text = "Faldet er forbi.\nEt sidste ekko over byen."
+		elif state == "ending":
+			_set_fade(1.0 - smoothstep(0.8, outro_duration, state_elapsed))
+			if state_elapsed >= limit:
+				_finish()
+		else:
+			return
+
+
+func _update_fall() -> void:
+	var step := smoothstep(0, 0.7, state_elapsed)
+	var progress := clampf((state_elapsed - 0.7) / (fall_duration - 0.7), 0, 1)
+	var distance := 4.0 if gentle_fall else 25.0
+	player.set_sequence_offset(step_offset * step + Vector3(0, -distance * progress * progress, 0))
+	# Local head tracking and mouse look remain live; the rig translates without rolling.
+	scarf.position = to_local(player.viewer_position()) + Vector3(0.35, -0.6, -0.5)
+	wind.volume_db = lerpf(-25.0, -13.0, progress)
+	if gentle_fall:
+		_set_fade(smoothstep(0.25, 0.65, progress))
+	else:
+		_set_fade(smoothstep(0.75, 0.98, progress))
+
+
+func _set_fade(value: float) -> void:
+	if fade_surface != null:
+		var color := fade_surface.albedo_color
+		color.a = clampf(value, 0, 1)
+		fade_surface.albedo_color = color
+
+
+func _finish() -> void:
+	_set_fade(0)
+	running = false
+	finished = true
+	state = "complete"
+	stage = 4
+	player.locomotion_enabled = true
+	player.interaction_enabled = true
+	wind.volume_db = -30
+	_action(start_action, true)
+	_action(mode_action, true)
+	start_action.set_prompt("DU HAR OPLEVET TOSCAS FALD\nE / trigger · Oplev igen\nR / B · Vend tilbage")
+	completed.emit()
+	print("Seven Doors: first-person Tosca completed.")
 
 
 func _wind_sound() -> AudioStreamWAV:

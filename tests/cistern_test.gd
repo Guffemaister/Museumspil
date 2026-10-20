@@ -136,9 +136,11 @@ func _run() -> void:
 	_key(KEY_E, false)
 	_check(scene.experience_running, "E at the bedside must begin the experience.")
 	_check(scene.sound.breathing.playing, "Starting must play the original breathing sound.")
+	_check(scene.player.sequence_motion_active, "La traviata must move the player into the first-person bedside viewpoint.")
 	# Test the production sequence's timing without waiting 48 seconds.
 	scene.set_process(false)
 	scene.advance_experience(9)
+	_check(scene.player.viewer_position().distance_to(scene.CHAMBER + Vector3(0, 1.3, -1.85)) < 0.08, "The player must experience the scene from the bed.")
 	_check(scene.sequence_stage == 1, "The first breathing text must appear.")
 	var energy: float = scene.candle.light_energy
 	scene.advance_experience(15)
@@ -151,6 +153,9 @@ func _run() -> void:
 	_check(not scene.flame.visible and is_zero_approx(scene.candle.light_energy), "The candle must go out at the end.")
 	_check(not scene.sound.breathing.playing, "Breathing must stop at the end.")
 	_check(scene.story.text.contains("Kun rummet"), "The final text must remain visible.")
+	_check(scene.fade_material.albedo_color.a > 0.99, "The last breath must end in darkness before restoring the view.")
+	await scene.first_recovery.finished
+	_check(scene.player.interaction_enabled and not scene.player.sequence_motion_active, "The bedside sequence must restore normal controls after its fade.")
 	scene.advance_experience(100)
 	_check(scene.experience_elapsed == scene.experience_duration, "An ended sequence must not advance again.")
 	scene.set_process(true)
@@ -180,6 +185,7 @@ func _run() -> void:
 	await _transition(scene)
 	_check(scene.current_space == "lobby" and not scene.experience_running, "R must allow an early exit.")
 	_check(not scene.sound.breathing.playing, "Early exit must stop the breathing audio.")
+	_check(not scene.player.sequence_motion_active and is_zero_approx(scene.fade_material.albedo_color.a), "Interrupting La traviata must restore the player rig and clear the fade.")
 	_check(scene.experience_elapsed < scene.experience_duration, "Early exit must not complete the sequence.")
 	# Guard against the old rectangular museum bounds leaking into this scene.
 	var constrained: Vector3 = scene._constrain_xr(Vector3(-200, 0, -200))

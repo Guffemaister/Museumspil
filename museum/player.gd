@@ -22,6 +22,9 @@ var mouse_captured: bool = false
 var locomotion_enabled: bool = true
 var interaction_enabled: bool = true
 var xr_movement_constraint: Callable
+var sequence_motion_active: bool = false
+var sequence_home: Transform3D
+var sequence_locomotion_enabled: bool = true
 
 
 func _ready() -> void:
@@ -98,7 +101,9 @@ func _controller(tracker_name: String) -> XRController3D:
 
 
 func _physics_process(delta: float) -> void:
-	if xr_active:
+	if sequence_motion_active:
+		desktop.velocity = Vector3.ZERO
+	elif xr_active:
 		_move_xr(delta)
 	else:
 		_move_desktop(delta)
@@ -222,6 +227,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func relocate(feet: Vector3, yaw: float = 0.0) -> void:
+	end_sequence_motion()
 	# Preserve the tracked head height and compensate for room-scale X/Z offsets.
 	origin.global_rotation = Vector3(0, yaw, 0)
 	var offset := head.global_position - origin.global_position
@@ -238,6 +244,31 @@ func relocate(feet: Vector3, yaw: float = 0.0) -> void:
 
 func viewer_position() -> Vector3:
 	return head.global_position if xr_active else camera.global_position
+
+
+func begin_sequence_motion() -> void:
+	if sequence_motion_active:
+		return
+	sequence_home = global_transform
+	sequence_locomotion_enabled = locomotion_enabled
+	sequence_motion_active = true
+	locomotion_enabled = false
+	desktop.velocity = Vector3.ZERO
+
+
+func set_sequence_offset(offset: Vector3) -> void:
+	if sequence_motion_active:
+		# Move the complete rig so live headset/controller poses remain relative to it.
+		global_position = sequence_home.origin + offset
+
+
+func end_sequence_motion() -> void:
+	if not sequence_motion_active:
+		return
+	global_transform = sequence_home
+	sequence_motion_active = false
+	locomotion_enabled = sequence_locomotion_enabled
+	desktop.velocity = Vector3.ZERO
 
 
 func _notification(what: int) -> void:

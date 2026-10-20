@@ -49,6 +49,8 @@ var sound: Node
 var ripples: Array[MeshInstance3D] = []
 var idle_time: float = 0.0
 var tosca: Node3D
+var first_view_offset := Vector3.ZERO
+var first_recovery: Tween
 
 
 func _ready() -> void:
@@ -72,6 +74,7 @@ func _ready() -> void:
 	player.return_requested.connect(return_to_lobby)
 	player.relocate(LOBBY_SPAWN, deg_to_rad(30))
 	_build_fade()
+	tosca.bind_view(player, fade_material)
 	_build_hud()
 	sound = Soundscape.new()
 	add_child(sound)
@@ -210,8 +213,8 @@ func _build_chamber() -> void:
 		G.arch(chamber, Vector3(0, 3.55, z), 7.6, 1.1, stone)
 	G.box(chamber, Vector3(0, 0.38, -2.55), Vector3(1.5, 0.45, 2.6), wood, true)
 	G.box(chamber, Vector3(0, 0.66, -2.55), Vector3(1.48, 0.14, 2.55), linen)
-	G.box(chamber, Vector3(0, 0.79, -3.35), Vector3(0.95, 0.18, 0.47), linen)
-	G.box(chamber, Vector3(0, 0.98, -3.88), Vector3(1.55, 1.2, 0.1), wood)
+	G.box(chamber, Vector3(0, 0.79, -1.75), Vector3(0.95, 0.18, 0.47), linen)
+	G.box(chamber, Vector3(0, 0.86, -1.22), Vector3(1.55, 0.9, 0.1), wood)
 	for x in [-0.65, 0.65]:
 		for z in [-3.6, -1.5]:
 			G.box(chamber, Vector3(x, 0.19, z), Vector3(0.1, 0.38, 0.1), wood)
@@ -338,7 +341,7 @@ func _process(delta: float) -> void:
 	elif not experience_complete:
 		candle.light_energy = 1.45 + sin(idle_time * 2.1) * 0.05
 	if is_instance_valid(hud_location):
-		desktop_hud.visible = not transitioning
+		desktop_hud.visible = not transitioning and not player.sequence_motion_active and fade_material.albedo_color.a < 0.1
 		var titles := {"lobby": "LOBBY", "chamber": "DET SIDSTE ÅNDEDRAG", "tosca": "TOSCA / FALDET"}
 		hud_location.text = "SEVEN DEATHS  /  " + titles.get(current_space, "LOBBY")
 		hud_prompt.text = _context_prompt()
@@ -390,6 +393,10 @@ func return_to_lobby() -> void:
 
 func _change_space(destination: String) -> void:
 	transitioning = true
+	if first_recovery != null and first_recovery.is_valid():
+		first_recovery.kill()
+	tosca.suspend_for_transition()
+	experience_running = false
 	player.locomotion_enabled = false
 	player.interaction_enabled = false
 	var tween := create_tween()
@@ -398,6 +405,8 @@ func _change_space(destination: String) -> void:
 	experience_running = false
 	sound.stop_breathing()
 	tosca.exit_room()
+	player.end_sequence_motion()
+	player.locomotion_enabled = false
 	sound.ambience.volume_db = -24
 	current_space = destination
 	if destination == "chamber":
@@ -437,6 +446,9 @@ func start_experience() -> void:
 		return
 	_reset_chamber()
 	experience_running = true
+	player.begin_sequence_motion()
+	player.interaction_enabled = false
+	first_view_offset = CHAMBER + Vector3(0, 1.3, -1.85) - player.viewer_position()
 	start_action.enabled = false
 	start_action.set_prompt("Lyt. Tag dig tid.\nR / B · tilbage når som helst")
 	sound.begin_breathing()
@@ -448,6 +460,10 @@ func advance_experience(delta: float) -> void:
 		return
 	experience_elapsed = minf(experience_elapsed + maxf(delta, 0.0), experience_duration)
 	var amount := clampf(experience_elapsed / maxf(experience_duration, 0.01), 0.0, 1.0)
+	player.set_sequence_offset(first_view_offset * smoothstep(0, 0.12, amount))
+	var shade := fade_material.albedo_color
+	shade.a = smoothstep(0.8, 1.0, amount)
+	fade_material.albedo_color = shade
 	var stage := 0
 	if amount >= 1.0:
 		stage = 4
@@ -460,7 +476,7 @@ func advance_experience(delta: float) -> void:
 	if stage != sequence_stage:
 		sequence_stage = stage
 		var lines := [
-			"Du er her.\nLyt til rummet.",
+			"Du er Violetta.\nDu hviler på lejet.",
 			"Et åndedrag ind.\nEt åndedrag ud.",
 			"Lyset holder fast.\nÅndedrættet bliver svagere.",
 			"Der er næsten stille.",
@@ -479,7 +495,20 @@ func advance_experience(delta: float) -> void:
 		flame.visible = false
 		start_action.enabled = true
 		start_action.set_prompt("OPLEVELSEN ER SLUT\nE / trigger · Oplev igen\nR / B · Vend tilbage")
+		# Restore the standing position while the view is black, then reveal the room.
+		player.end_sequence_motion()
+		player.locomotion_enabled = false
+		first_recovery = create_tween()
+		first_recovery.tween_interval(0.5)
+		first_recovery.tween_property(fade_material, "albedo_color:a", 0.0, 1.2)
+		first_recovery.tween_callback(_finish_first_view)
 		print("Seven Doors: first experience completed.")
+
+
+func _finish_first_view() -> void:
+	if current_space == "chamber" and not transitioning:
+		player.locomotion_enabled = true
+		player.interaction_enabled = true
 
 
 func _constrain_xr(destination: Vector3) -> Vector3:
