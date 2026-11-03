@@ -1,4 +1,4 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bwl6pu6n5o13r"]
 
 [ext_resource type="PackedScene" path="res://cistern/Pillar.tscn" id="1_rufj8"]
 [ext_resource type="Material" path="res://cistern/materials/weathered_masonry.tres" id="2_h5cdx"]
@@ -1344,6 +1344,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3.4, 29.7)
 [node name="Lamp_01_04" parent="Lighting/HangingLamps" unique_id=997078806 instance=ExtResource("12_xmc5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4, 29.7)
 
+[node name="WarmLight" parent="Lighting/HangingLamps/Lamp_01_04" index="3" unique_id=480631160]
+shadow_enabled = true
+
 [node name="Lamp_01_06" parent="Lighting/HangingLamps" unique_id=1431606885 instance=ExtResource("12_xmc5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3.4, 29.7)
 
@@ -1370,6 +1373,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3.4, -2.7)
 
 [node name="Lamp_07_04" parent="Lighting/HangingLamps" unique_id=814036392 instance=ExtResource("12_xmc5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4, -2.7)
+
+[node name="WarmLight" parent="Lighting/HangingLamps/Lamp_07_04" index="3" unique_id=480631160]
+shadow_enabled = true
 
 [node name="Lamp_07_06" parent="Lighting/HangingLamps" unique_id=2017494365 instance=ExtResource("12_xmc5n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3.4, -2.7)
@@ -2475,12 +2481,6 @@ far = 110.0
 
 [node name="FuturePlayerSpawn" type="Marker3D" parent="." unique_id=1703933290]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 29.4)
-
-[node name="WarmLight" parent="Lighting/HangingLamps/Lamp_01_04" index="3"]
-shadow_enabled = true
-
-[node name="WarmLight" parent="Lighting/HangingLamps/Lamp_07_04" index="3"]
-shadow_enabled = true
 
 [editable path="Architecture/Pillars/Pillar_01_01"]
 [editable path="Architecture/Pillars/Pillar_01_02"]
