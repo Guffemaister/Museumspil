@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://cistern/textures/vault_plaster.png" id="1_poug3"]
+[ext_resource type="Texture2D" path="res://cistern/textures/vault_plaster_normal.png" id="2_tw4ka"]
+
+[resource]
+resource_name = "Damp lime plaster vaults"
+cull_mode = 2
+albedo_color = Color(1, 1, 0.97, 1)
+albedo_texture = ExtResource("1_poug3")
+roughness = 0.9
+normal_enabled = true
+normal_scale = 0.8
+normal_texture = ExtResource("2_tw4ka")
+uv1_scale = Vector3(0.20833333, 0.20833333, 0.20833333)
+uv1_triplanar = true
+uv1_world_triplanar = true

@@ -1,0 +1,16 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://cistern/materials/pale_masonry.tres" id="1_pgsv0"]
+[ext_resource type="ArrayMesh" path="res://cistern/meshes/CrossArch.res" id="2_3foya"]
+[ext_resource type="Shape3D" path="res://cistern/meshes/CrossArchCollision.res" id="3_3foya"]
+
+[node name="CrossArch" type="Node3D" unique_id=37515051]
+
+[node name="MasonryArch" type="MeshInstance3D" parent="." unique_id=782520065]
+material_override = ExtResource("1_pgsv0")
+mesh = ExtResource("2_3foya")
+
+[node name="Body" type="StaticBody3D" parent="." unique_id=15433899]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body" unique_id=244461842]
+shape = ExtResource("3_3foya")

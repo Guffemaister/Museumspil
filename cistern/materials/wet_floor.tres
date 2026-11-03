@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://cistern/textures/wet_floor.png" id="1_hfriw"]
+[ext_resource type="Texture2D" path="res://cistern/textures/wet_floor_normal.png" id="2_vabxc"]
+[ext_resource type="Texture2D" path="res://cistern/textures/floor_roughness.png" id="3_w35ww"]
+
+[resource]
+resource_name = "Wet mineral-stained stone floor"
+albedo_color = Color(0.95, 0.94, 0.91, 1)
+albedo_texture = ExtResource("1_hfriw")
+metallic = 0.08
+roughness_texture = ExtResource("3_w35ww")
+normal_enabled = true
+normal_scale = 0.55
+normal_texture = ExtResource("2_vabxc")
+uv1_scale = Vector3(0.11111111, 0.11111111, 0.11111111)
+uv1_triplanar = true
+uv1_world_triplanar = true

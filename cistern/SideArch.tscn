@@ -1,0 +1,16 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://cistern/materials/pale_masonry.tres" id="1_vwbvn"]
+[ext_resource type="ArrayMesh" path="res://cistern/meshes/SideArch.res" id="2_omwyo"]
+[ext_resource type="Shape3D" path="res://cistern/meshes/SideArchCollision.res" id="3_omwyo"]
+
+[node name="SideArch" type="Node3D" unique_id=1428969856]
+
+[node name="MasonryArch" type="MeshInstance3D" parent="." unique_id=1578099577]
+material_override = ExtResource("1_vwbvn")
+mesh = ExtResource("2_omwyo")
+
+[node name="Body" type="StaticBody3D" parent="." unique_id=1986784036]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body" unique_id=16764469]
+shape = ExtResource("3_omwyo")

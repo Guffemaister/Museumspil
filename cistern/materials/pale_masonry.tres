@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://cistern/textures/weathered_masonry.png" id="1_4q7iq"]
+[ext_resource type="Texture2D" path="res://cistern/textures/weathered_masonry_normal.png" id="2_ou5ny"]
+[ext_resource type="Texture2D" path="res://cistern/textures/masonry_roughness.png" id="3_a4phv"]
+
+[resource]
+resource_name = "Pale mineral deposits"
+albedo_color = Color(1.1, 1.1, 1.07, 1)
+albedo_texture = ExtResource("1_4q7iq")
+roughness_texture = ExtResource("3_a4phv")
+normal_enabled = true
+normal_scale = 0.85
+normal_texture = ExtResource("2_ou5ny")
+uv1_scale = Vector3(0.36363637, 0.36363637, 0.36363637)
+uv1_triplanar = true
+uv1_world_triplanar = true
+texture_filter = 5

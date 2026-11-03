@@ -1,0 +1,53 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://cistern/materials/weathered_masonry.tres" id="1_7vgnq"]
+[ext_resource type="Material" path="res://cistern/materials/damp_masonry.tres" id="2_20n2o"]
+[ext_resource type="Material" path="res://cistern/materials/pale_masonry.tres" id="3_18d0o"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lxoil"]
+size = Vector3(0.72, 2.98, 0.82)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_728wr"]
+size = Vector3(0.72, 2.98, 0.82)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wppoc"]
+size = Vector3(0.78, 0.24, 0.88)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_odw0d"]
+size = Vector3(0.78, 0.24, 0.88)
+
+[sub_resource type="BoxMesh" id="BoxMesh_rkqc6"]
+size = Vector3(0.86, 0.12, 0.96)
+
+[node name="Pillar" type="Node3D" unique_id=1444861054]
+
+[node name="Shaft" type="Node3D" parent="." unique_id=1588933732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.53, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Shaft" unique_id=1634713167]
+material_override = ExtResource("1_7vgnq")
+mesh = SubResource("BoxMesh_lxoil")
+
+[node name="Body" type="StaticBody3D" parent="Shaft" unique_id=185666368]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Shaft/Body" unique_id=756833008]
+shape = SubResource("BoxShape3D_728wr")
+
+[node name="DampFoot" type="Node3D" parent="." unique_id=1579026785]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="DampFoot" unique_id=1523908863]
+material_override = ExtResource("2_20n2o")
+mesh = SubResource("BoxMesh_wppoc")
+
+[node name="Body" type="StaticBody3D" parent="DampFoot" unique_id=514914204]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DampFoot/Body" unique_id=676738950]
+shape = SubResource("BoxShape3D_odw0d")
+
+[node name="Capital" type="Node3D" parent="." unique_id=1005388224]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.96, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Capital" unique_id=1854827309]
+material_override = ExtResource("3_18d0o")
+mesh = SubResource("BoxMesh_rkqc6")

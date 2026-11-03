@@ -1,0 +1,48 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://cistern/materials/iron.tres" id="1_6kl4a"]
+[ext_resource type="Material" path="res://cistern/materials/lamp_glass.tres" id="2_o1q1l"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cffo0"]
+top_radius = 0.007
+bottom_radius = 0.007
+height = 0.68
+radial_segments = 12
+
+[sub_resource type="SphereMesh" id="SphereMesh_5k2na"]
+radius = 0.075
+height = 0.15
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_mjv67"]
+top_radius = 0.045
+bottom_radius = 0.045
+height = 0.08
+radial_segments = 12
+
+[node name="HangingLamp" type="Node3D" unique_id=974492148]
+
+[node name="Cable" type="MeshInstance3D" parent="." unique_id=1245686088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34, 0)
+material_override = ExtResource("1_6kl4a")
+mesh = SubResource("CylinderMesh_cffo0")
+
+[node name="OpalGlobe" type="MeshInstance3D" parent="." unique_id=528944935]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.05, 0)
+material_override = ExtResource("2_o1q1l")
+mesh = SubResource("SphereMesh_5k2na")
+
+[node name="Socket" type="MeshInstance3D" parent="." unique_id=162320196]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04, 0)
+material_override = ExtResource("1_6kl4a")
+mesh = SubResource("CylinderMesh_mjv67")
+
+[node name="WarmLight" type="OmniLight3D" parent="." unique_id=480631160]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.16, 0)
+light_color = Color(1, 0.9411765, 0.83137256, 1)
+light_energy = 1.3
+light_specular = 0.7
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 7.0
+omni_attenuation = 0.8

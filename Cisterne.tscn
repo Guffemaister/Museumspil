@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://cut4dutk0op43"]
 
+[ext_resource type="Material" path="res://cistern/materials/wet_floor.tres" id="1_x7477"]
+[ext_resource type="PackedScene" path="res://cistern/CisternMap.tscn" id="2_652r3"]
 [sub_resource type="BoxMesh" id="BoxMesh_17lq1"]
+size = Vector3(1, 0.122558594, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7mo77"]
 size = Vector3(1, 0.122558594, 1)
 
 [sub_resource type="FogMaterial" id="FogMaterial_5k0ce"]
@@ -10,9 +15,6 @@ emission = Color(0.42288277, 0.4228828, 0.4228828, 1)
 [node name="Node3D" type="Node3D" unique_id=260217534]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=846793214]
-transform = Transform3D(60, 0, 0, 0, 1, 0, 0, 0, 30, 0, 0, 0)
+transform = Transform3D(69, 0, 0, 0, 1, 0, 0, 0, 34.5, 0, 0, 0)
+material_override = ExtResource("1_x7477")
 mesh = SubResource("BoxMesh_17lq1")
-
-[node name="FogVolume" type="FogVolume" parent="." unique_id=1113260295]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.218501, 0)
-material = SubResource("FogMaterial_5k0ce")
