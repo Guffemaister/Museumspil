@@ -1,0 +1,2877 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://cistern/Pillar.tscn" id="1_rufj8"]
+[ext_resource type="Material" path="res://cistern/materials/weathered_masonry.tres" id="2_h5cdx"]
+[ext_resource type="Material" path="res://cistern/materials/damp_masonry.tres" id="3_4g67b"]
+[ext_resource type="PackedScene" path="res://cistern/CrossArch.tscn" id="5_56p1n"]
+[ext_resource type="PackedScene" path="res://cistern/SideArch.tscn" id="7_2w5fd"]
+[ext_resource type="PackedScene" path="res://cistern/GroinVault.tscn" id="9_o7xmm"]
+[ext_resource type="PackedScene" path="res://cistern/HangingLamp.tscn" id="12_xmc5n"]
+[ext_resource type="Material" path="res://cistern/materials/iron.tres" id="13_20hca"]
+[ext_resource type="Material" path="res://cistern/materials/shallow_water.tres" id="15_hgjfi"]
+[ext_resource type="ArrayMesh" path="res://cistern/meshes/Puddle.res" id="16_vy2e4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_uhxte"]
+size = Vector3(0.35, 4.7, 65.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_53rmi"]
+size = Vector3(0.35, 4.7, 65.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hdpl0"]
+size = Vector3(0.35, 4.7, 65.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qq747"]
+size = Vector3(0.35, 4.7, 65.8)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vuhm8"]
+size = Vector3(32.6, 4.7, 0.35)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4eqq2"]
+size = Vector3(32.6, 4.7, 0.35)
+
+[sub_resource type="BoxMesh" id="BoxMesh_a21kj"]
+size = Vector3(32.6, 4.7, 0.35)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_eree4"]
+size = Vector3(32.6, 4.7, 0.35)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ip013"]
+size = Vector3(0.08, 0.7, 65.7)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1o5rl"]
+size = Vector3(0.08, 0.7, 65.7)
+
+[sub_resource type="Environment" id="Environment_iodnc"]
+background_mode = 1
+background_color = Color(0.0627451, 0.08627451, 0.09803922, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.7607843, 0.79607844, 0.80784315, 1)
+ambient_light_energy = 0.22
+tonemap_mode = 2
+tonemap_exposure = 1.05
+ssr_enabled = true
+ssr_max_steps = 48
+ssao_enabled = true
+ssao_radius = 0.65
+ssao_intensity = 1.4
+glow_enabled = true
+glow_intensity = 0.25
+glow_bloom = 0.04
+fog_enabled = true
+fog_light_color = Color(0.21176471, 0.24313726, 0.25490198, 1)
+fog_light_energy = 0.25
+fog_density = 0.0025
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jhl3x"]
+top_radius = 0.005
+bottom_radius = 0.005
+height = 31.5
+radial_segments = 12
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rxvr2"]
+top_radius = 0.005
+bottom_radius = 0.005
+height = 31.5
+radial_segments = 12
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wk7vx"]
+top_radius = 0.005
+bottom_radius = 0.005
+height = 31.5
+radial_segments = 12
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_7vfeh"]
+top_radius = 0.005
+bottom_radius = 0.005
+height = 31.5
+radial_segments = 12
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_15s4v"]
+top_radius = 0.005
+bottom_radius = 0.005
+height = 31.5
+radial_segments = 12
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_5rpfo"]
+top_radius = 0.005
+bottom_radius = 0.005
+height = 31.5
+radial_segments = 12
+
+[sub_resource type="BoxMesh" id="BoxMesh_vig08"]
+size = Vector3(0.18, 0.22, 0.24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_efp7k"]
+size = Vector3(0.18, 0.22, 0.24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mll5n"]
+size = Vector3(0.18, 0.22, 0.24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_srh1o"]
+size = Vector3(0.18, 0.22, 0.24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yarrt"]
+size = Vector3(0.18, 0.22, 0.24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_61a32"]
+size = Vector3(0.18, 0.22, 0.24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wxtrp"]
+size = Vector3(0.18, 0.22, 0.24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_dravw"]
+size = Vector3(0.18, 0.22, 0.24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_higy7"]
+size = Vector3(0.18, 0.22, 0.24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5y3cv"]
+size = Vector3(0.18, 0.22, 0.24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_86hjh"]
+size = Vector3(0.18, 0.22, 0.24)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yup5e"]
+size = Vector3(0.18, 0.22, 0.24)
+
+[node name="CisternMap" type="Node3D" unique_id=80765263]
+metadata/content = "Saved editable geometry, materials, collision shapes, lights and preview cameras. No scripts."
+
+[node name="Architecture" type="Node3D" parent="." unique_id=988534738]
+
+[node name="Pillars" type="Node3D" parent="Architecture" unique_id=982215220]
+
+[node name="Pillar_01_01" parent="Architecture/Pillars" unique_id=1444861054 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.75, 0, 32.4)
+
+[node name="Pillar_01_02" parent="Architecture/Pillars" unique_id=1145396338 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.25, 0, 32.4)
+
+[node name="Pillar_01_03" parent="Architecture/Pillars" unique_id=487051332 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75, 0, 32.4)
+
+[node name="Pillar_01_04" parent="Architecture/Pillars" unique_id=1569097063 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 0, 32.4)
+
+[node name="Pillar_01_05" parent="Architecture/Pillars" unique_id=847498927 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0, 32.4)
+
+[node name="Pillar_01_06" parent="Architecture/Pillars" unique_id=810958743 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 0, 32.4)
+
+[node name="Pillar_01_07" parent="Architecture/Pillars" unique_id=745617345 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.25, 0, 32.4)
+
+[node name="Pillar_01_08" parent="Architecture/Pillars" unique_id=594513306 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.75, 0, 32.4)
+
+[node name="Pillar_02_01" parent="Architecture/Pillars" unique_id=1696932295 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.75, 0, 27)
+
+[node name="Pillar_02_02" parent="Architecture/Pillars" unique_id=917579764 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.25, 0, 27)
+
+[node name="Pillar_02_03" parent="Architecture/Pillars" unique_id=1094314078 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75, 0, 27)
+
+[node name="Pillar_02_04" parent="Architecture/Pillars" unique_id=936082128 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 0, 27)
+
+[node name="Pillar_02_05" parent="Architecture/Pillars" unique_id=847743543 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0, 27)
+
+[node name="Pillar_02_06" parent="Architecture/Pillars" unique_id=1739897510 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 0, 27)
+
+[node name="Pillar_02_07" parent="Architecture/Pillars" unique_id=2015464824 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.25, 0, 27)
+
+[node name="Pillar_02_08" parent="Architecture/Pillars" unique_id=1039424364 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.75, 0, 27)
+
+[node name="Pillar_03_01" parent="Architecture/Pillars" unique_id=1904258672 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.75, 0, 21.6)
+
+[node name="Pillar_03_02" parent="Architecture/Pillars" unique_id=1090070117 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.25, 0, 21.6)
+
+[node name="Pillar_03_03" parent="Architecture/Pillars" unique_id=139642638 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75, 0, 21.6)
+
+[node name="Pillar_03_04" parent="Architecture/Pillars" unique_id=141997113 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 0, 21.6)
+
+[node name="Pillar_03_05" parent="Architecture/Pillars" unique_id=707914779 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0, 21.6)
+
+[node name="Pillar_03_06" parent="Architecture/Pillars" unique_id=2082986556 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 0, 21.6)
+
+[node name="Pillar_03_07" parent="Architecture/Pillars" unique_id=995129440 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.25, 0, 21.6)
+
+[node name="Pillar_03_08" parent="Architecture/Pillars" unique_id=1355505170 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.75, 0, 21.6)
+
+[node name="Pillar_04_01" parent="Architecture/Pillars" unique_id=587993264 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.75, 0, 16.2)
+
+[node name="Pillar_04_02" parent="Architecture/Pillars" unique_id=311565066 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.25, 0, 16.2)
+
+[node name="Pillar_04_03" parent="Architecture/Pillars" unique_id=710229703 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75, 0, 16.2)
+
+[node name="Pillar_04_04" parent="Architecture/Pillars" unique_id=970701322 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 0, 16.2)
+
+[node name="Pillar_04_05" parent="Architecture/Pillars" unique_id=1905445821 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0, 16.2)
+
+[node name="Pillar_04_06" parent="Architecture/Pillars" unique_id=1110417405 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 0, 16.2)
+
+[node name="Pillar_04_07" parent="Architecture/Pillars" unique_id=1452141878 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.25, 0, 16.2)
+
+[node name="Pillar_04_08" parent="Architecture/Pillars" unique_id=733028880 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.75, 0, 16.2)
+
+[node name="Pillar_05_01" parent="Architecture/Pillars" unique_id=1205745951 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.75, 0, 10.8)
+
+[node name="Pillar_05_02" parent="Architecture/Pillars" unique_id=183221660 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.25, 0, 10.8)
+
+[node name="Pillar_05_03" parent="Architecture/Pillars" unique_id=123750403 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75, 0, 10.8)
+
+[node name="Pillar_05_04" parent="Architecture/Pillars" unique_id=2115712444 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 0, 10.8)
+
+[node name="Pillar_05_05" parent="Architecture/Pillars" unique_id=1211349729 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0, 10.8)
+
+[node name="Pillar_05_06" parent="Architecture/Pillars" unique_id=2084416791 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 0, 10.8)
+
+[node name="Pillar_05_07" parent="Architecture/Pillars" unique_id=550342843 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.25, 0, 10.8)
+
+[node name="Pillar_05_08" parent="Architecture/Pillars" unique_id=393331572 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.75, 0, 10.8)
+
+[node name="Pillar_06_01" parent="Architecture/Pillars" unique_id=1723279810 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.75, 0, 5.4)
+
+[node name="Pillar_06_02" parent="Architecture/Pillars" unique_id=816858067 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.25, 0, 5.4)
+
+[node name="Pillar_06_03" parent="Architecture/Pillars" unique_id=170628897 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75, 0, 5.4)
+
+[node name="Pillar_06_04" parent="Architecture/Pillars" unique_id=1861708941 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 0, 5.4)
+
+[node name="Pillar_06_05" parent="Architecture/Pillars" unique_id=201809602 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0, 5.4)
+
+[node name="Pillar_06_06" parent="Architecture/Pillars" unique_id=1155689306 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 0, 5.4)
+
+[node name="Pillar_06_07" parent="Architecture/Pillars" unique_id=1908475998 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.25, 0, 5.4)
+
+[node name="Pillar_06_08" parent="Architecture/Pillars" unique_id=1777176224 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.75, 0, 5.4)
+
+[node name="Pillar_07_01" parent="Architecture/Pillars" unique_id=1155195922 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.75, 0, 0)
+
+[node name="Pillar_07_02" parent="Architecture/Pillars" unique_id=1658989902 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.25, 0, 0)
+
+[node name="Pillar_07_03" parent="Architecture/Pillars" unique_id=2086389113 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75, 0, 0)
+
+[node name="Pillar_07_04" parent="Architecture/Pillars" unique_id=1526960846 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 0, 0)
+
+[node name="Pillar_07_05" parent="Architecture/Pillars" unique_id=1929620035 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0, 0)
+
+[node name="Pillar_07_06" parent="Architecture/Pillars" unique_id=682838971 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 0, 0)
+
+[node name="Pillar_07_07" parent="Architecture/Pillars" unique_id=1961195710 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.25, 0, 0)
+
+[node name="Pillar_07_08" parent="Architecture/Pillars" unique_id=1613140368 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.75, 0, 0)
+
+[node name="Pillar_08_01" parent="Architecture/Pillars" unique_id=131552357 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.75, 0, -5.4)
+
+[node name="Pillar_08_02" parent="Architecture/Pillars" unique_id=640938258 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.25, 0, -5.4)
+
+[node name="Pillar_08_03" parent="Architecture/Pillars" unique_id=2090377617 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75, 0, -5.4)
+
+[node name="Pillar_08_04" parent="Architecture/Pillars" unique_id=1236716707 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 0, -5.4)
+
+[node name="Pillar_08_05" parent="Architecture/Pillars" unique_id=1333426845 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0, -5.4)
+
+[node name="Pillar_08_06" parent="Architecture/Pillars" unique_id=1218042003 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 0, -5.4)
+
+[node name="Pillar_08_07" parent="Architecture/Pillars" unique_id=296878084 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.25, 0, -5.4)
+
+[node name="Pillar_08_08" parent="Architecture/Pillars" unique_id=1514391072 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.75, 0, -5.4)
+
+[node name="Pillar_09_01" parent="Architecture/Pillars" unique_id=1582148160 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.75, 0, -10.8)
+
+[node name="Pillar_09_02" parent="Architecture/Pillars" unique_id=727638601 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.25, 0, -10.8)
+
+[node name="Pillar_09_03" parent="Architecture/Pillars" unique_id=86541107 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75, 0, -10.8)
+
+[node name="Pillar_09_04" parent="Architecture/Pillars" unique_id=649672131 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 0, -10.8)
+
+[node name="Pillar_09_05" parent="Architecture/Pillars" unique_id=1889112073 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0, -10.8)
+
+[node name="Pillar_09_06" parent="Architecture/Pillars" unique_id=470746482 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 0, -10.8)
+
+[node name="Pillar_09_07" parent="Architecture/Pillars" unique_id=1638767082 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.25, 0, -10.8)
+
+[node name="Pillar_09_08" parent="Architecture/Pillars" unique_id=1141363831 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.75, 0, -10.8)
+
+[node name="Pillar_10_01" parent="Architecture/Pillars" unique_id=1351732720 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.75, 0, -16.2)
+
+[node name="Pillar_10_02" parent="Architecture/Pillars" unique_id=1727361416 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.25, 0, -16.2)
+
+[node name="Pillar_10_03" parent="Architecture/Pillars" unique_id=1372628043 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75, 0, -16.2)
+
+[node name="Pillar_10_04" parent="Architecture/Pillars" unique_id=2050222367 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 0, -16.2)
+
+[node name="Pillar_10_05" parent="Architecture/Pillars" unique_id=935485284 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0, -16.2)
+
+[node name="Pillar_10_06" parent="Architecture/Pillars" unique_id=645868228 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 0, -16.2)
+
+[node name="Pillar_10_07" parent="Architecture/Pillars" unique_id=2036739436 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.25, 0, -16.2)
+
+[node name="Pillar_10_08" parent="Architecture/Pillars" unique_id=178863274 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.75, 0, -16.2)
+
+[node name="Pillar_11_01" parent="Architecture/Pillars" unique_id=993168484 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.75, 0, -21.6)
+
+[node name="Pillar_11_02" parent="Architecture/Pillars" unique_id=2049184955 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.25, 0, -21.6)
+
+[node name="Pillar_11_03" parent="Architecture/Pillars" unique_id=2075951633 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75, 0, -21.6)
+
+[node name="Pillar_11_04" parent="Architecture/Pillars" unique_id=174288020 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 0, -21.6)
+
+[node name="Pillar_11_05" parent="Architecture/Pillars" unique_id=1661676329 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0, -21.6)
+
+[node name="Pillar_11_06" parent="Architecture/Pillars" unique_id=972190408 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 0, -21.6)
+
+[node name="Pillar_11_07" parent="Architecture/Pillars" unique_id=339167785 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.25, 0, -21.6)
+
+[node name="Pillar_11_08" parent="Architecture/Pillars" unique_id=920303368 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.75, 0, -21.6)
+
+[node name="Pillar_12_01" parent="Architecture/Pillars" unique_id=84917823 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.75, 0, -27)
+
+[node name="Pillar_12_02" parent="Architecture/Pillars" unique_id=1069191161 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.25, 0, -27)
+
+[node name="Pillar_12_03" parent="Architecture/Pillars" unique_id=1118518948 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75, 0, -27)
+
+[node name="Pillar_12_04" parent="Architecture/Pillars" unique_id=660643495 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 0, -27)
+
+[node name="Pillar_12_05" parent="Architecture/Pillars" unique_id=279603250 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0, -27)
+
+[node name="Pillar_12_06" parent="Architecture/Pillars" unique_id=1070686834 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 0, -27)
+
+[node name="Pillar_12_07" parent="Architecture/Pillars" unique_id=1726857442 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.25, 0, -27)
+
+[node name="Pillar_12_08" parent="Architecture/Pillars" unique_id=156897802 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.75, 0, -27)
+
+[node name="Pillar_13_01" parent="Architecture/Pillars" unique_id=1264045308 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.75, 0, -32.4)
+
+[node name="Pillar_13_02" parent="Architecture/Pillars" unique_id=1507129481 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.25, 0, -32.4)
+
+[node name="Pillar_13_03" parent="Architecture/Pillars" unique_id=1533791969 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.75, 0, -32.4)
+
+[node name="Pillar_13_04" parent="Architecture/Pillars" unique_id=1677492874 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.25, 0, -32.4)
+
+[node name="Pillar_13_05" parent="Architecture/Pillars" unique_id=1575124636 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.25, 0, -32.4)
+
+[node name="Pillar_13_06" parent="Architecture/Pillars" unique_id=1596221179 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.75, 0, -32.4)
+
+[node name="Pillar_13_07" parent="Architecture/Pillars" unique_id=1068325917 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.25, 0, -32.4)
+
+[node name="Pillar_13_08" parent="Architecture/Pillars" unique_id=1918482608 instance=ExtResource("1_rufj8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.75, 0, -32.4)
+
+[node name="Arches" type="Node3D" parent="Architecture" unique_id=1397843864]
+
+[node name="CrossArch_01_01" parent="Architecture/Arches" unique_id=37515051 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.72, 32.4)
+
+[node name="CrossArch_01_02" parent="Architecture/Arches" unique_id=142560898 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.72, 32.4)
+
+[node name="CrossArch_01_03" parent="Architecture/Arches" unique_id=1410372253 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.72, 32.4)
+
+[node name="CrossArch_01_04" parent="Architecture/Arches" unique_id=103091734 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72, 32.4)
+
+[node name="CrossArch_01_05" parent="Architecture/Arches" unique_id=2021581845 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.72, 32.4)
+
+[node name="CrossArch_01_06" parent="Architecture/Arches" unique_id=1425023147 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.72, 32.4)
+
+[node name="CrossArch_01_07" parent="Architecture/Arches" unique_id=1151897482 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2.72, 32.4)
+
+[node name="SideArch_01_01" parent="Architecture/Arches" unique_id=1428969856 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.75, 2.72, 29.7)
+
+[node name="SideArch_01_02" parent="Architecture/Arches" unique_id=1799118533 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.25, 2.72, 29.7)
+
+[node name="SideArch_01_03" parent="Architecture/Arches" unique_id=1504012172 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.75, 2.72, 29.7)
+
+[node name="SideArch_01_04" parent="Architecture/Arches" unique_id=932837721 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.25, 2.72, 29.7)
+
+[node name="SideArch_01_05" parent="Architecture/Arches" unique_id=1009857865 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.25, 2.72, 29.7)
+
+[node name="SideArch_01_06" parent="Architecture/Arches" unique_id=2074518075 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.75, 2.72, 29.7)
+
+[node name="SideArch_01_07" parent="Architecture/Arches" unique_id=908988854 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.25, 2.72, 29.7)
+
+[node name="SideArch_01_08" parent="Architecture/Arches" unique_id=1218512486 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.75, 2.72, 29.7)
+
+[node name="CrossArch_02_01" parent="Architecture/Arches" unique_id=999725701 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.72, 27)
+
+[node name="CrossArch_02_02" parent="Architecture/Arches" unique_id=1695958408 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.72, 27)
+
+[node name="CrossArch_02_03" parent="Architecture/Arches" unique_id=842477933 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.72, 27)
+
+[node name="CrossArch_02_04" parent="Architecture/Arches" unique_id=793325745 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72, 27)
+
+[node name="CrossArch_02_05" parent="Architecture/Arches" unique_id=463722356 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.72, 27)
+
+[node name="CrossArch_02_06" parent="Architecture/Arches" unique_id=833488152 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.72, 27)
+
+[node name="CrossArch_02_07" parent="Architecture/Arches" unique_id=1420474765 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2.72, 27)
+
+[node name="SideArch_02_01" parent="Architecture/Arches" unique_id=1898851349 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.75, 2.72, 24.3)
+
+[node name="SideArch_02_02" parent="Architecture/Arches" unique_id=1656626543 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.25, 2.72, 24.3)
+
+[node name="SideArch_02_03" parent="Architecture/Arches" unique_id=921483293 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.75, 2.72, 24.3)
+
+[node name="SideArch_02_04" parent="Architecture/Arches" unique_id=1080096615 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.25, 2.72, 24.3)
+
+[node name="SideArch_02_05" parent="Architecture/Arches" unique_id=370636037 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.25, 2.72, 24.3)
+
+[node name="SideArch_02_06" parent="Architecture/Arches" unique_id=1289103134 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.75, 2.72, 24.3)
+
+[node name="SideArch_02_07" parent="Architecture/Arches" unique_id=565766101 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.25, 2.72, 24.3)
+
+[node name="SideArch_02_08" parent="Architecture/Arches" unique_id=1796860670 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.75, 2.72, 24.3)
+
+[node name="CrossArch_03_01" parent="Architecture/Arches" unique_id=371716875 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.72, 21.6)
+
+[node name="CrossArch_03_02" parent="Architecture/Arches" unique_id=1891543307 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.72, 21.6)
+
+[node name="CrossArch_03_03" parent="Architecture/Arches" unique_id=1705048152 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.72, 21.6)
+
+[node name="CrossArch_03_04" parent="Architecture/Arches" unique_id=761280609 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72, 21.6)
+
+[node name="CrossArch_03_05" parent="Architecture/Arches" unique_id=1274394955 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.72, 21.6)
+
+[node name="CrossArch_03_06" parent="Architecture/Arches" unique_id=1912208537 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.72, 21.6)
+
+[node name="CrossArch_03_07" parent="Architecture/Arches" unique_id=1859309086 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2.72, 21.6)
+
+[node name="SideArch_03_01" parent="Architecture/Arches" unique_id=1315208104 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.75, 2.72, 18.9)
+
+[node name="SideArch_03_02" parent="Architecture/Arches" unique_id=605549370 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.25, 2.72, 18.9)
+
+[node name="SideArch_03_03" parent="Architecture/Arches" unique_id=1413758025 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.75, 2.72, 18.9)
+
+[node name="SideArch_03_04" parent="Architecture/Arches" unique_id=817912864 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.25, 2.72, 18.9)
+
+[node name="SideArch_03_05" parent="Architecture/Arches" unique_id=1375517916 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.25, 2.72, 18.9)
+
+[node name="SideArch_03_06" parent="Architecture/Arches" unique_id=1083775259 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.75, 2.72, 18.9)
+
+[node name="SideArch_03_07" parent="Architecture/Arches" unique_id=1718957316 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.25, 2.72, 18.9)
+
+[node name="SideArch_03_08" parent="Architecture/Arches" unique_id=9394696 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.75, 2.72, 18.9)
+
+[node name="CrossArch_04_01" parent="Architecture/Arches" unique_id=627779949 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.72, 16.2)
+
+[node name="CrossArch_04_02" parent="Architecture/Arches" unique_id=292500978 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.72, 16.2)
+
+[node name="CrossArch_04_03" parent="Architecture/Arches" unique_id=522377169 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.72, 16.2)
+
+[node name="CrossArch_04_04" parent="Architecture/Arches" unique_id=1292274918 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72, 16.2)
+
+[node name="CrossArch_04_05" parent="Architecture/Arches" unique_id=474344827 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.72, 16.2)
+
+[node name="CrossArch_04_06" parent="Architecture/Arches" unique_id=1785382758 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.72, 16.2)
+
+[node name="CrossArch_04_07" parent="Architecture/Arches" unique_id=381956606 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2.72, 16.2)
+
+[node name="SideArch_04_01" parent="Architecture/Arches" unique_id=1767699529 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.75, 2.72, 13.5)
+
+[node name="SideArch_04_02" parent="Architecture/Arches" unique_id=1103604775 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.25, 2.72, 13.5)
+
+[node name="SideArch_04_03" parent="Architecture/Arches" unique_id=523059397 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.75, 2.72, 13.5)
+
+[node name="SideArch_04_04" parent="Architecture/Arches" unique_id=188969726 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.25, 2.72, 13.5)
+
+[node name="SideArch_04_05" parent="Architecture/Arches" unique_id=464429944 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.25, 2.72, 13.5)
+
+[node name="SideArch_04_06" parent="Architecture/Arches" unique_id=1682650936 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.75, 2.72, 13.5)
+
+[node name="SideArch_04_07" parent="Architecture/Arches" unique_id=1263257011 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.25, 2.72, 13.5)
+
+[node name="SideArch_04_08" parent="Architecture/Arches" unique_id=1875745190 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.75, 2.72, 13.5)
+
+[node name="CrossArch_05_01" parent="Architecture/Arches" unique_id=1867241701 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.72, 10.8)
+
+[node name="CrossArch_05_02" parent="Architecture/Arches" unique_id=413498062 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.72, 10.8)
+
+[node name="CrossArch_05_03" parent="Architecture/Arches" unique_id=1105324382 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.72, 10.8)
+
+[node name="CrossArch_05_04" parent="Architecture/Arches" unique_id=1508757066 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72, 10.8)
+
+[node name="CrossArch_05_05" parent="Architecture/Arches" unique_id=1482585712 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.72, 10.8)
+
+[node name="CrossArch_05_06" parent="Architecture/Arches" unique_id=869987888 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.72, 10.8)
+
+[node name="CrossArch_05_07" parent="Architecture/Arches" unique_id=345445722 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2.72, 10.8)
+
+[node name="SideArch_05_01" parent="Architecture/Arches" unique_id=420879560 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.75, 2.72, 8.1)
+
+[node name="SideArch_05_02" parent="Architecture/Arches" unique_id=1787325849 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.25, 2.72, 8.1)
+
+[node name="SideArch_05_03" parent="Architecture/Arches" unique_id=189446739 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.75, 2.72, 8.1)
+
+[node name="SideArch_05_04" parent="Architecture/Arches" unique_id=1993531192 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.25, 2.72, 8.1)
+
+[node name="SideArch_05_05" parent="Architecture/Arches" unique_id=1759230588 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.25, 2.72, 8.1)
+
+[node name="SideArch_05_06" parent="Architecture/Arches" unique_id=401376786 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.75, 2.72, 8.1)
+
+[node name="SideArch_05_07" parent="Architecture/Arches" unique_id=734957986 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.25, 2.72, 8.1)
+
+[node name="SideArch_05_08" parent="Architecture/Arches" unique_id=1566078861 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.75, 2.72, 8.1)
+
+[node name="CrossArch_06_01" parent="Architecture/Arches" unique_id=954536955 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.72, 5.4)
+
+[node name="CrossArch_06_02" parent="Architecture/Arches" unique_id=1221735650 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.72, 5.4)
+
+[node name="CrossArch_06_03" parent="Architecture/Arches" unique_id=1980672496 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.72, 5.4)
+
+[node name="CrossArch_06_04" parent="Architecture/Arches" unique_id=1689486186 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72, 5.4)
+
+[node name="CrossArch_06_05" parent="Architecture/Arches" unique_id=566007764 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.72, 5.4)
+
+[node name="CrossArch_06_06" parent="Architecture/Arches" unique_id=1807185578 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.72, 5.4)
+
+[node name="CrossArch_06_07" parent="Architecture/Arches" unique_id=2104337447 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2.72, 5.4)
+
+[node name="SideArch_06_01" parent="Architecture/Arches" unique_id=213892634 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.75, 2.72, 2.7)
+
+[node name="SideArch_06_02" parent="Architecture/Arches" unique_id=2064426124 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.25, 2.72, 2.7)
+
+[node name="SideArch_06_03" parent="Architecture/Arches" unique_id=1836886447 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.75, 2.72, 2.7)
+
+[node name="SideArch_06_04" parent="Architecture/Arches" unique_id=1667068194 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.25, 2.72, 2.7)
+
+[node name="SideArch_06_05" parent="Architecture/Arches" unique_id=1941963363 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.25, 2.72, 2.7)
+
+[node name="SideArch_06_06" parent="Architecture/Arches" unique_id=1264620569 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.75, 2.72, 2.7)
+
+[node name="SideArch_06_07" parent="Architecture/Arches" unique_id=830914483 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.25, 2.72, 2.7)
+
+[node name="SideArch_06_08" parent="Architecture/Arches" unique_id=599871178 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.75, 2.72, 2.7)
+
+[node name="CrossArch_07_01" parent="Architecture/Arches" unique_id=1617048272 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.72, 0)
+
+[node name="CrossArch_07_02" parent="Architecture/Arches" unique_id=1530763631 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.72, 0)
+
+[node name="CrossArch_07_03" parent="Architecture/Arches" unique_id=1952360706 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.72, 0)
+
+[node name="CrossArch_07_04" parent="Architecture/Arches" unique_id=1592544320 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72, 0)
+
+[node name="CrossArch_07_05" parent="Architecture/Arches" unique_id=840904349 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.72, 0)
+
+[node name="CrossArch_07_06" parent="Architecture/Arches" unique_id=1027493263 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.72, 0)
+
+[node name="CrossArch_07_07" parent="Architecture/Arches" unique_id=1133076672 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2.72, 0)
+
+[node name="SideArch_07_01" parent="Architecture/Arches" unique_id=504423712 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.75, 2.72, -2.7)
+
+[node name="SideArch_07_02" parent="Architecture/Arches" unique_id=955916484 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.25, 2.72, -2.7)
+
+[node name="SideArch_07_03" parent="Architecture/Arches" unique_id=1848139520 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.75, 2.72, -2.7)
+
+[node name="SideArch_07_04" parent="Architecture/Arches" unique_id=314990957 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.25, 2.72, -2.7)
+
+[node name="SideArch_07_05" parent="Architecture/Arches" unique_id=1872072174 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.25, 2.72, -2.7)
+
+[node name="SideArch_07_06" parent="Architecture/Arches" unique_id=1655373045 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.75, 2.72, -2.7)
+
+[node name="SideArch_07_07" parent="Architecture/Arches" unique_id=252591433 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.25, 2.72, -2.7)
+
+[node name="SideArch_07_08" parent="Architecture/Arches" unique_id=791510610 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.75, 2.72, -2.7)
+
+[node name="CrossArch_08_01" parent="Architecture/Arches" unique_id=1332534618 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.72, -5.4)
+
+[node name="CrossArch_08_02" parent="Architecture/Arches" unique_id=1834494123 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.72, -5.4)
+
+[node name="CrossArch_08_03" parent="Architecture/Arches" unique_id=1625454038 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.72, -5.4)
+
+[node name="CrossArch_08_04" parent="Architecture/Arches" unique_id=527150247 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72, -5.4)
+
+[node name="CrossArch_08_05" parent="Architecture/Arches" unique_id=750089615 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.72, -5.4)
+
+[node name="CrossArch_08_06" parent="Architecture/Arches" unique_id=729343522 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.72, -5.4)
+
+[node name="CrossArch_08_07" parent="Architecture/Arches" unique_id=357444505 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2.72, -5.4)
+
+[node name="SideArch_08_01" parent="Architecture/Arches" unique_id=652335735 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.75, 2.72, -8.1)
+
+[node name="SideArch_08_02" parent="Architecture/Arches" unique_id=436366886 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.25, 2.72, -8.1)
+
+[node name="SideArch_08_03" parent="Architecture/Arches" unique_id=328621557 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.75, 2.72, -8.1)
+
+[node name="SideArch_08_04" parent="Architecture/Arches" unique_id=272762467 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.25, 2.72, -8.1)
+
+[node name="SideArch_08_05" parent="Architecture/Arches" unique_id=1418427857 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.25, 2.72, -8.1)
+
+[node name="SideArch_08_06" parent="Architecture/Arches" unique_id=560332067 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.75, 2.72, -8.1)
+
+[node name="SideArch_08_07" parent="Architecture/Arches" unique_id=1234860308 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.25, 2.72, -8.1)
+
+[node name="SideArch_08_08" parent="Architecture/Arches" unique_id=935639184 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.75, 2.72, -8.1)
+
+[node name="CrossArch_09_01" parent="Architecture/Arches" unique_id=1035752392 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.72, -10.8)
+
+[node name="CrossArch_09_02" parent="Architecture/Arches" unique_id=1521700195 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.72, -10.8)
+
+[node name="CrossArch_09_03" parent="Architecture/Arches" unique_id=58800929 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.72, -10.8)
+
+[node name="CrossArch_09_04" parent="Architecture/Arches" unique_id=1632895793 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72, -10.8)
+
+[node name="CrossArch_09_05" parent="Architecture/Arches" unique_id=2122678006 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.72, -10.8)
+
+[node name="CrossArch_09_06" parent="Architecture/Arches" unique_id=1368416559 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.72, -10.8)
+
+[node name="CrossArch_09_07" parent="Architecture/Arches" unique_id=1375338076 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2.72, -10.8)
+
+[node name="SideArch_09_01" parent="Architecture/Arches" unique_id=2110535184 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.75, 2.72, -13.5)
+
+[node name="SideArch_09_02" parent="Architecture/Arches" unique_id=1472487709 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.25, 2.72, -13.5)
+
+[node name="SideArch_09_03" parent="Architecture/Arches" unique_id=178893742 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.75, 2.72, -13.5)
+
+[node name="SideArch_09_04" parent="Architecture/Arches" unique_id=1477924056 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.25, 2.72, -13.5)
+
+[node name="SideArch_09_05" parent="Architecture/Arches" unique_id=1426168839 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.25, 2.72, -13.5)
+
+[node name="SideArch_09_06" parent="Architecture/Arches" unique_id=661303781 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.75, 2.72, -13.5)
+
+[node name="SideArch_09_07" parent="Architecture/Arches" unique_id=1348212207 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.25, 2.72, -13.5)
+
+[node name="SideArch_09_08" parent="Architecture/Arches" unique_id=247620804 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.75, 2.72, -13.5)
+
+[node name="CrossArch_10_01" parent="Architecture/Arches" unique_id=809351809 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.72, -16.2)
+
+[node name="CrossArch_10_02" parent="Architecture/Arches" unique_id=1587353177 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.72, -16.2)
+
+[node name="CrossArch_10_03" parent="Architecture/Arches" unique_id=441651513 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.72, -16.2)
+
+[node name="CrossArch_10_04" parent="Architecture/Arches" unique_id=2129132604 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72, -16.2)
+
+[node name="CrossArch_10_05" parent="Architecture/Arches" unique_id=456950771 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.72, -16.2)
+
+[node name="CrossArch_10_06" parent="Architecture/Arches" unique_id=243444305 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.72, -16.2)
+
+[node name="CrossArch_10_07" parent="Architecture/Arches" unique_id=1116590331 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2.72, -16.2)
+
+[node name="SideArch_10_01" parent="Architecture/Arches" unique_id=682565428 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.75, 2.72, -18.9)
+
+[node name="SideArch_10_02" parent="Architecture/Arches" unique_id=1599331474 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.25, 2.72, -18.9)
+
+[node name="SideArch_10_03" parent="Architecture/Arches" unique_id=1571022725 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.75, 2.72, -18.9)
+
+[node name="SideArch_10_04" parent="Architecture/Arches" unique_id=1834168964 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.25, 2.72, -18.9)
+
+[node name="SideArch_10_05" parent="Architecture/Arches" unique_id=1853711451 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.25, 2.72, -18.9)
+
+[node name="SideArch_10_06" parent="Architecture/Arches" unique_id=264555705 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.75, 2.72, -18.9)
+
+[node name="SideArch_10_07" parent="Architecture/Arches" unique_id=1637342523 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.25, 2.72, -18.9)
+
+[node name="SideArch_10_08" parent="Architecture/Arches" unique_id=48123033 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.75, 2.72, -18.9)
+
+[node name="CrossArch_11_01" parent="Architecture/Arches" unique_id=1051264237 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.72, -21.6)
+
+[node name="CrossArch_11_02" parent="Architecture/Arches" unique_id=669953804 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.72, -21.6)
+
+[node name="CrossArch_11_03" parent="Architecture/Arches" unique_id=1346525728 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.72, -21.6)
+
+[node name="CrossArch_11_04" parent="Architecture/Arches" unique_id=1101950678 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72, -21.6)
+
+[node name="CrossArch_11_05" parent="Architecture/Arches" unique_id=1249656190 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.72, -21.6)
+
+[node name="CrossArch_11_06" parent="Architecture/Arches" unique_id=408147935 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.72, -21.6)
+
+[node name="CrossArch_11_07" parent="Architecture/Arches" unique_id=1589654853 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2.72, -21.6)
+
+[node name="SideArch_11_01" parent="Architecture/Arches" unique_id=508978939 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.75, 2.72, -24.3)
+
+[node name="SideArch_11_02" parent="Architecture/Arches" unique_id=1079036042 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.25, 2.72, -24.3)
+
+[node name="SideArch_11_03" parent="Architecture/Arches" unique_id=375445941 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.75, 2.72, -24.3)
+
+[node name="SideArch_11_04" parent="Architecture/Arches" unique_id=968125410 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.25, 2.72, -24.3)
+
+[node name="SideArch_11_05" parent="Architecture/Arches" unique_id=554655139 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.25, 2.72, -24.3)
+
+[node name="SideArch_11_06" parent="Architecture/Arches" unique_id=356135501 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.75, 2.72, -24.3)
+
+[node name="SideArch_11_07" parent="Architecture/Arches" unique_id=1465176190 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.25, 2.72, -24.3)
+
+[node name="SideArch_11_08" parent="Architecture/Arches" unique_id=759709878 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.75, 2.72, -24.3)
+
+[node name="CrossArch_12_01" parent="Architecture/Arches" unique_id=570447730 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.72, -27)
+
+[node name="CrossArch_12_02" parent="Architecture/Arches" unique_id=122122379 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.72, -27)
+
+[node name="CrossArch_12_03" parent="Architecture/Arches" unique_id=389254866 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.72, -27)
+
+[node name="CrossArch_12_04" parent="Architecture/Arches" unique_id=1151094644 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72, -27)
+
+[node name="CrossArch_12_05" parent="Architecture/Arches" unique_id=1639513695 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.72, -27)
+
+[node name="CrossArch_12_06" parent="Architecture/Arches" unique_id=540164393 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.72, -27)
+
+[node name="CrossArch_12_07" parent="Architecture/Arches" unique_id=1293933292 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2.72, -27)
+
+[node name="SideArch_12_01" parent="Architecture/Arches" unique_id=983470584 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -15.75, 2.72, -29.7)
+
+[node name="SideArch_12_02" parent="Architecture/Arches" unique_id=64160320 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -11.25, 2.72, -29.7)
+
+[node name="SideArch_12_03" parent="Architecture/Arches" unique_id=1453801818 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -6.75, 2.72, -29.7)
+
+[node name="SideArch_12_04" parent="Architecture/Arches" unique_id=1714980702 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.25, 2.72, -29.7)
+
+[node name="SideArch_12_05" parent="Architecture/Arches" unique_id=2114612640 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.25, 2.72, -29.7)
+
+[node name="SideArch_12_06" parent="Architecture/Arches" unique_id=690372552 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6.75, 2.72, -29.7)
+
+[node name="SideArch_12_07" parent="Architecture/Arches" unique_id=1127071148 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 11.25, 2.72, -29.7)
+
+[node name="SideArch_12_08" parent="Architecture/Arches" unique_id=595283639 instance=ExtResource("7_2w5fd")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 15.75, 2.72, -29.7)
+
+[node name="CrossArch_13_01" parent="Architecture/Arches" unique_id=1235037163 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.72, -32.4)
+
+[node name="CrossArch_13_02" parent="Architecture/Arches" unique_id=926678923 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 2.72, -32.4)
+
+[node name="CrossArch_13_03" parent="Architecture/Arches" unique_id=2122997400 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.72, -32.4)
+
+[node name="CrossArch_13_04" parent="Architecture/Arches" unique_id=1633156037 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.72, -32.4)
+
+[node name="CrossArch_13_05" parent="Architecture/Arches" unique_id=663744612 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.72, -32.4)
+
+[node name="CrossArch_13_06" parent="Architecture/Arches" unique_id=473551170 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 2.72, -32.4)
+
+[node name="CrossArch_13_07" parent="Architecture/Arches" unique_id=909021780 instance=ExtResource("5_56p1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2.72, -32.4)
+
+[node name="Vaults" type="Node3D" parent="Architecture" unique_id=329738080]
+
+[node name="Vault_01_01" parent="Architecture/Vaults" unique_id=1850717098 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 3, 29.7)
+
+[node name="Vault_01_02" parent="Architecture/Vaults" unique_id=1275019060 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, 29.7)
+
+[node name="Vault_01_03" parent="Architecture/Vaults" unique_id=2093715054 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 3, 29.7)
+
+[node name="Vault_01_04" parent="Architecture/Vaults" unique_id=1800180646 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 29.7)
+
+[node name="Vault_01_05" parent="Architecture/Vaults" unique_id=461135474 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 3, 29.7)
+
+[node name="Vault_01_06" parent="Architecture/Vaults" unique_id=1318468783 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, 29.7)
+
+[node name="Vault_01_07" parent="Architecture/Vaults" unique_id=932720685 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 3, 29.7)
+
+[node name="Vault_02_01" parent="Architecture/Vaults" unique_id=1290984142 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 3, 24.3)
+
+[node name="Vault_02_02" parent="Architecture/Vaults" unique_id=1312889858 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, 24.3)
+
+[node name="Vault_02_03" parent="Architecture/Vaults" unique_id=1598324099 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 3, 24.3)
+
+[node name="Vault_02_04" parent="Architecture/Vaults" unique_id=1338890639 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 24.3)
+
+[node name="Vault_02_05" parent="Architecture/Vaults" unique_id=870068887 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 3, 24.3)
+
+[node name="Vault_02_06" parent="Architecture/Vaults" unique_id=91786785 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, 24.3)
+
+[node name="Vault_02_07" parent="Architecture/Vaults" unique_id=8052246 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 3, 24.3)
+
+[node name="Vault_03_01" parent="Architecture/Vaults" unique_id=804582434 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 3, 18.9)
+
+[node name="Vault_03_02" parent="Architecture/Vaults" unique_id=1847422376 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, 18.9)
+
+[node name="Vault_03_03" parent="Architecture/Vaults" unique_id=19510882 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 3, 18.9)
+
+[node name="Vault_03_04" parent="Architecture/Vaults" unique_id=124250026 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 18.9)
+
+[node name="Vault_03_05" parent="Architecture/Vaults" unique_id=264901854 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 3, 18.9)
+
+[node name="Vault_03_06" parent="Architecture/Vaults" unique_id=1296859089 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, 18.9)
+
+[node name="Vault_03_07" parent="Architecture/Vaults" unique_id=700042808 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 3, 18.9)
+
+[node name="Vault_04_01" parent="Architecture/Vaults" unique_id=2082036521 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 3, 13.5)
+
+[node name="Vault_04_02" parent="Architecture/Vaults" unique_id=1035716689 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, 13.5)
+
+[node name="Vault_04_03" parent="Architecture/Vaults" unique_id=933714632 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 3, 13.5)
+
+[node name="Vault_04_04" parent="Architecture/Vaults" unique_id=647065056 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 13.5)
+
+[node name="Vault_04_05" parent="Architecture/Vaults" unique_id=2028439870 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 3, 13.5)
+
+[node name="Vault_04_06" parent="Architecture/Vaults" unique_id=1632020417 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, 13.5)
+
+[node name="Vault_04_07" parent="Architecture/Vaults" unique_id=1535604712 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 3, 13.5)
+
+[node name="Vault_05_01" parent="Architecture/Vaults" unique_id=339911893 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 3, 8.1)
+
+[node name="Vault_05_02" parent="Architecture/Vaults" unique_id=1176444046 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, 8.1)
+
+[node name="Vault_05_03" parent="Architecture/Vaults" unique_id=924425167 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 3, 8.1)
+
+[node name="Vault_05_04" parent="Architecture/Vaults" unique_id=42919673 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 8.1)
+
+[node name="Vault_05_05" parent="Architecture/Vaults" unique_id=1337183255 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 3, 8.1)
+
+[node name="Vault_05_06" parent="Architecture/Vaults" unique_id=661937111 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, 8.1)
+
+[node name="Vault_05_07" parent="Architecture/Vaults" unique_id=1799265664 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 3, 8.1)
+
+[node name="Vault_06_01" parent="Architecture/Vaults" unique_id=1636388816 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 3, 2.7)
+
+[node name="Vault_06_02" parent="Architecture/Vaults" unique_id=1217320253 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, 2.7)
+
+[node name="Vault_06_03" parent="Architecture/Vaults" unique_id=739417590 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 3, 2.7)
+
+[node name="Vault_06_04" parent="Architecture/Vaults" unique_id=1761592450 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 2.7)
+
+[node name="Vault_06_05" parent="Architecture/Vaults" unique_id=1192384403 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 3, 2.7)
+
+[node name="Vault_06_06" parent="Architecture/Vaults" unique_id=1233311396 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, 2.7)
+
+[node name="Vault_06_07" parent="Architecture/Vaults" unique_id=457360486 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 3, 2.7)
+
+[node name="Vault_07_01" parent="Architecture/Vaults" unique_id=1413195916 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 3, -2.7)
+
+[node name="Vault_07_02" parent="Architecture/Vaults" unique_id=631636668 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, -2.7)
+
+[node name="Vault_07_03" parent="Architecture/Vaults" unique_id=779733812 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 3, -2.7)
+
+[node name="Vault_07_04" parent="Architecture/Vaults" unique_id=1929926144 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -2.7)
+
+[node name="Vault_07_05" parent="Architecture/Vaults" unique_id=785224332 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 3, -2.7)
+
+[node name="Vault_07_06" parent="Architecture/Vaults" unique_id=1005379583 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, -2.7)
+
+[node name="Vault_07_07" parent="Architecture/Vaults" unique_id=1307979756 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 3, -2.7)
+
+[node name="Vault_08_01" parent="Architecture/Vaults" unique_id=859384529 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 3, -8.1)
+
+[node name="Vault_08_02" parent="Architecture/Vaults" unique_id=2080364798 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, -8.1)
+
+[node name="Vault_08_03" parent="Architecture/Vaults" unique_id=221698964 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 3, -8.1)
+
+[node name="Vault_08_04" parent="Architecture/Vaults" unique_id=1313891123 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -8.1)
+
+[node name="Vault_08_05" parent="Architecture/Vaults" unique_id=1257342754 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 3, -8.1)
+
+[node name="Vault_08_06" parent="Architecture/Vaults" unique_id=911444013 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, -8.1)
+
+[node name="Vault_08_07" parent="Architecture/Vaults" unique_id=1749486151 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 3, -8.1)
+
+[node name="Vault_09_01" parent="Architecture/Vaults" unique_id=64737428 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 3, -13.5)
+
+[node name="Vault_09_02" parent="Architecture/Vaults" unique_id=1561847559 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, -13.5)
+
+[node name="Vault_09_03" parent="Architecture/Vaults" unique_id=384710723 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 3, -13.5)
+
+[node name="Vault_09_04" parent="Architecture/Vaults" unique_id=1018739819 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -13.5)
+
+[node name="Vault_09_05" parent="Architecture/Vaults" unique_id=1462448617 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 3, -13.5)
+
+[node name="Vault_09_06" parent="Architecture/Vaults" unique_id=1445277511 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, -13.5)
+
+[node name="Vault_09_07" parent="Architecture/Vaults" unique_id=1137133730 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 3, -13.5)
+
+[node name="Vault_10_01" parent="Architecture/Vaults" unique_id=710208782 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 3, -18.9)
+
+[node name="Vault_10_02" parent="Architecture/Vaults" unique_id=354270861 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, -18.9)
+
+[node name="Vault_10_03" parent="Architecture/Vaults" unique_id=485105590 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 3, -18.9)
+
+[node name="Vault_10_04" parent="Architecture/Vaults" unique_id=1223870090 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -18.9)
+
+[node name="Vault_10_05" parent="Architecture/Vaults" unique_id=937756256 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 3, -18.9)
+
+[node name="Vault_10_06" parent="Architecture/Vaults" unique_id=901064302 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, -18.9)
+
+[node name="Vault_10_07" parent="Architecture/Vaults" unique_id=629951822 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 3, -18.9)
+
+[node name="Vault_11_01" parent="Architecture/Vaults" unique_id=2093167396 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 3, -24.3)
+
+[node name="Vault_11_02" parent="Architecture/Vaults" unique_id=1590976746 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, -24.3)
+
+[node name="Vault_11_03" parent="Architecture/Vaults" unique_id=1321461078 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 3, -24.3)
+
+[node name="Vault_11_04" parent="Architecture/Vaults" unique_id=1401885512 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -24.3)
+
+[node name="Vault_11_05" parent="Architecture/Vaults" unique_id=1859144558 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 3, -24.3)
+
+[node name="Vault_11_06" parent="Architecture/Vaults" unique_id=1267727687 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, -24.3)
+
+[node name="Vault_11_07" parent="Architecture/Vaults" unique_id=1804739254 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 3, -24.3)
+
+[node name="Vault_12_01" parent="Architecture/Vaults" unique_id=1436542633 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 3, -29.7)
+
+[node name="Vault_12_02" parent="Architecture/Vaults" unique_id=40433049 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3, -29.7)
+
+[node name="Vault_12_03" parent="Architecture/Vaults" unique_id=680421361 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 3, -29.7)
+
+[node name="Vault_12_04" parent="Architecture/Vaults" unique_id=2025279143 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -29.7)
+
+[node name="Vault_12_05" parent="Architecture/Vaults" unique_id=261092646 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 3, -29.7)
+
+[node name="Vault_12_06" parent="Architecture/Vaults" unique_id=1018270725 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3, -29.7)
+
+[node name="Vault_12_07" parent="Architecture/Vaults" unique_id=1008856258 instance=ExtResource("9_o7xmm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 3, -29.7)
+
+[node name="Walls" type="Node3D" parent="Architecture" unique_id=124409156]
+
+[node name="LeftWall" type="Node3D" parent="Architecture/Walls" unique_id=1548990561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.12, 2.35, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Architecture/Walls/LeftWall" unique_id=515741450]
+material_override = ExtResource("2_h5cdx")
+mesh = SubResource("BoxMesh_uhxte")
+
+[node name="Body" type="StaticBody3D" parent="Architecture/Walls/LeftWall" unique_id=1606514909]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Architecture/Walls/LeftWall/Body" unique_id=1702073998]
+shape = SubResource("BoxShape3D_53rmi")
+
+[node name="RightWall" type="Node3D" parent="Architecture/Walls" unique_id=441713518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.12, 2.35, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Architecture/Walls/RightWall" unique_id=748189823]
+material_override = ExtResource("2_h5cdx")
+mesh = SubResource("BoxMesh_hdpl0")
+
+[node name="Body" type="StaticBody3D" parent="Architecture/Walls/RightWall" unique_id=2122376134]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Architecture/Walls/RightWall/Body" unique_id=629839946]
+shape = SubResource("BoxShape3D_qq747")
+
+[node name="EntranceWall" type="Node3D" parent="Architecture/Walls" unique_id=1729570552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35, 32.9)
+
+[node name="Mesh" type="MeshInstance3D" parent="Architecture/Walls/EntranceWall" unique_id=1985486861]
+material_override = ExtResource("2_h5cdx")
+mesh = SubResource("BoxMesh_vuhm8")
+
+[node name="Body" type="StaticBody3D" parent="Architecture/Walls/EntranceWall" unique_id=610749962]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Architecture/Walls/EntranceWall/Body" unique_id=1919737110]
+shape = SubResource("BoxShape3D_4eqq2")
+
+[node name="EndWall" type="Node3D" parent="Architecture/Walls" unique_id=741314328]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.35, -32.9)
+
+[node name="Mesh" type="MeshInstance3D" parent="Architecture/Walls/EndWall" unique_id=416879100]
+material_override = ExtResource("3_4g67b")
+mesh = SubResource("BoxMesh_a21kj")
+
+[node name="Body" type="StaticBody3D" parent="Architecture/Walls/EndWall" unique_id=823267302]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Architecture/Walls/EndWall/Body" unique_id=1521210115]
+shape = SubResource("BoxShape3D_eree4")
+
+[node name="LeftDampPlinth" type="Node3D" parent="Architecture/Walls" unique_id=1069974450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.91, 0.35, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Architecture/Walls/LeftDampPlinth" unique_id=780667695]
+material_override = ExtResource("3_4g67b")
+mesh = SubResource("BoxMesh_ip013")
+
+[node name="RightDampPlinth" type="Node3D" parent="Architecture/Walls" unique_id=1651394282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.91, 0.35, 0)
+
+[node name="Mesh" type="MeshInstance3D" parent="Architecture/Walls/RightDampPlinth" unique_id=1597198503]
+material_override = ExtResource("3_4g67b")
+mesh = SubResource("BoxMesh_1o5rl")
+
+[node name="Lighting" type="Node3D" parent="." unique_id=320328647]
+
+[node name="HangingLamps" type="Node3D" parent="Lighting" unique_id=807025370]
+
+[node name="Lamp_01_02" parent="Lighting/HangingLamps" unique_id=974492148 instance=ExtResource("12_xmc5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3.4, 29.7)
+
+[node name="Lamp_01_04" parent="Lighting/HangingLamps" unique_id=997078806 instance=ExtResource("12_xmc5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4, 29.7)
+
+[node name="Lamp_01_06" parent="Lighting/HangingLamps" unique_id=1431606885 instance=ExtResource("12_xmc5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3.4, 29.7)
+
+[node name="Lamp_03_02" parent="Lighting/HangingLamps" unique_id=1291830567 instance=ExtResource("12_xmc5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3.4, 18.9)
+
+[node name="Lamp_03_04" parent="Lighting/HangingLamps" unique_id=850116026 instance=ExtResource("12_xmc5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4, 18.9)
+
+[node name="Lamp_03_06" parent="Lighting/HangingLamps" unique_id=1490173508 instance=ExtResource("12_xmc5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3.4, 18.9)
+
+[node name="Lamp_05_02" parent="Lighting/HangingLamps" unique_id=1595471934 instance=ExtResource("12_xmc5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3.4, 8.1)
+
+[node name="Lamp_05_04" parent="Lighting/HangingLamps" unique_id=1813626270 instance=ExtResource("12_xmc5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4, 8.1)
+
+[node name="Lamp_05_06" parent="Lighting/HangingLamps" unique_id=1230459610 instance=ExtResource("12_xmc5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3.4, 8.1)
+
+[node name="Lamp_07_02" parent="Lighting/HangingLamps" unique_id=893023089 instance=ExtResource("12_xmc5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3.4, -2.7)
+
+[node name="Lamp_07_04" parent="Lighting/HangingLamps" unique_id=814036392 instance=ExtResource("12_xmc5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4, -2.7)
+
+[node name="Lamp_07_06" parent="Lighting/HangingLamps" unique_id=2017494365 instance=ExtResource("12_xmc5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3.4, -2.7)
+
+[node name="Lamp_09_02" parent="Lighting/HangingLamps" unique_id=154496971 instance=ExtResource("12_xmc5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3.4, -13.5)
+
+[node name="Lamp_09_04" parent="Lighting/HangingLamps" unique_id=222720656 instance=ExtResource("12_xmc5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4, -13.5)
+
+[node name="Lamp_09_06" parent="Lighting/HangingLamps" unique_id=1893245119 instance=ExtResource("12_xmc5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3.4, -13.5)
+
+[node name="Lamp_11_02" parent="Lighting/HangingLamps" unique_id=375780275 instance=ExtResource("12_xmc5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 3.4, -24.3)
+
+[node name="Lamp_11_04" parent="Lighting/HangingLamps" unique_id=1966312596 instance=ExtResource("12_xmc5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4, -24.3)
+
+[node name="Lamp_11_06" parent="Lighting/HangingLamps" unique_id=480760621 instance=ExtResource("12_xmc5n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 3.4, -24.3)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Lighting" unique_id=1698563029]
+environment = SubResource("Environment_iodnc")
+
+[node name="WetFloorReflections1" type="ReflectionProbe" parent="Lighting" unique_id=311352469]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 21.6)
+intensity = 0.8
+size = Vector3(33.5, 7, 25)
+box_projection = true
+interior = true
+cull_mask = 1
+
+[node name="WetFloorReflections2" type="ReflectionProbe" parent="Lighting" unique_id=2061295195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+intensity = 0.8
+size = Vector3(33.5, 7, 25)
+box_projection = true
+interior = true
+cull_mask = 1
+
+[node name="WetFloorReflections3" type="ReflectionProbe" parent="Lighting" unique_id=750321936]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -21.6)
+intensity = 0.8
+size = Vector3(33.5, 7, 25)
+box_projection = true
+interior = true
+cull_mask = 1
+
+[node name="VaultWashes" type="Node3D" parent="Lighting" unique_id=675954657]
+
+[node name="VaultWash_01_01" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=351952905]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.25, 27)
+light_color = Color(0.93333334, 0.8901961, 0.79607844, 1)
+light_energy = 0.95
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_01_02" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=1080894119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.25, 27)
+light_color = Color(0.93333334, 0.8901961, 0.79607844, 1)
+light_energy = 0.85
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_01_03" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=305779833]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.25, 27)
+light_color = Color(0.93333334, 0.8901961, 0.79607844, 1)
+light_energy = 0.85
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_01_04" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=443635967]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2.25, 27)
+light_color = Color(0.93333334, 0.8901961, 0.79607844, 1)
+light_energy = 0.85
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_02_01" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=3860676]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.25, 16.2)
+light_color = Color(0.93333334, 0.8901961, 0.79607844, 1)
+light_energy = 0.95
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_02_02" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=76452184]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.25, 16.2)
+light_color = Color(0.93333334, 0.8901961, 0.79607844, 1)
+light_energy = 0.85
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_02_03" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=1063366248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.25, 16.2)
+light_color = Color(0.93333334, 0.8901961, 0.79607844, 1)
+light_energy = 0.85
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_02_04" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=429479611]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2.25, 16.2)
+light_color = Color(0.93333334, 0.8901961, 0.79607844, 1)
+light_energy = 0.85
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_03_01" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=503786970]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.25, 5.4)
+light_color = Color(0.93333334, 0.8901961, 0.79607844, 1)
+light_energy = 0.95
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_03_02" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=1675542525]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.25, 5.4)
+light_color = Color(0.93333334, 0.8901961, 0.79607844, 1)
+light_energy = 0.85
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_03_03" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=1137550762]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.25, 5.4)
+light_color = Color(0.93333334, 0.8901961, 0.79607844, 1)
+light_energy = 0.85
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_03_04" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=803636498]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2.25, 5.4)
+light_color = Color(0.93333334, 0.8901961, 0.79607844, 1)
+light_energy = 0.85
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_04_01" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=1932882847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.25, -5.4)
+light_color = Color(0.4509804, 0.53333336, 0.79607844, 1)
+light_energy = 0.95
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_04_02" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=356850540]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.25, -5.4)
+light_color = Color(0.93333334, 0.8901961, 0.79607844, 1)
+light_energy = 0.85
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_04_03" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=629959770]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.25, -5.4)
+light_color = Color(0.93333334, 0.8901961, 0.79607844, 1)
+light_energy = 0.85
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_04_04" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=2103283607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2.25, -5.4)
+light_color = Color(0.93333334, 0.8901961, 0.79607844, 1)
+light_energy = 0.85
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_05_01" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=1136113131]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.25, -16.2)
+light_color = Color(0.4509804, 0.53333336, 0.79607844, 1)
+light_energy = 0.95
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_05_02" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=552687269]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.25, -16.2)
+light_color = Color(0.93333334, 0.8901961, 0.79607844, 1)
+light_energy = 0.85
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_05_03" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=2145824190]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.25, -16.2)
+light_color = Color(0.93333334, 0.8901961, 0.79607844, 1)
+light_energy = 0.85
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_05_04" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=1699722947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2.25, -16.2)
+light_color = Color(0.93333334, 0.8901961, 0.79607844, 1)
+light_energy = 0.85
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_06_01" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=505593788]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.5, 2.25, -27)
+light_color = Color(0.4509804, 0.53333336, 0.79607844, 1)
+light_energy = 0.95
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_06_02" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=2048345964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 2.25, -27)
+light_color = Color(0.93333334, 0.8901961, 0.79607844, 1)
+light_energy = 0.85
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_06_03" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=1817996269]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.25, -27)
+light_color = Color(0.93333334, 0.8901961, 0.79607844, 1)
+light_energy = 0.85
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="VaultWash_06_04" type="OmniLight3D" parent="Lighting/VaultWashes" unique_id=1738022074]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5, 2.25, -27)
+light_color = Color(0.93333334, 0.8901961, 0.79607844, 1)
+light_energy = 0.85
+light_specular = 0.45
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_range = 8.5
+omni_attenuation = 0.8
+
+[node name="Details" type="Node3D" parent="." unique_id=1679246205]
+
+[node name="SuspensionWires" type="Node3D" parent="Details" unique_id=649615534]
+
+[node name="TransverseWire01" type="MeshInstance3D" parent="Details/SuspensionWires" unique_id=1942176288]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 3.05, 29.7)
+material_override = ExtResource("13_20hca")
+mesh = SubResource("CylinderMesh_jhl3x")
+
+[node name="TransverseWire03" type="MeshInstance3D" parent="Details/SuspensionWires" unique_id=405855617]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 3.05, 18.9)
+material_override = ExtResource("13_20hca")
+mesh = SubResource("CylinderMesh_rxvr2")
+
+[node name="TransverseWire05" type="MeshInstance3D" parent="Details/SuspensionWires" unique_id=1673342091]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 3.05, 8.1)
+material_override = ExtResource("13_20hca")
+mesh = SubResource("CylinderMesh_wk7vx")
+
+[node name="TransverseWire07" type="MeshInstance3D" parent="Details/SuspensionWires" unique_id=434780235]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 3.05, -2.7)
+material_override = ExtResource("13_20hca")
+mesh = SubResource("CylinderMesh_7vfeh")
+
+[node name="TransverseWire09" type="MeshInstance3D" parent="Details/SuspensionWires" unique_id=1908743901]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 3.05, -13.5)
+material_override = ExtResource("13_20hca")
+mesh = SubResource("CylinderMesh_15s4v")
+
+[node name="TransverseWire11" type="MeshInstance3D" parent="Details/SuspensionWires" unique_id=682022572]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 3.05, -24.3)
+material_override = ExtResource("13_20hca")
+mesh = SubResource("CylinderMesh_5rpfo")
+
+[node name="WallLight_01_Left" type="Node3D" parent="Details" unique_id=1175200249]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.82, 0.14, 27)
+
+[node name="Housing" type="Node3D" parent="Details/WallLight_01_Left" unique_id=1604881502]
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/WallLight_01_Left/Housing" unique_id=493211688]
+material_override = ExtResource("13_20hca")
+mesh = SubResource("BoxMesh_vig08")
+
+[node name="StoneWash" type="OmniLight3D" parent="Details/WallLight_01_Left" unique_id=141035097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18, 0.16, 0)
+light_color = Color(0.95686275, 0.8901961, 0.7411765, 1)
+light_energy = 1.2
+light_specular = 0.9
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_attenuation = 0.8
+
+[node name="WallLight_01_Right" type="Node3D" parent="Details" unique_id=455063983]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.82, 0.14, 27)
+
+[node name="Housing" type="Node3D" parent="Details/WallLight_01_Right" unique_id=1527065897]
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/WallLight_01_Right/Housing" unique_id=1519934014]
+material_override = ExtResource("13_20hca")
+mesh = SubResource("BoxMesh_efp7k")
+
+[node name="StoneWash" type="OmniLight3D" parent="Details/WallLight_01_Right" unique_id=455788562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18, 0.16, 0)
+light_color = Color(0.95686275, 0.8901961, 0.7411765, 1)
+light_energy = 1.2
+light_specular = 0.9
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_attenuation = 0.8
+
+[node name="WallLight_02_Left" type="Node3D" parent="Details" unique_id=1917449900]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.82, 0.14, 16.2)
+
+[node name="Housing" type="Node3D" parent="Details/WallLight_02_Left" unique_id=1868879257]
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/WallLight_02_Left/Housing" unique_id=910206836]
+material_override = ExtResource("13_20hca")
+mesh = SubResource("BoxMesh_mll5n")
+
+[node name="StoneWash" type="OmniLight3D" parent="Details/WallLight_02_Left" unique_id=1413939413]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18, 0.16, 0)
+light_color = Color(0.827451, 0.8745098, 0.94509804, 1)
+light_energy = 1.2
+light_specular = 0.9
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_attenuation = 0.8
+
+[node name="WallLight_02_Right" type="Node3D" parent="Details" unique_id=1129732092]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.82, 0.14, 16.2)
+
+[node name="Housing" type="Node3D" parent="Details/WallLight_02_Right" unique_id=430169609]
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/WallLight_02_Right/Housing" unique_id=859520301]
+material_override = ExtResource("13_20hca")
+mesh = SubResource("BoxMesh_srh1o")
+
+[node name="StoneWash" type="OmniLight3D" parent="Details/WallLight_02_Right" unique_id=948360092]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18, 0.16, 0)
+light_color = Color(0.827451, 0.8745098, 0.94509804, 1)
+light_energy = 1.2
+light_specular = 0.9
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_attenuation = 0.8
+
+[node name="WallLight_03_Left" type="Node3D" parent="Details" unique_id=1133416762]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.82, 0.14, 5.4)
+
+[node name="Housing" type="Node3D" parent="Details/WallLight_03_Left" unique_id=2045168018]
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/WallLight_03_Left/Housing" unique_id=1187952680]
+material_override = ExtResource("13_20hca")
+mesh = SubResource("BoxMesh_yarrt")
+
+[node name="StoneWash" type="OmniLight3D" parent="Details/WallLight_03_Left" unique_id=250469001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18, 0.16, 0)
+light_color = Color(0.95686275, 0.8901961, 0.7411765, 1)
+light_energy = 1.2
+light_specular = 0.9
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_attenuation = 0.8
+
+[node name="WallLight_03_Right" type="Node3D" parent="Details" unique_id=1608520629]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.82, 0.14, 5.4)
+
+[node name="Housing" type="Node3D" parent="Details/WallLight_03_Right" unique_id=1979376122]
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/WallLight_03_Right/Housing" unique_id=2053926769]
+material_override = ExtResource("13_20hca")
+mesh = SubResource("BoxMesh_61a32")
+
+[node name="StoneWash" type="OmniLight3D" parent="Details/WallLight_03_Right" unique_id=1653718775]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18, 0.16, 0)
+light_color = Color(0.95686275, 0.8901961, 0.7411765, 1)
+light_energy = 1.2
+light_specular = 0.9
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_attenuation = 0.8
+
+[node name="WallLight_04_Left" type="Node3D" parent="Details" unique_id=139494081]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.82, 0.14, -5.4)
+
+[node name="Housing" type="Node3D" parent="Details/WallLight_04_Left" unique_id=2113828571]
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/WallLight_04_Left/Housing" unique_id=1391905210]
+material_override = ExtResource("13_20hca")
+mesh = SubResource("BoxMesh_wxtrp")
+
+[node name="StoneWash" type="OmniLight3D" parent="Details/WallLight_04_Left" unique_id=1118835748]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18, 0.16, 0)
+light_color = Color(0.95686275, 0.8901961, 0.7411765, 1)
+light_energy = 1.2
+light_specular = 0.9
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_attenuation = 0.8
+
+[node name="WallLight_04_Right" type="Node3D" parent="Details" unique_id=637804136]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.82, 0.14, -5.4)
+
+[node name="Housing" type="Node3D" parent="Details/WallLight_04_Right" unique_id=1948378032]
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/WallLight_04_Right/Housing" unique_id=1614340245]
+material_override = ExtResource("13_20hca")
+mesh = SubResource("BoxMesh_dravw")
+
+[node name="StoneWash" type="OmniLight3D" parent="Details/WallLight_04_Right" unique_id=1222131062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18, 0.16, 0)
+light_color = Color(0.95686275, 0.8901961, 0.7411765, 1)
+light_energy = 1.2
+light_specular = 0.9
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_attenuation = 0.8
+
+[node name="WallLight_05_Left" type="Node3D" parent="Details" unique_id=916071979]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.82, 0.14, -16.2)
+
+[node name="Housing" type="Node3D" parent="Details/WallLight_05_Left" unique_id=1650339013]
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/WallLight_05_Left/Housing" unique_id=1594237913]
+material_override = ExtResource("13_20hca")
+mesh = SubResource("BoxMesh_higy7")
+
+[node name="StoneWash" type="OmniLight3D" parent="Details/WallLight_05_Left" unique_id=305965989]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18, 0.16, 0)
+light_color = Color(0.827451, 0.8745098, 0.94509804, 1)
+light_energy = 1.2
+light_specular = 0.9
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_attenuation = 0.8
+
+[node name="WallLight_05_Right" type="Node3D" parent="Details" unique_id=1705576642]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.82, 0.14, -16.2)
+
+[node name="Housing" type="Node3D" parent="Details/WallLight_05_Right" unique_id=876085913]
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/WallLight_05_Right/Housing" unique_id=753418677]
+material_override = ExtResource("13_20hca")
+mesh = SubResource("BoxMesh_5y3cv")
+
+[node name="StoneWash" type="OmniLight3D" parent="Details/WallLight_05_Right" unique_id=1214686632]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18, 0.16, 0)
+light_color = Color(0.827451, 0.8745098, 0.94509804, 1)
+light_energy = 1.2
+light_specular = 0.9
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_attenuation = 0.8
+
+[node name="WallLight_06_Left" type="Node3D" parent="Details" unique_id=57303451]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.82, 0.14, -27)
+
+[node name="Housing" type="Node3D" parent="Details/WallLight_06_Left" unique_id=1307768243]
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/WallLight_06_Left/Housing" unique_id=1777655703]
+material_override = ExtResource("13_20hca")
+mesh = SubResource("BoxMesh_86hjh")
+
+[node name="StoneWash" type="OmniLight3D" parent="Details/WallLight_06_Left" unique_id=1186189219]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.18, 0.16, 0)
+light_color = Color(0.95686275, 0.8901961, 0.7411765, 1)
+light_energy = 1.2
+light_specular = 0.9
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_attenuation = 0.8
+
+[node name="WallLight_06_Right" type="Node3D" parent="Details" unique_id=249358079]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.82, 0.14, -27)
+
+[node name="Housing" type="Node3D" parent="Details/WallLight_06_Right" unique_id=1687290371]
+
+[node name="Mesh" type="MeshInstance3D" parent="Details/WallLight_06_Right/Housing" unique_id=483613172]
+material_override = ExtResource("13_20hca")
+mesh = SubResource("BoxMesh_yup5e")
+
+[node name="StoneWash" type="OmniLight3D" parent="Details/WallLight_06_Right" unique_id=1743818977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18, 0.16, 0)
+light_color = Color(0.95686275, 0.8901961, 0.7411765, 1)
+light_energy = 1.2
+light_specular = 0.9
+distance_fade_enabled = true
+distance_fade_begin = 30.0
+distance_fade_length = 12.0
+omni_attenuation = 0.8
+
+[node name="Puddles" type="Node3D" parent="." unique_id=1275541226]
+
+[node name="Puddle_01_01" type="MeshInstance3D" parent="Puddles" unique_id=1379098361]
+transform = Transform3D(1.3318872, 0, -1.3227993, 0, 1, 0, 1.0625603, 0, 1.6580889, -14.23038, 0.004, 28.540792)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_01_03" type="MeshInstance3D" parent="Puddles" unique_id=1652217659]
+transform = Transform3D(-1.117522, 0, 0.08417942, 0, 1, 0, -0.050941322, 0, -1.8466805, -3.8867226, 0.004, 29.358751)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_01_05" type="MeshInstance3D" parent="Puddles" unique_id=1336333552]
+transform = Transform3D(0.29808202, 0, -1.5964919, 0, 1, 0, 0.63310933, 0, 0.7516641, 5.0858126, 0.004, 29.275671)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_01_06" type="MeshInstance3D" parent="Puddles" unique_id=1591860154]
+transform = Transform3D(0.6826533, 0, 0.5007077, 0, 1, 0, -0.19248219, 0, 1.7757994, 8.552194, 0.004, 31.003098)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_01_07" type="MeshInstance3D" parent="Puddles" unique_id=1952218248]
+transform = Transform3D(1.0826199, 0, 0.73544395, 0, 1, 0, -0.78362495, 0, 1.0160552, 12.386768, 0.004, 30.566164)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_02_01" type="MeshInstance3D" parent="Puddles" unique_id=824066725]
+transform = Transform3D(0.41228712, 0, -1.7594559, 0, 1, 0, 1.1442121, 0, 0.6339743, -13.238248, 0.004, 24.292822)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_02_03" type="MeshInstance3D" parent="Puddles" unique_id=1032128335]
+transform = Transform3D(1.6574155, 0, -0.2161353, 0, 1, 0, 0.31273228, 0, 1.1454717, -3.5561311, 0.004, 25.177494)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_02_04" type="MeshInstance3D" parent="Puddles" unique_id=348875943]
+transform = Transform3D(1.5582746, 0, 0.67618984, 0, 1, 0, -0.5341043, 0, 1.972816, 0.85160303, 0.004, 23.859272)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_02_05" type="MeshInstance3D" parent="Puddles" unique_id=973027206]
+transform = Transform3D(-0.32379198, 0, 0.890834, 0, 1, 0, -0.75204444, 0, -0.3835477, 5.4364157, 0.004, 25.168705)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_02_06" type="MeshInstance3D" parent="Puddles" unique_id=364089850]
+transform = Transform3D(-0.73794585, 0, -0.24425283, 0, 1, 0, 0.13893625, 0, -1.2973242, 9.900553, 0.004, 24.572363)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_02_07" type="MeshInstance3D" parent="Puddles" unique_id=1382499043]
+transform = Transform3D(-1.0296258, 0, 1.0320466, 0, 1, 0, -0.61552274, 0, -1.7263728, 14.539903, 0.004, 23.974468)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_03_01" type="MeshInstance3D" parent="Puddles" unique_id=598917565]
+transform = Transform3D(0.40809777, 0, 1.9495687, 0, 1, 0, -1.0318319, 0, 0.77107006, -13.134433, 0.004, 17.437908)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_03_02" type="MeshInstance3D" parent="Puddles" unique_id=254745290]
+transform = Transform3D(0.056417122, 0, 1.5415307, 0, 1, 0, -0.63285756, 0, 0.1374223, -9.737204, 0.004, 18.106222)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_03_03" type="MeshInstance3D" parent="Puddles" unique_id=513879103]
+transform = Transform3D(-1.1938998, 0, -0.22698928, 0, 1, 0, 0.16113742, 0, -1.6818095, -5.276683, 0.004, 18.944506)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_03_05" type="MeshInstance3D" parent="Puddles" unique_id=1895554595]
+transform = Transform3D(0.006995331, 0, -2.1001663, 0, 1, 0, 0.62821335, 0, 0.023385938, 4.624588, 0.004, 18.824173)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_03_07" type="MeshInstance3D" parent="Puddles" unique_id=1183196697]
+transform = Transform3D(-0.50856423, 0, -0.88059855, 0, 1, 0, 1.4263759, 0, -0.3139712, 14.337087, 0.004, 19.531258)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_04_01" type="MeshInstance3D" parent="Puddles" unique_id=1550098548]
+transform = Transform3D(0.27708423, 0, -1.112179, 0, 1, 0, 0.68212944, 0, 0.45177242, -12.7219305, 0.004, 14.941834)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_04_03" type="MeshInstance3D" parent="Puddles" unique_id=2005638280]
+transform = Transform3D(1.3710269, 0, -0.33247623, 0, 1, 0, 0.42733347, 0, 1.0666935, -4.2367096, 0.004, 12.244354)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_04_04" type="MeshInstance3D" parent="Puddles" unique_id=186794192]
+transform = Transform3D(-0.48828506, 0, -1.0718167, 0, 1, 0, 1.3387109, 0, -0.39093733, 0.27894318, 0.004, 12.835077)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_04_05" type="MeshInstance3D" parent="Puddles" unique_id=105749226]
+transform = Transform3D(1.112522, 0, 0.29476276, 0, 1, 0, -0.30893433, 0, 1.0614879, 5.3213487, 0.004, 12.303285)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_04_06" type="MeshInstance3D" parent="Puddles" unique_id=2037476755]
+transform = Transform3D(-0.4924531, 0, 1.4149206, 0, 1, 0, -0.43630028, 0, -1.597024, 8.845452, 0.004, 13.782691)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_04_07" type="MeshInstance3D" parent="Puddles" unique_id=1838320520]
+transform = Transform3D(-0.37528557, 0, -1.2053791, 0, 1, 0, 0.570507, 0, -0.7929112, 13.542924, 0.004, 12.945126)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_05_01" type="MeshInstance3D" parent="Puddles" unique_id=1917593335]
+transform = Transform3D(-0.0732539, 0, 1.7948498, 0, 1, 0, -0.7712518, 0, -0.17047578, -14.028071, 0.004, 7.5193086)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_05_02" type="MeshInstance3D" parent="Puddles" unique_id=1398822853]
+transform = Transform3D(-1.2707629, 0, -0.07944319, 0, 1, 0, 0.04952566, 0, -2.038407, -9.90353, 0.004, 9.065037)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_05_03" type="MeshInstance3D" parent="Puddles" unique_id=1234576610]
+transform = Transform3D(-1.0104903, 0, -0.75839955, 0, 1, 0, 0.42936707, 0, -1.784849, -5.332306, 0.004, 8.251097)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_05_04" type="MeshInstance3D" parent="Puddles" unique_id=323110789]
+transform = Transform3D(0.9698737, 0, 0.21123265, 0, 1, 0, -0.26032272, 0, 0.78698087, 1.0236776, 0.004, 6.951995)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_05_05" type="MeshInstance3D" parent="Puddles" unique_id=537726590]
+transform = Transform3D(0.65440196, 0, -1.4738632, 0, 1, 0, 1.0672675, 0, 0.90370876, 4.4022613, 0.004, 8.719053)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_05_06" type="MeshInstance3D" parent="Puddles" unique_id=1873055409]
+transform = Transform3D(-1.4680862, 0, -0.32885787, 0, 1, 0, 0.3371215, 0, -1.4321002, 8.597681, 0.004, 8.300599)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_06_01" type="MeshInstance3D" parent="Puddles" unique_id=1170905936]
+transform = Transform3D(-0.1907814, 0, -1.4072783, 0, 1, 0, 0.65204304, 0, -0.41175583, -13.030628, 0.004, 1.7359234)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_06_02" type="MeshInstance3D" parent="Puddles" unique_id=628070369]
+transform = Transform3D(1.0798599, 0, 0.9561864, 0, 1, 0, -0.76572466, 0, 1.3484577, -9.317609, 0.004, 3.466331)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_06_03" type="MeshInstance3D" parent="Puddles" unique_id=1453813859]
+transform = Transform3D(-0.67049295, 0, 0.9456032, 0, 1, 0, -1.5926507, 0, -0.39809123, -5.1728168, 0.004, 2.6275408)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_06_04" type="MeshInstance3D" parent="Puddles" unique_id=2091102923]
+transform = Transform3D(-0.86052185, 0, 1.3428917, 0, 1, 0, -1.1477487, 0, -1.0068297, 0.6624888, 0.004, 2.3112001)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_06_05" type="MeshInstance3D" parent="Puddles" unique_id=1525213339]
+transform = Transform3D(-0.6064253, 0, -0.83491933, 0, 1, 0, 0.4153042, 0, -1.2191453, 5.4989767, 0.004, 2.5455954)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_06_07" type="MeshInstance3D" parent="Puddles" unique_id=46710999]
+transform = Transform3D(-1.4330556, 0, -0.116909556, 0, 1, 0, 0.085438736, 0, -1.9609126, 12.33622, 0.004, 2.2249277)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_07_01" type="MeshInstance3D" parent="Puddles" unique_id=1392187575]
+transform = Transform3D(-1.027778, 0, 0.5215125, 0, 1, 0, -0.41600326, 0, -1.2884492, -12.8719845, 0.004, -2.2277527)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_07_02" type="MeshInstance3D" parent="Puddles" unique_id=587026715]
+transform = Transform3D(-1.181486, 0, -0.17993195, 0, 1, 0, 0.15441507, 0, -1.3767251, -9.17255, 0.004, -1.4436924)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_07_04" type="MeshInstance3D" parent="Puddles" unique_id=534598506]
+transform = Transform3D(1.4129444, 0, -0.0873952, 0, 1, 0, 0.09136413, 0, 1.3515649, -0.17159534, 0.004, -4.1115174)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_07_05" type="MeshInstance3D" parent="Puddles" unique_id=1486829017]
+transform = Transform3D(-0.7381769, 0, 1.3611169, 0, 1, 0, -1.4243512, 0, -0.70540535, 5.3423595, 0.004, -3.0801446)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_07_06" type="MeshInstance3D" parent="Puddles" unique_id=1669587061]
+transform = Transform3D(1.401423, 0, 0.44435737, 0, 1, 0, -0.562227, 0, 1.1076177, 9.613356, 0.004, -2.9062731)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_07_07" type="MeshInstance3D" parent="Puddles" unique_id=2086254553]
+transform = Transform3D(1.0308138, 0, 0.752906, 0, 1, 0, -0.7531031, 0, 1.030544, 13.426321, 0.004, -3.0833602)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_08_01" type="MeshInstance3D" parent="Puddles" unique_id=1747962046]
+transform = Transform3D(0.812148, 0, 0.98343587, 0, 1, 0, -0.8152766, 0, 0.97966194, -14.692387, 0.004, -7.4524345)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_08_02" type="MeshInstance3D" parent="Puddles" unique_id=1204417965]
+transform = Transform3D(-0.4340754, 0, -0.7419584, 0, 1, 0, 1.662169, 0, -0.19376242, -10.036727, 0.004, -9.063186)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_08_03" type="MeshInstance3D" parent="Puddles" unique_id=560367987]
+transform = Transform3D(-1.2472042, 0, 0.50374866, 0, 1, 0, -0.96851933, 0, -0.64869887, -3.4485888, 0.004, -9.543534)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_08_04" type="MeshInstance3D" parent="Puddles" unique_id=104839662]
+transform = Transform3D(-0.7319229, 0, -0.70154464, 0, 1, 0, 1.0359105, 0, -0.4956766, 0.65169024, 0.004, -6.807587)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_08_05" type="MeshInstance3D" parent="Puddles" unique_id=95628772]
+transform = Transform3D(-0.6514384, 0, 0.75741607, 0, 1, 0, -0.43691385, 0, -1.129307, 4.1139536, 0.004, -8.891655)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_08_06" type="MeshInstance3D" parent="Puddles" unique_id=169800866]
+transform = Transform3D(-0.7411407, 0, -0.64864165, 0, 1, 0, 0.75131077, 0, -0.63986135, 9.041295, 0.004, -8.482132)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_08_07" type="MeshInstance3D" parent="Puddles" unique_id=618448507]
+transform = Transform3D(-1.5690862, 0, -0.26457462, 0, 1, 0, 0.31724036, 0, -1.3085989, 13.544135, 0.004, -8.219534)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_09_01" type="MeshInstance3D" parent="Puddles" unique_id=506535568]
+transform = Transform3D(-1.0327151, 0, 0.14747861, 0, 1, 0, -0.15386614, 0, -0.9898435, -13.592504, 0.004, -14.392026)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_09_02" type="MeshInstance3D" parent="Puddles" unique_id=535964492]
+transform = Transform3D(-0.48630515, 0, -0.68616945, 0, 1, 0, 0.37131706, 0, -0.8986598, -8.024577, 0.004, -12.573355)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_09_03" type="MeshInstance3D" parent="Puddles" unique_id=936105139]
+transform = Transform3D(0.38327405, 0, 0.83704734, 0, 1, 0, -0.9716271, 0, 0.33018687, -4.8747516, 0.004, -14.935312)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_09_04" type="MeshInstance3D" parent="Puddles" unique_id=376862510]
+transform = Transform3D(-1.2102473, 0, -0.6021875, 0, 1, 0, 0.38445488, 0, -1.8956599, 0.59210193, 0.004, -12.867951)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_09_05" type="MeshInstance3D" parent="Puddles" unique_id=2054323689]
+transform = Transform3D(-0.31850353, 0, 1.5262371, 0, 1, 0, -1.0943462, 0, -0.44420302, 5.332986, 0.004, -12.665677)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_09_06" type="MeshInstance3D" parent="Puddles" unique_id=1796902143]
+transform = Transform3D(0.40602997, 0, 0.6363939, 0, 1, 0, -0.51836604, 0, 0.49847984, 10.134689, 0.004, -14.624401)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_09_07" type="MeshInstance3D" parent="Puddles" unique_id=151809622]
+transform = Transform3D(-0.86747986, 0, -0.97916996, 0, 1, 0, 1.3983078, 0, -0.6074558, 14.498355, 0.004, -13.896821)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_10_01" type="MeshInstance3D" parent="Puddles" unique_id=77874194]
+transform = Transform3D(1.402442, 0, 0.68520325, 0, 1, 0, -1.0288879, 0, 0.9339771, -13.103498, 0.004, -18.850084)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_10_02" type="MeshInstance3D" parent="Puddles" unique_id=1906668587]
+transform = Transform3D(-0.2691935, 0, 2.1159012, 0, 1, 0, -1.1320959, 0, -0.50312597, -8.412029, 0.004, -20.059786)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_10_03" type="MeshInstance3D" parent="Puddles" unique_id=910379662]
+transform = Transform3D(-1.1747314, 0, 1.4474026, 0, 1, 0, -1.2371418, 0, -1.3743851, -4.3702793, 0.004, -18.035286)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_10_04" type="MeshInstance3D" parent="Puddles" unique_id=785470879]
+transform = Transform3D(0.88083583, 0, 0.5755585, 0, 1, 0, -0.2946272, 0, 1.7207255, -0.95260084, 0.004, -19.075739)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_10_05" type="MeshInstance3D" parent="Puddles" unique_id=894509553]
+transform = Transform3D(-0.05929593, 0, -1.0503163, 0, 1, 0, 1.1934521, 0, -0.052184317, 5.094495, 0.004, -19.382925)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_10_07" type="MeshInstance3D" parent="Puddles" unique_id=1925309336]
+transform = Transform3D(-0.6397967, 0, -1.1652304, 0, 1, 0, 0.6012904, 0, -1.2398511, 13.971704, 0.004, -17.849129)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_11_02" type="MeshInstance3D" parent="Puddles" unique_id=120386186]
+transform = Transform3D(1.5864158, 0, -0.28910273, 0, 1, 0, 0.34445608, 0, 1.3314822, -8.377445, 0.004, -25.220762)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_11_03" type="MeshInstance3D" parent="Puddles" unique_id=1394369301]
+transform = Transform3D(-0.34808517, 0, 1.3880785, 0, 1, 0, -0.6642032, 0, -0.72744226, -4.0199375, 0.004, -23.562511)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_11_04" type="MeshInstance3D" parent="Puddles" unique_id=3508496]
+transform = Transform3D(1.107243, 0, 0.51017684, 0, 1, 0, -0.30726454, 0, 1.8384473, 0.16668892, 0.004, -23.026665)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_11_05" type="MeshInstance3D" parent="Puddles" unique_id=1439539235]
+transform = Transform3D(1.3707867, 0, -0.45279306, 0, 1, 0, 0.2965149, 0, 2.0932598, 4.350265, 0.004, -24.160044)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_11_06" type="MeshInstance3D" parent="Puddles" unique_id=1596311824]
+transform = Transform3D(-1.3903111, 0, -0.66826093, 0, 1, 0, 1.1361874, 0, -0.8177265, 8.551071, 0.004, -22.83414)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_11_07" type="MeshInstance3D" parent="Puddles" unique_id=926811584]
+transform = Transform3D(0.49979818, 0, 1.3615081, 0, 1, 0, -0.79630846, 0, 0.8545423, 12.532468, 0.004, -24.29349)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_12_01" type="MeshInstance3D" parent="Puddles" unique_id=1138335427]
+transform = Transform3D(-0.91063416, 0, -0.70010835, 0, 1, 0, 0.49875632, 0, -1.2782646, -13.57422, 0.004, -28.350847)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_12_02" type="MeshInstance3D" parent="Puddles" unique_id=797683151]
+transform = Transform3D(-0.9023444, 0, 0.5467624, 0, 1, 0, -0.3036824, 0, -1.6246185, -10.036841, 0.004, -28.361614)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_12_03" type="MeshInstance3D" parent="Puddles" unique_id=1844049593]
+transform = Transform3D(1.268595, 0, -0.4225385, 0, 1, 0, 0.53271145, 0, 1.0062299, -4.605231, 0.004, -30.183369)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_12_04" type="MeshInstance3D" parent="Puddles" unique_id=2064067620]
+transform = Transform3D(1.032652, 0, 0.9081695, 0, 1, 0, -0.792527, 0, 1.1833326, 0.36773157, 0.004, -30.057556)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_12_05" type="MeshInstance3D" parent="Puddles" unique_id=1037139296]
+transform = Transform3D(0.6413559, 0, 1.2215189, 0, 1, 0, -1.4832394, 0, 0.5281874, 4.4878464, 0.004, -30.059532)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_12_06" type="MeshInstance3D" parent="Puddles" unique_id=1698720060]
+transform = Transform3D(0.6943612, 0, 0.70665604, 0, 1, 0, -1.5965441, 0, 0.3073354, 9.742591, 0.004, -28.35885)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="Puddle_12_07" type="MeshInstance3D" parent="Puddles" unique_id=1496536838]
+transform = Transform3D(0.50317055, 0, 1.0013896, 0, 1, 0, -0.36548242, 0, 1.3786429, 12.377428, 0.004, -28.457724)
+layers = 2
+material_override = ExtResource("15_hgjfi")
+cast_shadow = 0
+mesh = ExtResource("16_vy2e4")
+
+[node name="PreviewCameras" type="Node3D" parent="." unique_id=1518942637]
+
+[node name="LongAisle" type="Camera3D" parent="PreviewCameras" unique_id=597115656]
+transform = Transform3D(1, 0, 0, 0, 0.99939084, -0.034899496, 0, 0.034899496, 0.99939084, 0, 1.72, 29.4)
+current = true
+fov = 72.0
+far = 110.0
+
+[node name="AcrossVaults" type="Camera3D" parent="PreviewCameras" unique_id=1255059343]
+transform = Transform3D(0.809017, 0.051228855, 0.5855486, 0, 0.9961947, -0.08715574, -0.58778524, 0.07051047, 0.8059385, 4.5, 1.72, 21)
+fov = 72.0
+far = 110.0
+
+[node name="FuturePlayerSpawn" type="Marker3D" parent="." unique_id=1703933290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 29.4)
+
+[node name="WarmLight" parent="Lighting/HangingLamps/Lamp_01_04" index="3"]
+shadow_enabled = true
+
+[node name="WarmLight" parent="Lighting/HangingLamps/Lamp_07_04" index="3"]
+shadow_enabled = true
+
+[editable path="Architecture/Pillars/Pillar_01_01"]
+[editable path="Architecture/Pillars/Pillar_01_02"]
+[editable path="Architecture/Pillars/Pillar_01_03"]
+[editable path="Architecture/Pillars/Pillar_01_04"]
+[editable path="Architecture/Pillars/Pillar_01_05"]
+[editable path="Architecture/Pillars/Pillar_01_06"]
+[editable path="Architecture/Pillars/Pillar_01_07"]
+[editable path="Architecture/Pillars/Pillar_01_08"]
+[editable path="Architecture/Pillars/Pillar_02_01"]
+[editable path="Architecture/Pillars/Pillar_02_02"]
+[editable path="Architecture/Pillars/Pillar_02_03"]
+[editable path="Architecture/Pillars/Pillar_02_04"]
+[editable path="Architecture/Pillars/Pillar_02_05"]
+[editable path="Architecture/Pillars/Pillar_02_06"]
+[editable path="Architecture/Pillars/Pillar_02_07"]
+[editable path="Architecture/Pillars/Pillar_02_08"]
+[editable path="Architecture/Pillars/Pillar_03_01"]
+[editable path="Architecture/Pillars/Pillar_03_02"]
+[editable path="Architecture/Pillars/Pillar_03_03"]
+[editable path="Architecture/Pillars/Pillar_03_04"]
+[editable path="Architecture/Pillars/Pillar_03_05"]
+[editable path="Architecture/Pillars/Pillar_03_06"]
+[editable path="Architecture/Pillars/Pillar_03_07"]
+[editable path="Architecture/Pillars/Pillar_03_08"]
+[editable path="Architecture/Pillars/Pillar_04_01"]
+[editable path="Architecture/Pillars/Pillar_04_02"]
+[editable path="Architecture/Pillars/Pillar_04_03"]
+[editable path="Architecture/Pillars/Pillar_04_04"]
+[editable path="Architecture/Pillars/Pillar_04_05"]
+[editable path="Architecture/Pillars/Pillar_04_06"]
+[editable path="Architecture/Pillars/Pillar_04_07"]
+[editable path="Architecture/Pillars/Pillar_04_08"]
+[editable path="Architecture/Pillars/Pillar_05_01"]
+[editable path="Architecture/Pillars/Pillar_05_02"]
+[editable path="Architecture/Pillars/Pillar_05_03"]
+[editable path="Architecture/Pillars/Pillar_05_04"]
+[editable path="Architecture/Pillars/Pillar_05_05"]
+[editable path="Architecture/Pillars/Pillar_05_06"]
+[editable path="Architecture/Pillars/Pillar_05_07"]
+[editable path="Architecture/Pillars/Pillar_05_08"]
+[editable path="Architecture/Pillars/Pillar_06_01"]
+[editable path="Architecture/Pillars/Pillar_06_02"]
+[editable path="Architecture/Pillars/Pillar_06_03"]
+[editable path="Architecture/Pillars/Pillar_06_04"]
+[editable path="Architecture/Pillars/Pillar_06_05"]
+[editable path="Architecture/Pillars/Pillar_06_06"]
+[editable path="Architecture/Pillars/Pillar_06_07"]
+[editable path="Architecture/Pillars/Pillar_06_08"]
+[editable path="Architecture/Pillars/Pillar_07_01"]
+[editable path="Architecture/Pillars/Pillar_07_02"]
+[editable path="Architecture/Pillars/Pillar_07_03"]
+[editable path="Architecture/Pillars/Pillar_07_04"]
+[editable path="Architecture/Pillars/Pillar_07_05"]
+[editable path="Architecture/Pillars/Pillar_07_06"]
+[editable path="Architecture/Pillars/Pillar_07_07"]
+[editable path="Architecture/Pillars/Pillar_07_08"]
+[editable path="Architecture/Pillars/Pillar_08_01"]
+[editable path="Architecture/Pillars/Pillar_08_02"]
+[editable path="Architecture/Pillars/Pillar_08_03"]
+[editable path="Architecture/Pillars/Pillar_08_04"]
+[editable path="Architecture/Pillars/Pillar_08_05"]
+[editable path="Architecture/Pillars/Pillar_08_06"]
+[editable path="Architecture/Pillars/Pillar_08_07"]
+[editable path="Architecture/Pillars/Pillar_08_08"]
+[editable path="Architecture/Pillars/Pillar_09_01"]
+[editable path="Architecture/Pillars/Pillar_09_02"]
+[editable path="Architecture/Pillars/Pillar_09_03"]
+[editable path="Architecture/Pillars/Pillar_09_04"]
+[editable path="Architecture/Pillars/Pillar_09_05"]
+[editable path="Architecture/Pillars/Pillar_09_06"]
+[editable path="Architecture/Pillars/Pillar_09_07"]
+[editable path="Architecture/Pillars/Pillar_09_08"]
+[editable path="Architecture/Pillars/Pillar_10_01"]
+[editable path="Architecture/Pillars/Pillar_10_02"]
+[editable path="Architecture/Pillars/Pillar_10_03"]
+[editable path="Architecture/Pillars/Pillar_10_04"]
+[editable path="Architecture/Pillars/Pillar_10_05"]
+[editable path="Architecture/Pillars/Pillar_10_06"]
+[editable path="Architecture/Pillars/Pillar_10_07"]
+[editable path="Architecture/Pillars/Pillar_10_08"]
+[editable path="Architecture/Pillars/Pillar_11_01"]
+[editable path="Architecture/Pillars/Pillar_11_02"]
+[editable path="Architecture/Pillars/Pillar_11_03"]
+[editable path="Architecture/Pillars/Pillar_11_04"]
+[editable path="Architecture/Pillars/Pillar_11_05"]
+[editable path="Architecture/Pillars/Pillar_11_06"]
+[editable path="Architecture/Pillars/Pillar_11_07"]
+[editable path="Architecture/Pillars/Pillar_11_08"]
+[editable path="Architecture/Pillars/Pillar_12_01"]
+[editable path="Architecture/Pillars/Pillar_12_02"]
+[editable path="Architecture/Pillars/Pillar_12_03"]
+[editable path="Architecture/Pillars/Pillar_12_04"]
+[editable path="Architecture/Pillars/Pillar_12_05"]
+[editable path="Architecture/Pillars/Pillar_12_06"]
+[editable path="Architecture/Pillars/Pillar_12_07"]
+[editable path="Architecture/Pillars/Pillar_12_08"]
+[editable path="Architecture/Pillars/Pillar_13_01"]
+[editable path="Architecture/Pillars/Pillar_13_02"]
+[editable path="Architecture/Pillars/Pillar_13_03"]
+[editable path="Architecture/Pillars/Pillar_13_04"]
+[editable path="Architecture/Pillars/Pillar_13_05"]
+[editable path="Architecture/Pillars/Pillar_13_06"]
+[editable path="Architecture/Pillars/Pillar_13_07"]
+[editable path="Architecture/Pillars/Pillar_13_08"]
+[editable path="Architecture/Arches/CrossArch_01_01"]
+[editable path="Architecture/Arches/CrossArch_01_02"]
+[editable path="Architecture/Arches/CrossArch_01_03"]
+[editable path="Architecture/Arches/CrossArch_01_04"]
+[editable path="Architecture/Arches/CrossArch_01_05"]
+[editable path="Architecture/Arches/CrossArch_01_06"]
+[editable path="Architecture/Arches/CrossArch_01_07"]
+[editable path="Architecture/Arches/SideArch_01_01"]
+[editable path="Architecture/Arches/SideArch_01_02"]
+[editable path="Architecture/Arches/SideArch_01_03"]
+[editable path="Architecture/Arches/SideArch_01_04"]
+[editable path="Architecture/Arches/SideArch_01_05"]
+[editable path="Architecture/Arches/SideArch_01_06"]
+[editable path="Architecture/Arches/SideArch_01_07"]
+[editable path="Architecture/Arches/SideArch_01_08"]
+[editable path="Architecture/Arches/CrossArch_02_01"]
+[editable path="Architecture/Arches/CrossArch_02_02"]
+[editable path="Architecture/Arches/CrossArch_02_03"]
+[editable path="Architecture/Arches/CrossArch_02_04"]
+[editable path="Architecture/Arches/CrossArch_02_05"]
+[editable path="Architecture/Arches/CrossArch_02_06"]
+[editable path="Architecture/Arches/CrossArch_02_07"]
+[editable path="Architecture/Arches/SideArch_02_01"]
+[editable path="Architecture/Arches/SideArch_02_02"]
+[editable path="Architecture/Arches/SideArch_02_03"]
+[editable path="Architecture/Arches/SideArch_02_04"]
+[editable path="Architecture/Arches/SideArch_02_05"]
+[editable path="Architecture/Arches/SideArch_02_06"]
+[editable path="Architecture/Arches/SideArch_02_07"]
+[editable path="Architecture/Arches/SideArch_02_08"]
+[editable path="Architecture/Arches/CrossArch_03_01"]
+[editable path="Architecture/Arches/CrossArch_03_02"]
+[editable path="Architecture/Arches/CrossArch_03_03"]
+[editable path="Architecture/Arches/CrossArch_03_04"]
+[editable path="Architecture/Arches/CrossArch_03_05"]
+[editable path="Architecture/Arches/CrossArch_03_06"]
+[editable path="Architecture/Arches/CrossArch_03_07"]
+[editable path="Architecture/Arches/SideArch_03_01"]
+[editable path="Architecture/Arches/SideArch_03_02"]
+[editable path="Architecture/Arches/SideArch_03_03"]
+[editable path="Architecture/Arches/SideArch_03_04"]
+[editable path="Architecture/Arches/SideArch_03_05"]
+[editable path="Architecture/Arches/SideArch_03_06"]
+[editable path="Architecture/Arches/SideArch_03_07"]
+[editable path="Architecture/Arches/SideArch_03_08"]
+[editable path="Architecture/Arches/CrossArch_04_01"]
+[editable path="Architecture/Arches/CrossArch_04_02"]
+[editable path="Architecture/Arches/CrossArch_04_03"]
+[editable path="Architecture/Arches/CrossArch_04_04"]
+[editable path="Architecture/Arches/CrossArch_04_05"]
+[editable path="Architecture/Arches/CrossArch_04_06"]
+[editable path="Architecture/Arches/CrossArch_04_07"]
+[editable path="Architecture/Arches/SideArch_04_01"]
+[editable path="Architecture/Arches/SideArch_04_02"]
+[editable path="Architecture/Arches/SideArch_04_03"]
+[editable path="Architecture/Arches/SideArch_04_04"]
+[editable path="Architecture/Arches/SideArch_04_05"]
+[editable path="Architecture/Arches/SideArch_04_06"]
+[editable path="Architecture/Arches/SideArch_04_07"]
+[editable path="Architecture/Arches/SideArch_04_08"]
+[editable path="Architecture/Arches/CrossArch_05_01"]
+[editable path="Architecture/Arches/CrossArch_05_02"]
+[editable path="Architecture/Arches/CrossArch_05_03"]
+[editable path="Architecture/Arches/CrossArch_05_04"]
+[editable path="Architecture/Arches/CrossArch_05_05"]
+[editable path="Architecture/Arches/CrossArch_05_06"]
+[editable path="Architecture/Arches/CrossArch_05_07"]
+[editable path="Architecture/Arches/SideArch_05_01"]
+[editable path="Architecture/Arches/SideArch_05_02"]
+[editable path="Architecture/Arches/SideArch_05_03"]
+[editable path="Architecture/Arches/SideArch_05_04"]
+[editable path="Architecture/Arches/SideArch_05_05"]
+[editable path="Architecture/Arches/SideArch_05_06"]
+[editable path="Architecture/Arches/SideArch_05_07"]
+[editable path="Architecture/Arches/SideArch_05_08"]
+[editable path="Architecture/Arches/CrossArch_06_01"]
+[editable path="Architecture/Arches/CrossArch_06_02"]
+[editable path="Architecture/Arches/CrossArch_06_03"]
+[editable path="Architecture/Arches/CrossArch_06_04"]
+[editable path="Architecture/Arches/CrossArch_06_05"]
+[editable path="Architecture/Arches/CrossArch_06_06"]
+[editable path="Architecture/Arches/CrossArch_06_07"]
+[editable path="Architecture/Arches/SideArch_06_01"]
+[editable path="Architecture/Arches/SideArch_06_02"]
+[editable path="Architecture/Arches/SideArch_06_03"]
+[editable path="Architecture/Arches/SideArch_06_04"]
+[editable path="Architecture/Arches/SideArch_06_05"]
+[editable path="Architecture/Arches/SideArch_06_06"]
+[editable path="Architecture/Arches/SideArch_06_07"]
+[editable path="Architecture/Arches/SideArch_06_08"]
+[editable path="Architecture/Arches/CrossArch_07_01"]
+[editable path="Architecture/Arches/CrossArch_07_02"]
+[editable path="Architecture/Arches/CrossArch_07_03"]
+[editable path="Architecture/Arches/CrossArch_07_04"]
+[editable path="Architecture/Arches/CrossArch_07_05"]
+[editable path="Architecture/Arches/CrossArch_07_06"]
+[editable path="Architecture/Arches/CrossArch_07_07"]
+[editable path="Architecture/Arches/SideArch_07_01"]
+[editable path="Architecture/Arches/SideArch_07_02"]
+[editable path="Architecture/Arches/SideArch_07_03"]
+[editable path="Architecture/Arches/SideArch_07_04"]
+[editable path="Architecture/Arches/SideArch_07_05"]
+[editable path="Architecture/Arches/SideArch_07_06"]
+[editable path="Architecture/Arches/SideArch_07_07"]
+[editable path="Architecture/Arches/SideArch_07_08"]
+[editable path="Architecture/Arches/CrossArch_08_01"]
+[editable path="Architecture/Arches/CrossArch_08_02"]
+[editable path="Architecture/Arches/CrossArch_08_03"]
+[editable path="Architecture/Arches/CrossArch_08_04"]
+[editable path="Architecture/Arches/CrossArch_08_05"]
+[editable path="Architecture/Arches/CrossArch_08_06"]
+[editable path="Architecture/Arches/CrossArch_08_07"]
+[editable path="Architecture/Arches/SideArch_08_01"]
+[editable path="Architecture/Arches/SideArch_08_02"]
+[editable path="Architecture/Arches/SideArch_08_03"]
+[editable path="Architecture/Arches/SideArch_08_04"]
+[editable path="Architecture/Arches/SideArch_08_05"]
+[editable path="Architecture/Arches/SideArch_08_06"]
+[editable path="Architecture/Arches/SideArch_08_07"]
+[editable path="Architecture/Arches/SideArch_08_08"]
+[editable path="Architecture/Arches/CrossArch_09_01"]
+[editable path="Architecture/Arches/CrossArch_09_02"]
+[editable path="Architecture/Arches/CrossArch_09_03"]
+[editable path="Architecture/Arches/CrossArch_09_04"]
+[editable path="Architecture/Arches/CrossArch_09_05"]
+[editable path="Architecture/Arches/CrossArch_09_06"]
+[editable path="Architecture/Arches/CrossArch_09_07"]
+[editable path="Architecture/Arches/SideArch_09_01"]
+[editable path="Architecture/Arches/SideArch_09_02"]
+[editable path="Architecture/Arches/SideArch_09_03"]
+[editable path="Architecture/Arches/SideArch_09_04"]
+[editable path="Architecture/Arches/SideArch_09_05"]
+[editable path="Architecture/Arches/SideArch_09_06"]
+[editable path="Architecture/Arches/SideArch_09_07"]
+[editable path="Architecture/Arches/SideArch_09_08"]
+[editable path="Architecture/Arches/CrossArch_10_01"]
+[editable path="Architecture/Arches/CrossArch_10_02"]
+[editable path="Architecture/Arches/CrossArch_10_03"]
+[editable path="Architecture/Arches/CrossArch_10_04"]
+[editable path="Architecture/Arches/CrossArch_10_05"]
+[editable path="Architecture/Arches/CrossArch_10_06"]
+[editable path="Architecture/Arches/CrossArch_10_07"]
+[editable path="Architecture/Arches/SideArch_10_01"]
+[editable path="Architecture/Arches/SideArch_10_02"]
+[editable path="Architecture/Arches/SideArch_10_03"]
+[editable path="Architecture/Arches/SideArch_10_04"]
+[editable path="Architecture/Arches/SideArch_10_05"]
+[editable path="Architecture/Arches/SideArch_10_06"]
+[editable path="Architecture/Arches/SideArch_10_07"]
+[editable path="Architecture/Arches/SideArch_10_08"]
+[editable path="Architecture/Arches/CrossArch_11_01"]
+[editable path="Architecture/Arches/CrossArch_11_02"]
+[editable path="Architecture/Arches/CrossArch_11_03"]
+[editable path="Architecture/Arches/CrossArch_11_04"]
+[editable path="Architecture/Arches/CrossArch_11_05"]
+[editable path="Architecture/Arches/CrossArch_11_06"]
+[editable path="Architecture/Arches/CrossArch_11_07"]
+[editable path="Architecture/Arches/SideArch_11_01"]
+[editable path="Architecture/Arches/SideArch_11_02"]
+[editable path="Architecture/Arches/SideArch_11_03"]
+[editable path="Architecture/Arches/SideArch_11_04"]
+[editable path="Architecture/Arches/SideArch_11_05"]
+[editable path="Architecture/Arches/SideArch_11_06"]
+[editable path="Architecture/Arches/SideArch_11_07"]
+[editable path="Architecture/Arches/SideArch_11_08"]
+[editable path="Architecture/Arches/CrossArch_12_01"]
+[editable path="Architecture/Arches/CrossArch_12_02"]
+[editable path="Architecture/Arches/CrossArch_12_03"]
+[editable path="Architecture/Arches/CrossArch_12_04"]
+[editable path="Architecture/Arches/CrossArch_12_05"]
+[editable path="Architecture/Arches/CrossArch_12_06"]
+[editable path="Architecture/Arches/CrossArch_12_07"]
+[editable path="Architecture/Arches/SideArch_12_01"]
+[editable path="Architecture/Arches/SideArch_12_02"]
+[editable path="Architecture/Arches/SideArch_12_03"]
+[editable path="Architecture/Arches/SideArch_12_04"]
+[editable path="Architecture/Arches/SideArch_12_05"]
+[editable path="Architecture/Arches/SideArch_12_06"]
+[editable path="Architecture/Arches/SideArch_12_07"]
+[editable path="Architecture/Arches/SideArch_12_08"]
+[editable path="Architecture/Arches/CrossArch_13_01"]
+[editable path="Architecture/Arches/CrossArch_13_02"]
+[editable path="Architecture/Arches/CrossArch_13_03"]
+[editable path="Architecture/Arches/CrossArch_13_04"]
+[editable path="Architecture/Arches/CrossArch_13_05"]
+[editable path="Architecture/Arches/CrossArch_13_06"]
+[editable path="Architecture/Arches/CrossArch_13_07"]
+[editable path="Architecture/Vaults/Vault_01_01"]
+[editable path="Architecture/Vaults/Vault_01_02"]
+[editable path="Architecture/Vaults/Vault_01_03"]
+[editable path="Architecture/Vaults/Vault_01_04"]
+[editable path="Architecture/Vaults/Vault_01_05"]
+[editable path="Architecture/Vaults/Vault_01_06"]
+[editable path="Architecture/Vaults/Vault_01_07"]
+[editable path="Architecture/Vaults/Vault_02_01"]
+[editable path="Architecture/Vaults/Vault_02_02"]
+[editable path="Architecture/Vaults/Vault_02_03"]
+[editable path="Architecture/Vaults/Vault_02_04"]
+[editable path="Architecture/Vaults/Vault_02_05"]
+[editable path="Architecture/Vaults/Vault_02_06"]
+[editable path="Architecture/Vaults/Vault_02_07"]
+[editable path="Architecture/Vaults/Vault_03_01"]
+[editable path="Architecture/Vaults/Vault_03_02"]
+[editable path="Architecture/Vaults/Vault_03_03"]
+[editable path="Architecture/Vaults/Vault_03_04"]
+[editable path="Architecture/Vaults/Vault_03_05"]
+[editable path="Architecture/Vaults/Vault_03_06"]
+[editable path="Architecture/Vaults/Vault_03_07"]
+[editable path="Architecture/Vaults/Vault_04_01"]
+[editable path="Architecture/Vaults/Vault_04_02"]
+[editable path="Architecture/Vaults/Vault_04_03"]
+[editable path="Architecture/Vaults/Vault_04_04"]
+[editable path="Architecture/Vaults/Vault_04_05"]
+[editable path="Architecture/Vaults/Vault_04_06"]
+[editable path="Architecture/Vaults/Vault_04_07"]
+[editable path="Architecture/Vaults/Vault_05_01"]
+[editable path="Architecture/Vaults/Vault_05_02"]
+[editable path="Architecture/Vaults/Vault_05_03"]
+[editable path="Architecture/Vaults/Vault_05_04"]
+[editable path="Architecture/Vaults/Vault_05_05"]
+[editable path="Architecture/Vaults/Vault_05_06"]
+[editable path="Architecture/Vaults/Vault_05_07"]
+[editable path="Architecture/Vaults/Vault_06_01"]
+[editable path="Architecture/Vaults/Vault_06_02"]
+[editable path="Architecture/Vaults/Vault_06_03"]
+[editable path="Architecture/Vaults/Vault_06_04"]
+[editable path="Architecture/Vaults/Vault_06_05"]
+[editable path="Architecture/Vaults/Vault_06_06"]
+[editable path="Architecture/Vaults/Vault_06_07"]
+[editable path="Architecture/Vaults/Vault_07_01"]
+[editable path="Architecture/Vaults/Vault_07_02"]
+[editable path="Architecture/Vaults/Vault_07_03"]
+[editable path="Architecture/Vaults/Vault_07_04"]
+[editable path="Architecture/Vaults/Vault_07_05"]
+[editable path="Architecture/Vaults/Vault_07_06"]
+[editable path="Architecture/Vaults/Vault_07_07"]
+[editable path="Architecture/Vaults/Vault_08_01"]
+[editable path="Architecture/Vaults/Vault_08_02"]
+[editable path="Architecture/Vaults/Vault_08_03"]
+[editable path="Architecture/Vaults/Vault_08_04"]
+[editable path="Architecture/Vaults/Vault_08_05"]
+[editable path="Architecture/Vaults/Vault_08_06"]
+[editable path="Architecture/Vaults/Vault_08_07"]
+[editable path="Architecture/Vaults/Vault_09_01"]
+[editable path="Architecture/Vaults/Vault_09_02"]
+[editable path="Architecture/Vaults/Vault_09_03"]
+[editable path="Architecture/Vaults/Vault_09_04"]
+[editable path="Architecture/Vaults/Vault_09_05"]
+[editable path="Architecture/Vaults/Vault_09_06"]
+[editable path="Architecture/Vaults/Vault_09_07"]
+[editable path="Architecture/Vaults/Vault_10_01"]
+[editable path="Architecture/Vaults/Vault_10_02"]
+[editable path="Architecture/Vaults/Vault_10_03"]
+[editable path="Architecture/Vaults/Vault_10_04"]
+[editable path="Architecture/Vaults/Vault_10_05"]
+[editable path="Architecture/Vaults/Vault_10_06"]
+[editable path="Architecture/Vaults/Vault_10_07"]
+[editable path="Architecture/Vaults/Vault_11_01"]
+[editable path="Architecture/Vaults/Vault_11_02"]
+[editable path="Architecture/Vaults/Vault_11_03"]
+[editable path="Architecture/Vaults/Vault_11_04"]
+[editable path="Architecture/Vaults/Vault_11_05"]
+[editable path="Architecture/Vaults/Vault_11_06"]
+[editable path="Architecture/Vaults/Vault_11_07"]
+[editable path="Architecture/Vaults/Vault_12_01"]
+[editable path="Architecture/Vaults/Vault_12_02"]
+[editable path="Architecture/Vaults/Vault_12_03"]
+[editable path="Architecture/Vaults/Vault_12_04"]
+[editable path="Architecture/Vaults/Vault_12_05"]
+[editable path="Architecture/Vaults/Vault_12_06"]
+[editable path="Architecture/Vaults/Vault_12_07"]
+[editable path="Lighting/HangingLamps/Lamp_01_02"]
+[editable path="Lighting/HangingLamps/Lamp_01_04"]
+[editable path="Lighting/HangingLamps/Lamp_01_06"]
+[editable path="Lighting/HangingLamps/Lamp_03_02"]
+[editable path="Lighting/HangingLamps/Lamp_03_04"]
+[editable path="Lighting/HangingLamps/Lamp_03_06"]
+[editable path="Lighting/HangingLamps/Lamp_05_02"]
+[editable path="Lighting/HangingLamps/Lamp_05_04"]
+[editable path="Lighting/HangingLamps/Lamp_05_06"]
+[editable path="Lighting/HangingLamps/Lamp_07_02"]
+[editable path="Lighting/HangingLamps/Lamp_07_04"]
+[editable path="Lighting/HangingLamps/Lamp_07_06"]
+[editable path="Lighting/HangingLamps/Lamp_09_02"]
+[editable path="Lighting/HangingLamps/Lamp_09_04"]
+[editable path="Lighting/HangingLamps/Lamp_09_06"]
+[editable path="Lighting/HangingLamps/Lamp_11_02"]
+[editable path="Lighting/HangingLamps/Lamp_11_04"]
+[editable path="Lighting/HangingLamps/Lamp_11_06"]

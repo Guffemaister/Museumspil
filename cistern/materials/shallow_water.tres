@@ -1,0 +1,18 @@
+[gd_resource type="StandardMaterial3D" format=3]
+
+[ext_resource type="Texture2D" path="res://cistern/textures/water_normal.png" id="1_8yrid"]
+
+[ext_resource type="Texture2D" path="res://cistern/textures/puddle_opacity.png" id="opacity"]
+
+[resource]
+resource_name = "Shallow water"
+transparency = 1
+cull_mode = 2
+albedo_color = Color(0.5, 0.53, 0.52, 0.40)
+albedo_texture = ExtResource("opacity")
+metallic = 0.2
+roughness = 0.09
+normal_enabled = true
+normal_scale = 0.25
+normal_texture = ExtResource("1_8yrid")
+uv1_scale = Vector3(2, 2, 2)

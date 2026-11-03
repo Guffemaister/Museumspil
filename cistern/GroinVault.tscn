@@ -1,0 +1,16 @@
+[gd_scene format=3]
+
+[ext_resource type="Material" path="res://cistern/materials/vault_plaster.tres" id="1_c2euy"]
+[ext_resource type="ArrayMesh" path="res://cistern/meshes/GroinVault.res" id="2_w773q"]
+[ext_resource type="Shape3D" path="res://cistern/meshes/GroinVaultCollision.res" id="3_w773q"]
+
+[node name="GroinVault" type="Node3D" unique_id=1850717098]
+
+[node name="PlasteredCeiling" type="MeshInstance3D" parent="." unique_id=1041195383]
+material_override = ExtResource("1_c2euy")
+mesh = ExtResource("2_w773q")
+
+[node name="Body" type="StaticBody3D" parent="." unique_id=1847954002]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Body" unique_id=1639044459]
+shape = ExtResource("3_w773q")
