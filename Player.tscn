@@ -1,3 +1,39 @@
-[gd_scene format=3 uid="uid://c16ogosbv6afm"]
+[gd_scene load_steps=5 format=3 uid="uid://c16ogosbv6afm"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_player"]
+
+[sub_resource type="CapsuleShape3D" id="Capsule_body"]
+radius = 0.25
+height = 1.75
+
+[sub_resource type="StandardMaterial3D" id="Material_body"]
+albedo_color = Color(0.17, 0.26, 0.32, 1)
+roughness = 0.85
+
+[sub_resource type="CapsuleMesh" id="Mesh_body"]
+radius = 0.23
+height = 1.5
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=82133609]
+floor_snap_length = 0.25
+script = ExtResource("1_player")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+position = Vector3(0, 0.875, 0)
+shape = SubResource("Capsule_body")
+
+[node name="BodyMesh" type="MeshInstance3D" parent="."]
+position = Vector3(0, 0.75, 0)
+layers = 4
+mesh = SubResource("Mesh_body")
+material_override = SubResource("Material_body")
+
+[node name="Head" type="Node3D" parent="."]
+position = Vector3(0, 1.65, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Head"]
+cull_mask = 1048571
+current = true
+fov = 72.0
+near = 0.05
+far = 110.0

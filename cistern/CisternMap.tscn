@@ -11,6 +11,9 @@
 [ext_resource type="Material" path="res://cistern/materials/shallow_water.tres" id="15_hgjfi"]
 [ext_resource type="ArrayMesh" path="res://cistern/meshes/Puddle.res" id="16_vy2e4"]
 
+[ext_resource type="PackedScene" path="res://Floor.tscn" id="floor_scene"]
+[ext_resource type="PackedScene" path="res://Player.tscn" id="player_scene"]
+
 [sub_resource type="BoxMesh" id="BoxMesh_uhxte"]
 size = Vector3(0.35, 4.7, 65.8)
 
@@ -135,7 +138,7 @@ size = Vector3(0.18, 0.22, 0.24)
 size = Vector3(0.18, 0.22, 0.24)
 
 [node name="CisternMap" type="Node3D" unique_id=80765263]
-metadata/content = "Saved editable geometry, materials, collision shapes, lights and preview cameras. No scripts."
+metadata/content = "Editable map geometry, floor, lights and player. Movement behavior is in player.gd."
 
 [node name="Architecture" type="Node3D" parent="." unique_id=988534738]
 
@@ -2470,7 +2473,7 @@ mesh = ExtResource("16_vy2e4")
 
 [node name="LongAisle" type="Camera3D" parent="PreviewCameras" unique_id=597115656]
 transform = Transform3D(1, 0, 0, 0, 0.99939084, -0.034899496, 0, 0.034899496, 0.99939084, 0, 1.72, 29.4)
-current = true
+current = false
 fov = 72.0
 far = 110.0
 
@@ -2481,6 +2484,13 @@ far = 110.0
 
 [node name="FuturePlayerSpawn" type="Marker3D" parent="." unique_id=1703933290]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 29.4)
+
+[node name="Floor" parent="." instance=ExtResource("floor_scene")]
+transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0, -0.061279297, 0)
+
+[node name="Player" parent="." instance=ExtResource("player_scene")]
+position = Vector3(0, 0.03, 29.4)
+spawn_marker = NodePath("../FuturePlayerSpawn")
 
 [editable path="Architecture/Pillars/Pillar_01_01"]
 [editable path="Architecture/Pillars/Pillar_01_02"]
@@ -2875,3 +2885,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 29.4)
 [editable path="Lighting/HangingLamps/Lamp_11_02"]
 [editable path="Lighting/HangingLamps/Lamp_11_04"]
 [editable path="Lighting/HangingLamps/Lamp_11_06"]
+
+[editable path="Floor"]
+[editable path="Player"]
