@@ -10,9 +10,8 @@
 [ext_resource type="Material" path="res://cistern/materials/iron.tres" id="13_20hca"]
 [ext_resource type="Material" path="res://cistern/materials/shallow_water.tres" id="15_hgjfi"]
 [ext_resource type="ArrayMesh" path="res://cistern/meshes/Puddle.res" id="16_vy2e4"]
-
-[ext_resource type="PackedScene" path="res://Floor.tscn" id="floor_scene"]
-[ext_resource type="PackedScene" path="res://Player.tscn" id="player_scene"]
+[ext_resource type="PackedScene" uid="uid://cut4dutk0op43" path="res://Floor.tscn" id="floor_scene"]
+[ext_resource type="PackedScene" uid="uid://c16ogosbv6afm" path="res://Player.tscn" id="player_scene"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_uhxte"]
 size = Vector3(0.35, 4.7, 65.8)
@@ -2469,28 +2468,24 @@ material_override = ExtResource("15_hgjfi")
 cast_shadow = 0
 mesh = ExtResource("16_vy2e4")
 
-[node name="PreviewCameras" type="Node3D" parent="." unique_id=1518942637]
-
-[node name="LongAisle" type="Camera3D" parent="PreviewCameras" unique_id=597115656]
-transform = Transform3D(1, 0, 0, 0, 0.99939084, -0.034899496, 0, 0.034899496, 0.99939084, 0, 1.72, 29.4)
-current = false
-fov = 72.0
-far = 110.0
-
-[node name="AcrossVaults" type="Camera3D" parent="PreviewCameras" unique_id=1255059343]
-transform = Transform3D(0.809017, 0.051228855, 0.5855486, 0, 0.9961947, -0.08715574, -0.58778524, 0.07051047, 0.8059385, 4.5, 1.72, 21)
-fov = 72.0
-far = 110.0
-
 [node name="FuturePlayerSpawn" type="Marker3D" parent="." unique_id=1703933290]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 29.4)
 
-[node name="Floor" parent="." instance=ExtResource("floor_scene")]
+[node name="Floor" parent="." unique_id=1436369159 instance=ExtResource("floor_scene")]
 transform = Transform3D(0, 0, -1, 0, 1, 0, 1, 0, 0, 0, -0.061279297, 0)
 
-[node name="Player" parent="." instance=ExtResource("player_scene")]
-position = Vector3(0, 0.03, 29.4)
+[node name="Player" parent="." unique_id=1252344183 instance=ExtResource("player_scene")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03, 29.4)
 spawn_marker = NodePath("../FuturePlayerSpawn")
+
+[node name="CollisionShape3D" parent="Player" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.875, 0)
+
+[node name="BodyMesh" parent="Player" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
+
+[node name="Head" parent="Player" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.65, 0)
 
 [editable path="Architecture/Pillars/Pillar_01_01"]
 [editable path="Architecture/Pillars/Pillar_01_02"]
@@ -2885,6 +2880,5 @@ spawn_marker = NodePath("../FuturePlayerSpawn")
 [editable path="Lighting/HangingLamps/Lamp_11_02"]
 [editable path="Lighting/HangingLamps/Lamp_11_04"]
 [editable path="Lighting/HangingLamps/Lamp_11_06"]
-
 [editable path="Floor"]
 [editable path="Player"]
